@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
   <link rel="stylesheet" href="assets/css/style.css">
   
-  <!-- ===== Mermaid 核心库 ===== -->
   <script src="//cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
@@ -19,6 +18,8 @@
     window.$docsify = {
       name: '📖 守夜者之书',
       loadSidebar: '_sidebar.md',
+      loadNavbar: '_navbar.md',      // ← 新增
+      loadFooter: '_footer.md',      // ← 新增
       auto2top: true,
       search: 'auto',
       copyCode: {
@@ -35,7 +36,6 @@
         crossChapter: true,
         crossChapterText: true,
       },
-      // ===== Mermaid 配置 =====
       markdown: {
         renderer: {
           code: function(code, lang) {
@@ -54,6 +54,9 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/copy-code.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/pagination.min.js"></script>
   
+  <!-- Emoji 插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-rust.min.js"></script>
@@ -61,7 +64,6 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
   
-  <!-- ===== Mermaid 渲染插件 ===== -->
   <script src="//cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
   
   <script src="assets/js/theme.js"></script>
