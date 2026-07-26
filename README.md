@@ -1,31 +1,18 @@
-# 守夜者之书 / The Night Keeper's Book<!-- omit in toc -->
+# 守夜者之书<!-- omit in toc -->
 
 ![GitHub stars](https://img.shields.io/github/stars/TheSilentOne-creator/The-Night-Keeper-s-Book?style=social) ![Free](https://img.shields.io/badge/Free-100%25-2E5A88) [![GitHub last commit](https://img.shields.io/github/last-commit/TheSilentOne-creator/The-Night-Keeper-s-Book?style=flat-square)](https://github.com/TheSilentOne-creator/The-Night-Keeper-s-Book) [![License](https://img.shields.io/badge/License-CC_BY_4.0-2E5A88?style=flat-square)](./LICENSE)
 
----
+## 目录<!-- omit in toc -->
 
-## 目录 / Table of Contents<!-- omit in toc -->
-
-- [中文版](#中文版)
-  - [:book: 这是什么](#book-这是什么)
-  - [:books: 这里有什么](#books-这里有什么)
-  - [:rocket: 从哪里开始](#rocket-从哪里开始)
-  - [:globe\_with\_meridians: 关于守夜者](#globe_with_meridians-关于守夜者)
-  - [:page\_facing\_up: 许可证](#page_facing_up-许可证)
-- [English version](#english-version)
-  - [:book: What is this?](#book-what-is-this)
-  - [:books: What's inside?](#books-whats-inside)
-  - [:rocket: Where to start?](#rocket-where-to-start)
-  - [:globe\_with\_meridians: About the Night Keepers](#globe_with_meridians-about-the-night-keepers)
-  - [:page\_facing\_up: License](#page_facing_up-license)
-
----
-
-## 中文版
+- [:book: 这是什么](#book-这是什么)
+- [:books: 这里有什么](#books-这里有什么)
+- [:rocket: 从哪里开始](#rocket-从哪里开始)
+- [:globe\_with\_meridians: 关于守夜者](#globe_with_meridians-关于守夜者)
+- [:page\_facing\_up: 许可证](#page_facing_up-许可证)
 
 > 从零开始学安全。每天2小时，雷打不动。
 
-### :book: 这是什么
+## :book: 这是什么
 
 这是一个**公开的学习笔记仓库**，记录一名守夜者从零开始学习网络安全的完整过程。
 
@@ -35,7 +22,7 @@
 
 ---
 
-### :books: 这里有什么
+## :books: 这里有什么
 
 - **:memo: 学习笔记**：每天学的内容，整理成笔记
 - **:triangular_ruler: 教程系列**：从零开始的教程，中英双语
@@ -43,7 +30,7 @@
 
 ---
 
-### :rocket: 从哪里开始
+## :rocket: 从哪里开始
 
 - :blue_book: **基础工具与协作系列**（守夜者的利剑与盾牌）
 - :computer: **网络安全世界**（守夜者的战场与使命）
@@ -61,7 +48,7 @@
 
 > 所有教程采用**中英双语**编写：先用中文写完，再翻译成英文。
 
-#### 各教程介绍<!-- omit in toc -->
+### 各教程介绍<!-- omit in toc -->
 
 1. **玩转 Markdown** - 别再傻乎乎地用记事本写笔记了！  
    - 你是不是还在忍受Word排版时图片乱飞、格式崩溃的痛苦？或者写了半天笔记，粘到网页上丑得自己都不想看？  
@@ -113,7 +100,7 @@
 
 ---
 
-#### 怎么学？<!-- omit in toc -->
+### 怎么学？<!-- omit in toc -->
 
 本教程完全面向零基础，哪怕你连最基本的工具都不会用。
 
@@ -166,7 +153,7 @@ flowchart LR
 
 ---
 
-### :globe_with_meridians: 关于守夜者
+## :globe_with_meridians: 关于守夜者
 
 我是守夜者的一员。守夜者是一个技术学习社区。
 
@@ -183,174 +170,6 @@ flowchart LR
 
 ---
 
-### :page_facing_up: 许可证
+## :page_facing_up: 许可证
 
 本仓库内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议（署名-非商业性使用-相同方式共享）。
-
----
-
-## English version
-
-> *Learning security from scratch. Two hours a day, rain or shine.*
-
-### :book: What is this?
-
-An open notebook documenting my journey from zero to cybersecurity.
-
-I am **TheSilentOne-creator** (The Silent One), a member of the Night Keepers. I believe:
-
-> *Five years, ten years, twenty years from now—the world and time will give us the answer.*
-
----
-
-### :books: What's inside?
-
-- **:memo: Learning Notes**: Daily study notes, organized and distilled
-- **:triangular_ruler: Tutorial Series**: Step-by-step tutorials, bilingual (Chinese / English)
-- **:computer: Code Practice**: Scripts and tools I've written along the way
-
----
-
-### :rocket: Where to start?
-
-- :blue_book: **Core Tools & Collaboration** (The Night Keeper's Sword & Shield)
-- :computer: **The World of Cybersecurity** (The Night Keeper's Battlefield & Mission)
-
-| # | Tutorial | Status | Link |
-| :--- | :--- | :--- | :--- |
-| 01 | **Mastering Markdown** | :pencil: Translating | Coming soon |
-| 02 | **Mastering VS Code** | :pencil: Translating | Coming soon |
-| 03 | **VIM: From Entry to Decency** | :pencil: Translating | Coming soon |
-| 04 | **Git & GitHub by the Horns** | :pencil: Planned | Coming soon |
-| 05 | **This Is Cybersecurity (6 Seasons)** | :construction: Writing | Coming soon |
-| 06 | `[Advanced]` **Writing Security Tools in Python** | :pencil: Planned | Coming soon |
-| 07 | `[Advanced]` **Rust: The Ash War** | :construction: Writing | Coming soon |
-| 08 | `[Advanced]` **The Computer Science Canon Explained** | :pencil: Translating | Coming soon |
-
-> *All tutorials are bilingual: first written in Chinese, then translated into English.*
-
-#### Tutorial Introductions<!-- omit in toc -->
-
-1. **Mastering Markdown** -- Stop using Notepad like a caveman!
-    - Are you still suffering from images flying everywhere and formats crashing in Word? Or have you written pages of notes that look so ugly on a webpage you don't even want to look at them?
-    - **Markdown** is here to solve that. It's like the legendary **"Qinggong"** (lightness skill) in martial arts novels—takes ten minutes to learn, but using it well will make you fly for a lifetime.
-    - This tutorial won't bore you with complex syntax trees. It only teaches you the **top 5% of syntax** you'll actually use for code notes, GitHub Readmes, and even writing books.
-    - **What you'll unlock:** The ability to elegantly write notes that even a programmer would want to Star, bidding farewell to the primitive era of frantically clicking the format painter with your mouse.
-
-2. **Mastering VS Code** -- Arm your "Swiss Army Knife"
-    - If writing code is like cooking, then VS Code is your **kitchen workbench**. You can use it to chop vegetables (write code), watch the heat (debug), and even order groceries (Git integration).
-    - Many people use VS Code for years but treat it like a fancy Notepad—it's like buying a Ferrari and only using it to push it around.
-    - This tutorial will walk you through installing those **"cheat-code" plugins**: writing code on a remote server, AI-powered auto-completion, and formatting messy code with one click.
-    - **What you'll unlock:** A cloud development environment that lets you write code anywhere (even on an iPad), turning coding into pure enjoyment.
-
-3. **VIM: From Entry to Decency** -- No GUI? Conquer the world with your keyboard.
-    - Listen up, rookie. While you're still fumbling with the mouse to click the "Save" button, a true hacker has already typed `:wq` in VIM and left the building.
-    - VIM is the **"text-based game"** in Linux systems. Its learning curve is as steep as a cliff. But once you climb it, you'll experience the flow state of "hands never leaving the keyboard, thoughts flowing like water."
-    - We cover 10 mandatory lessons plus 6 elective modules. I won't make you memorize fancy commands you'll never use. You just need to learn: **how to enter, how to change text, how to save, and how to slam the table, curse, and exit.**
-    - **What you'll unlock:** The confidence to smoothly write code on any server (even one with only a command line), and the status of becoming the "Keyboard Warrior" in the eyes of your roommates.
-
-4. **Git & GitHub by the Horns** -- Stop saving your code to your desktop!
-    - You've definitely experienced this despair: `Thesis_Final.doc`, `Thesis_Final_v2.doc`, `Thesis_I_Swear_This_Is_The_Last_One.doc`...
-    - **Git** is the cure for this "version chaos" disease. It not only remembers every change you made, but also lets you instantly return to "that state yesterday afternoon before everything broke."
-    - And **GitHub** is the programmer's "social circle" and the most awesome code repository. This tutorial will teach you: **how to clone code for free (Fork), how to update it, and how to turn your open-source project into a highlight on your resume.**
-    - **What you'll unlock:** A super green GitHub contribution wall, and the confidence to say: "Hey, just Fork my project first."
-
-5. **This Is Cybersecurity (6 Seasons)** -- Save yourself the cost of a training course. Watch this for **free** instead.
-    - Ever had this experience: read tons of fragmented articles, felt like "I've got this," then actually tried something and realized "I know nothing"?
-    - All six seasons use a **"Comedy Show" teaching style**—no boring theories, only attack techniques you'll remember after a good laugh. Like: "What's XSS? It's when someone posts a script in my comments, and when I open the page, a popup says 'You got pwned.'"
-    - From Web penetration testing to intranet roaming, from information gathering to log tracing, I've paved this path for you. You just need to follow it.
-    - **What you'll unlock:** A complete cybersecurity knowledge system + a set of hands-on project experiences you can confidently discuss in front of an interviewer.
-
-6. `[Advanced]` **Writing Security Tools in Python** -- Don't reinvent the wheel, but learn how to customize it.
-    - If you only use tools others have written, you'll always be a script kiddie.
-    - When SQLMap can't extract an injection, and when Nmap isn't scanning precisely enough, you need to write your own script.
-    - This tutorial isn't about web scraping or web development. It's about **Python from a security perspective**: writing a port scanner, a weak password brute-force tool, a log analysis script.
-    - **What you'll unlock:** The ability to automate tedious penetration testing—click a button, let the computer do the work for you, then go grab a cup of coffee.
-
-7. `[Advanced]` **Rust: The Ash War** -- This is not a language course. This is a war you must write Rust to survive.
-    - Day 247 after the "Shattered Mirror" outbreak. You intercept a signal from the data ruins: "Keeper, are you still there?" To answer, you must first forge your weapons in Rust.
-    - From "Brute-forcing the Weak PIN" to "The Log Hunter", from "Concurrent Counterstrike" to "Self-Destruct and Eternity"—15 chapters, 12 real tools, one complete narrative from the ashes to sacrifice.
-    - Ownership is no longer a complex memory model, but "Only one copy of the intel exists. Whoever takes it, reads it once, and destroys it." Lifetimes are no longer compiler errors, but "the expiration date on a carton of milk."
-    - **What you'll unlock:** Complete hands-on capability in a high-performance systems language, and a war story you'll never forget.
-
-8. `[Advanced]` **The Computer Science Canon Explained** -- Return to the heart of computer science. Grasp the Tao of programming through these mighty tomes.
-    - If you finish the tutorials above and feel like you "know everything and nothing at all," it means you're lacking **inner strength**.
-    - This is a reading guide/companion. It's targeted at those classic "black books" (like *Computer Networking*, *Computer Systems: A Programmer's Perspective*).
-    - I won't read the book for you, but I will tell you **which chapters are must-knows for interviews, which algorithms are essential for writing exploits, and which theories you can skip.**
-    - **What you'll unlock:** A computer science brain. From then on, any new vulnerability or framework will just look like permutations and combinations of fundamental principles.
-
----
-
-#### How to learn?<!-- omit in toc -->
-
-This tutorial is entirely for absolute beginners, even if you don't know the most basic tools.
-
-To keep the foundational tools (`01`–`04`) from feeling boring and to get you into the fun of security knowledge as soon as possible, here's the recommended learning path.
-
-**Core principle: Cybersecurity is the main quest. Tools and languages are side quests, learned as needed.**
-
----
-
-1. **Start with `01. Mastering Markdown`**  
-   This is the **markup language** (think Word, but pure text!) you'll use for writing documents, taking notes, and even **drafting vulnerability reports**. It's the writing foundation of your entire journey.
-
-2. **While learning Markdown, start watching `05. This Is Cybersecurity` Season Zero: The Spark**  
-   Season Zero is about hacker culture and spirit. It's incredibly fun, like story time. It requires zero technical background and is perfect as a breather while you practice Markdown. This is the prequel to the main story—let it ignite your passion first.
-
-3. **Next, move on to `02. Mastering VS Code`**  
-   Once mastered, this will be your **ultimate weapon** for writing code, taking notes, composing Markdown… your core workbench. At the same time, you can officially dive into **Season One** of `05. This Is Cybersecurity` and start learning real penetration testing fundamentals.
-
-4. **While studying Season One, pick up `04. Git & GitHub by the Horns`**  
-   Writing code and doing projects requires version control. Git manages your changes, GitHub lets the world see your work. You're learning this now because you're starting to write security practice code.
-
-5. **In the latter half of Season One or during Season Two, begin `03. VIM: From Entry to Decency`**  
-   When you need to operate remote servers, or want to edit config files faster in the terminal, VIM becomes essential. It's tough, but learning it alongside cybersecurity doubles your efficiency.
-
-6. **When you need to write your own scanners, exploits, or high-performance tools, unsheathe `07. Rust: The Ash War`**  
-   This is not an ordinary programming language course. This is a war you must survive by writing Rust. When your security work demands faster, lower-level tools, this narrative-driven Rust tutorial will teach you everything through its story.
-
-7. **Want to automate your attacks? `06. Writing Security Tools in Python`**  
-   The moment you think "can this repetitive work be automated?" during security practice is the perfect time to open this tutorial.
-
-8. **Finally, cultivate your inner strength: `08. The Computer Science Canon Explained`**  
-   If you finish the tutorials above and feel like you "know everything and nothing at all," it means you're lacking **inner strength**. This reading companion tells you which of the classic "black books" are essential and which can be skimmed.
-
----
-
-After that, you can follow the rest of `05. This Is Cybersecurity (6 Seasons)` in order.
-
-```mermaid
-flowchart LR
-    A[01. Markdown] --> B[02. VS Code]
-    A --> C[05. Cybersecurity - Season Zero: The Spark]
-    B --> D[04. Git & GitHub]
-    C --> E[05. Cybersecurity - Season One]
-    D --> F[03. VIM]
-    E --> G[05. Cybersecurity - Season Two]
-    G --> H[05. Cybersecurity - Season Three]
-    F --> I[07. Rust: The Ash War]
-    
-```
-
----
-
-### :globe_with_meridians: About the Night Keepers
-
-I am a member of the Night Keepers, a tech learning community.
-
-- **We believe**: Start from zero. Progress together.
-- **We do not engage in**: Illegal attacks, profit-making, or exposing members' identities.
-
-**The Night Keeper's Oath**: *Night gathers, and now my watch begins. This night, and all nights to come.*
-
----
-
-> **Join us**:  
-> If you're also starting from zero and looking for someone to keep watch with, Fork this repository and write your first note.  
-> After forking, create a new file under `/community/` named `your-name.md` and write down what you learned today.
-
----
-
-### :page_facing_up: License
-
-*This repository is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license (Attribution-NonCommercial-ShareAlike).*

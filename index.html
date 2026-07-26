@@ -2,16 +2,21 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>守夜者之书</title>
+  <title>守夜者之书 · 从零开始学安全</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="从零开始学安全。每天2小时，雷打不动。">
+  
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div id="app"></div>
+
+  <!-- 浮动展开按钮由 sidebar.js 动态创建，不需要在这里写 -->
+  
   <script>
     window.$docsify = {
       name: '📖 守夜者之书',
-      repo: 'https://github.com/TheSilentOne-creator/TheSilentOne-creator.github.io',
       loadSidebar: '_sidebar.md',
       auto2top: true,
       search: 'auto',
@@ -20,11 +25,33 @@
         successText: '✅ 已复制!'
       },
       subMaxLevel: 3,
-      notFoundPage: true
+      notFoundPage: true,
+      maxLevel: 4,
+      sidebarDisplayLevel: 1,
+      pagination: {
+        previousText: '← 上一篇',
+        nextText: '下一篇 →',
+        crossChapter: true,
+        crossChapterText: true,
+      }
     }
   </script>
+  
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/pagination.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-rust.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/lang.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
