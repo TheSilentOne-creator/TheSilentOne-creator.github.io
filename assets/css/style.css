@@ -7,8 +7,15 @@
 
 body {
   background: #121926;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ===== 强制 Emoji 字体 ===== */
+.markdown-section {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
 }
 
 /* ===== 亮色模式 ===== */
@@ -96,8 +103,14 @@ body.light-mode .markdown-section table td {
   color: #1a2332 !important;
   border-color: rgba(0, 0, 0, 0.06) !important;
 }
-body.light-mode .markdown-section table tr:hover td {
-  background: rgba(46, 90, 136, 0.03) !important;
+body.light-mode .markdown-section table tbody tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+body.light-mode .markdown-section table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+body.light-mode .markdown-section table tbody tr:hover td {
+  background: rgba(46, 90, 136, 0.06) !important;
 }
 body.light-mode .search {
   background: rgba(0, 0, 0, 0.04) !important;
@@ -130,6 +143,11 @@ body.light-mode .search input::placeholder {
 .sidebar.hidden {
   transform: translateX(-100%);
   width: 0 !important;
+}
+
+/* ===== 隐藏 Docsify 自带的底部侧边栏按钮 ===== */
+.sidebar-toggle {
+  display: none !important;
 }
 
 /* ===== 侧边栏头部 ===== */
@@ -330,27 +348,27 @@ body.sidebar-hidden .content {
   line-height: 1.8 !important;
 }
 
-/* ===== 表格样式 - 修复！ ===== */
+/* ===== 表格样式 - 一黑一灰交替 ===== */
 .markdown-section table {
   border-collapse: collapse;
   width: 100%;
   margin: 16px 0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(46, 90, 136, 0.15);
+  border: 1px solid rgba(46, 90, 136, 0.2);
 }
 
 .markdown-section table thead {
-  background: rgba(46, 90, 136, 0.15);
+  background: rgba(46, 90, 136, 0.2);
 }
 
 .markdown-section table th {
   color: #f5d76e !important;
   padding: 12px 16px;
   text-align: left;
-  font-weight: 600;
-  border-bottom: 2px solid rgba(46, 90, 136, 0.2);
-  background: rgba(46, 90, 136, 0.1);
+  font-weight: 700;
+  border-bottom: 2px solid rgba(46, 90, 136, 0.3);
+  background: rgba(46, 90, 136, 0.15);
 }
 
 .markdown-section table td {
@@ -359,12 +377,21 @@ body.sidebar-hidden .content {
   color: #d0dce8 !important;
 }
 
-.markdown-section table tr:last-child td {
-  border-bottom: none;
+/* 一黑一灰交替 */
+.markdown-section table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.markdown-section table tr:hover td {
-  background: rgba(46, 90, 136, 0.04);
+.markdown-section table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.markdown-section table tbody tr:hover td {
+  background: rgba(46, 90, 136, 0.12);
+}
+
+.markdown-section table tr:last-child td {
+  border-bottom: none;
 }
 
 /* 表格内的链接 */
@@ -410,6 +437,22 @@ body.sidebar-hidden .content {
   height: 1px;
   background: linear-gradient(to right, rgba(46, 90, 136, 0.3), transparent);
   margin: 32px 0;
+}
+
+/* ===== Mermaid 图表样式 ===== */
+.mermaid {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  border: 1px solid rgba(46, 90, 136, 0.1);
+  text-align: center;
+  overflow-x: auto;
+}
+
+body.light-mode .mermaid {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 /* ===== 顶部导航 ===== */
@@ -607,5 +650,8 @@ body.sidebar-hidden .content {
   .markdown-section table th,
   .markdown-section table td {
     padding: 8px 10px;
+  }
+  .mermaid {
+    padding: 10px;
   }
 }
