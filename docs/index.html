@@ -3,172 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='80' font-weight='bold' fill='%2364ffda'>⚔️</text></svg>"> -->
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
     <title>守夜者之书 · 从零开始学网络安全</title>
     <meta name="description" content="守夜者之书 - 一份公开的学习笔记仓库，记录从零开始学习网络安全的完整过程。">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <script>
-        // ============================================================
-        // 侧边栏配置（内联）
-        // ============================================================
-        window.SIDEBAR_CONFIG = [
-            {
-                category: '⚔️ 基础工具',
-                items: [
-                    { text: '01. 玩转 Markdown', link: '/docs/tutorials/01. Markdown/index.html', status: 'done' },
-                    { text: '02. 玩转 VS Code', link: '/tutorials/02-vscode/', status: 'done' },
-                    { text: '03. Vim 从入门到得体', link: '/tutorials/03-vim/', status: 'done' },
-                    { text: '04. 拿捏 Git 与 GitHub', link: '/tutorials/04-git/', status: 'coming' }
-                ]
-            },
-            {
-                category: '🌐 网络安全（主线）',
-                items: [
-                    { text: '05. 这才是网络安全', link: '/tutorials/05-cybersecurity/', status: 'writing' }
-                ]
-            },
-            {
-                category: '🐍 Python 系列（中阶）',
-                items: [
-                    { text: '06-1. Web 通识扫盲课', link: '/tutorials/06-python/06-1-web/', status: 'coming' },
-                    { text: '06-2. Flask Web 开发', link: '/tutorials/06-python/06-2-flask/', status: 'coming' },
-                    { text: '06-3. Python 安全工具（基础）', link: '/tutorials/06-python/06-3-basic/', status: 'coming' },
-                    { text: '06-4. Python 安全工具（进阶）', link: '/tutorials/06-python/06-4-advanced/', status: 'coming' }
-                ]
-            },
-            {
-                category: '🚀 进阶之路',
-                items: [
-                    { text: '07. Rust：灰烬之战', link: '/tutorials/07-rust/', status: 'writing' },
-                    { text: '08. 详解计算机科学丛书', link: '/tutorials/08-cs-canon/', status: 'writing' }
-                ]
-            }
-        ]
-        console.log('✅ SIDEBAR_CONFIG 已加载', window.SIDEBAR_CONFIG)
-    </script>
 </head>
 <body>
-    <div class="app-wrapper">
-        <!-- 导航栏由 JS 注入 -->
-        <header id="navbar"></header>
+    <div id="navbar"></div>
+    <div id="sidebar" class="sidebar"></div>
 
-        <!-- 侧边栏由 JS 注入 -->
-        <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+        <div class="content-inner">
 
-        <!-- 主内容 -->
-        <main class="main-content">
-            <div class="content-inner">
-                
-                <!-- ===== 英雄区 ===== -->
-                <section class="hero">
-                    <h1>⚔️ 守夜者之书</h1>
-                    <p class="subtitle">从零开始学安全 · 每天 2 小时，雷打不动</p>
-                    <p class="tagline">一份公开的学习笔记，记录从零到一的完整过程</p>
-                </section>
+            <!-- ===== 首页没有面包屑 ===== -->
 
-                <!-- ===== 教程卡片网格 ===== -->
-                <h2 style="font-family: var(--font-mono); font-size: 22px; margin-top: 20px;">
-                    📚 教程列表
-                </h2>
-                <p style="color: var(--text-secondary); margin-bottom: 8px;">
-                    所有教程采用中英双语编写 · 从零开始学安全
-                </p>
+            <section class="hero">
+                <h1>⚔️ 守夜者之书</h1>
+                <p class="subtitle">从零开始学安全 · 每天 2 小时，雷打不动</p>
+                <p class="tagline">一份公开的学习笔记，记录从零到一的完整过程</p>
+            </section>
 
-                <div class="tutorial-grid">
-                    <!-- 01 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#01</div>
-                        <h3><a href="/tutorials/01-markdown/">玩转 Markdown</a></h3>
-                        <p class="card-desc">别再傻乎乎地用记事本写笔记了。十分钟学会，受用一辈子。</p>
-                        <span class="card-status done">✅ 已完成</span>
-                    </div>
+            <!-- ===== 教程卡片网格 ===== -->
+            <h2 style="font-family: var(--font-mono); font-size: 22px; margin-top: 20px;">
+                📚 教程列表
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 8px;">
+                所有教程采用中英双语编写
+            </p>
 
-                    <!-- 02 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#02</div>
-                        <h3><a href="/tutorials/02-vscode/">玩转 VS Code</a></h3>
-                        <p class="card-desc">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
-                        <span class="card-status done">✅ 已完成</span>
-                    </div>
-
-                    <!-- 03 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#03</div>
-                        <h3><a href="/tutorials/03-vim/">Vim 从入门到得体</a></h3>
-                        <p class="card-desc">没有图形界面？那就用键盘征服世界。</p>
-                        <span class="card-status done">✅ 已完成</span>
-                    </div>
-
-                    <!-- 04 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#04</div>
-                        <h3><a href="/tutorials/04-git/">拿捏 Git 与 GitHub</a></h3>
-                        <p class="card-desc">别再把你的代码存桌面了！版本控制是你的必修课。</p>
-                        <span class="card-status coming">⏳ 敬请期待</span>
-                    </div>
-
-                    <!-- 05 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#05</div>
-                        <h3><a href="/tutorials/05-cybersecurity/">这才是网络安全</a></h3>
-                        <p class="card-desc">省下一万块的培训，免费看完这一套。相声式教学，笑着学会。</p>
-                        <span class="card-status writing">✍️ 编写中</span>
-                    </div>
-
-                    <!-- 06 Python 系列 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#06 · 中阶</div>
-                        <h3><a href="/tutorials/06-python/">这才是 Python</a></h3>
-                        <p class="card-desc">从零开始，用 Python 武装你的安全工具链。含 Web、Flask、爬虫、安全工具 4 个子课程。</p>
-                        <span class="card-status coming">⏳ 敬请期待</span>
-                    </div>
-
-                    <!-- 07 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#07 · 进阶</div>
-                        <h3><a href="/tutorials/07-rust/">最终章 - Rust：灰烬之战</a></h3>
-                        <p class="card-desc">这不是一门语言课，这是一场你必须写 Rust 才能活下来的战争。</p>
-                        <span class="card-status writing">✍️ 编写中</span>
-                    </div>
-
-                    <!-- 08 -->
-                    <div class="tutorial-card">
-                        <div class="card-number">#08 · 进阶</div>
-                        <h3><a href="/tutorials/08-cs-canon/">详解计算机科学丛书</a></h3>
-                        <p class="card-desc">追随计算机科学的初心，用"大块头"体会编程之道。</p>
-                        <span class="card-status writing">✍️ 编写中</span>
-                    </div>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <div class="card-number">#01</div>
+                    <h3><a href="/tutorials/01-markdown/01.玩转 Markdown.html">玩转 Markdown</a></h3>
+                    <p class="card-desc">别再傻乎乎地用记事本写笔记了。十分钟学会，受用一辈子。</p>
+                    <span class="card-status done">✅ 已完成</span>
                 </div>
 
-                <!-- ===== 关于守夜者 ===== -->
-                <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);">
-                    <h2 style="font-family: var(--font-mono); font-size: 22px;">🌙 关于守夜者</h2>
-                    <p style="color: var(--text-secondary);">
-                        守夜者是一个技术学习社区。<br>
-                        <strong>我们相信</strong>：从零开始，一起进步。<br>
-                        <strong>我们不做</strong>：非法攻击、盈利、暴露成员身份。
-                    </p>
-                    <blockquote style="margin-top: 16px; border-left-color: var(--accent);">
-                        <p style="font-family: var(--font-mono); color: var(--text-primary);">
-                            「长夜将至，我从今开始守夜，今夜如此，夜夜皆然。」
-                        </p>
-                    </blockquote>
-                    <p style="color: var(--text-secondary); margin-top: 12px;">
-                        👉 想加入？Fork 这个仓库，写下你的第一行笔记。
-                    </p>
-                </section>
+                <div class="tutorial-card">
+                    <div class="card-number">#02</div>
+                    <h3><a href="/tutorials/02-vscode/02. 玩转 VS Code.html">玩转 VS Code</a></h3>
+                    <p class="card-desc">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+                    <span class="card-status done">✅ 已完成</span>
+                </div>
 
+                <div class="tutorial-card">
+                    <div class="card-number">#03</div>
+                    <h3><a href="/tutorials/03-vim/03. VIM 从入门到得体.html">VIM 从入门到得体</a></h3>
+                    <p class="card-desc">没有图形界面？那就用键盘征服世界。</p>
+                    <span class="card-status done">✅ 已完成</span>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="card-number">#04</div>
+                    <h3><a href="/tutorials/04-git/index.html">拿捏 Git 与 GitHub</a></h3>
+                    <p class="card-desc">别再把你的代码存桌面了！版本控制是你的必修课。</p>
+                    <span class="card-status coming">⏳ 敬请期待</span>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="card-number">#05</div>
+                    <h3><a href="/tutorials/05-cybersecurity/index.html">这才是网络安全（全六季）</a></h3>
+                    <p class="card-desc">省下一万块的培训，免费看完这一套。相声式教学，笑着学会。</p>
+                    <span class="card-status writing">✍️ 编写中</span>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="card-number">#06 · 中阶</div>
+                    <h3><a href="/tutorials/06-python/index.html">这才是 Python</a></h3>
+                    <p class="card-desc">从零开始，用 Python 武装你的安全工具链。含 4 个子课程。</p>
+                    <span class="card-status coming">⏳ 敬请期待</span>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="card-number">#07 · 进阶</div>
+                    <h3><a href="/tutorials/07-rust/index.html">Rust：灰烬之战</a></h3>
+                    <p class="card-desc">这不是一门语言课，这是一场你必须写 Rust 才能活下来的战争。</p>
+                    <span class="card-status writing">✍️ 编写中</span>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="card-number">#08 · 进阶</div>
+                    <h3><a href="/tutorials/08-cs-canon/index.html">详解计算机科学丛书</a></h3>
+                    <p class="card-desc">追随计算机科学的初心，用"大块头"体会编程之道。</p>
+                    <span class="card-status writing">✍️ 编写中</span>
+                </div>
             </div>
-        </main>
 
-        <!-- 页脚由 JS 注入 -->
-        <footer id="footer"></footer>
-    </div>
+            <!-- ===== 关于守夜者 ===== -->
+            <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);">
+                <h2 style="font-family: var(--font-mono); font-size: 22px;">🌙 关于守夜者</h2>
+                <p style="color: var(--text-secondary);">
+                    守夜者是一个技术学习社区。<br>
+                    <strong>我们相信</strong>：从零开始，一起进步。<br>
+                    <strong>我们不做</strong>：非法攻击、盈利、暴露成员身份。
+                </p>
+                <blockquote style="margin-top: 16px; border-left-color: var(--accent);">
+                    <p style="font-family: var(--font-mono); color: var(--text-primary);">
+                        「长夜将至，我从今开始守夜，今夜如此，夜夜皆然。」
+                    </p>
+                </blockquote>
+                <p style="color: var(--text-secondary); margin-top: 12px;">
+                    👉 想加入？Fork 这个仓库，写下你的第一行笔记。
+                </p>
+            </section>
 
-    <!-- ===== 引入 JS ===== -->
-    <script src="./js/components.js"></script>
-    <script src="./js/main.js"></script>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/loader.js"></script>
 </body>
 </html>

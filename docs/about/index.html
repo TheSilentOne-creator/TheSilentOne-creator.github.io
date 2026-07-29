@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于 · 守夜者之书</title>
     <meta name="description" content="关于守夜者之书 - 从零开始学网络安全，一份公开的学习笔记。">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="navbar"></div>
-    <div id="sidebar"></div>
+
+    <!-- ====== 侧边栏：静态 TOC 目录 ====== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <div class="toc-header">
+                <span class="toc-title">📖 本页目录</span>
+            </div>
+            <ul class="toc-list">
+                <li class="toc-item toc-level-1"><a href="#about-intro" class="toc-link active">📖 关于守夜者之书</a></li>
+                <li class="toc-item toc-level-1"><a href="#about-who" class="toc-link">🧑‍💻 我是谁</a></li>
+                <li class="toc-item toc-level-1"><a href="#about-what" class="toc-link">📦 这里有什么</a></li>
+                <li class="toc-item toc-level-1"><a href="#about-nightkeeper" class="toc-link">🌙 守夜者</a></li>
+                <li class="toc-item toc-level-1"><a href="#about-join" class="toc-link">🤝 加入我们</a></li>
+                <li class="toc-item toc-level-1"><a href="#about-license" class="toc-link">📄 许可证</a></li>
+            </ul>
+        </div>
+    </aside>
 
     <main class="main-content">
         <div class="content-inner tutorial-content">
 
-            <!-- ========== 面包屑 ========== -->
             <nav class="breadcrumb">
-                <a href="/">首页</a>
+                <a href="/" class="home">首页</a>
                 <span class="separator">/</span>
                 <span class="current">关于</span>
             </nav>
 
             <!-- ========== 关于守夜者之书 ========== -->
             <section style="margin-bottom: 48px;">
-                <h1 style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
+                <h1 id="about-intro" style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
                     📖 关于守夜者之书
                 </h1>
                 <p style="font-size: 20px; color: var(--text-secondary); margin-bottom: 24px;">
@@ -37,7 +56,7 @@
 
             <!-- ========== 我是谁 ========== -->
             <section style="margin-bottom: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 22px;">🧑‍💻 我是谁</h2>
+                <h2 id="about-who" style="font-family: var(--font-mono); font-size: 22px;">🧑‍💻 我是谁</h2>
                 <p style="color: var(--text-secondary); line-height: 1.8;">
                     我是 <strong style="color: var(--text-primary);">TheSilentOne-creator</strong>（沉默者），
                     守夜者的一员。
@@ -51,7 +70,7 @@
 
             <!-- ========== 这里有什么 ========== -->
             <section style="margin-bottom: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 22px;">📦 这里有什么</h2>
+                <h2 id="about-what" style="font-family: var(--font-mono); font-size: 22px;">📦 这里有什么</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 12px;">
                     <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px;">
                         <div style="font-size: 28px;">📝</div>
@@ -73,7 +92,7 @@
 
             <!-- ========== 守夜者 ========== -->
             <section style="margin-bottom: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 22px;">🌙 守夜者</h2>
+                <h2 id="about-nightkeeper" style="font-family: var(--font-mono); font-size: 22px;">🌙 守夜者</h2>
                 <p style="color: var(--text-secondary); line-height: 1.8;">
                     守夜者是一个<strong style="color: var(--text-primary);">技术学习社区</strong>。
                 </p>
@@ -96,7 +115,7 @@
 
             <!-- ========== 加入我们 ========== -->
             <section style="margin-bottom: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 22px;">🤝 加入我们</h2>
+                <h2 id="about-join" style="font-family: var(--font-mono); font-size: 22px;">🤝 加入我们</h2>
                 <p style="color: var(--text-secondary); line-height: 1.8;">
                     如果你也在从零开始，想找个人一起守夜——
                 </p>
@@ -114,7 +133,7 @@
 
             <!-- ========== 许可证 ========== -->
             <section style="border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 22px;">📄 许可证</h2>
+                <h2 id="about-license" style="font-family: var(--font-mono); font-size: 22px;">📄 许可证</h2>
                 <p style="color: var(--text-secondary); line-height: 1.8;">
                     本仓库内容采用
                     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">

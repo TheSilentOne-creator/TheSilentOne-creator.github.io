@@ -5,28 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教程 · 守夜者之书</title>
     <meta name="description" content="从零开始学网络安全 - 守夜者之书教程列表">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="navbar"></div>
-    <div id="sidebar"></div>
+
+    <!-- ====== 侧边栏：静态 TOC 目录 ====== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <div class="toc-header">
+                <span class="toc-title">📖 本页目录</span>
+            </div>
+            <ul class="toc-list">
+                <li class="toc-item toc-level-1"><a href="#path" class="toc-link active">🗺️ 学习路径</a></li>
+                <li class="toc-item toc-level-1"><a href="#list" class="toc-link">📖 全部教程</a></li>
+                <li class="toc-item toc-level-1"><a href="#intro" class="toc-link">📖 各教程介绍</a></li>
+                <li class="toc-item toc-level-1"><a href="#about" class="toc-link">🌙 关于守夜者</a></li>
+            </ul>
+        </div>
+    </aside>
 
     <main class="main-content">
         <div class="content-inner tutorial-content">
 
-            <!-- ============================================================
-             面包屑
-             ============================================================ -->
+            <!-- ====== 面包屑 ====== -->
             <nav class="breadcrumb">
                 <a href="/">首页</a>
                 <span class="separator">/</span>
                 <span class="current">教程</span>
             </nav>
 
-            <!-- ============================================================
-             标题
-             ============================================================ -->
+            <!-- ====== 标题 ====== -->
             <header style="margin-bottom: 32px;">
-                <h1 style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
+                <h1 id="path" style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
                     📚 守夜者之书 · 教程
                 </h1>
                 <p style="font-size: 18px; color: var(--text-secondary);">
@@ -37,10 +51,8 @@
                 </p>
             </header>
 
-            <!-- ============================================================
-             学习路径图
-             ============================================================ -->
-            <section style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 32px 24px;">
+            <!-- ====== 学习路径图 ====== -->
+            <section id="list" style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 0px 24px;">
                 <h2 style="font-family: var(--font-mono); font-size: 20px; margin-bottom: 16px;">🗺️ 学习路径</h2>
                 <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">
                     核心原则：以网络安全为主线，工具和语言在实战中随用随学。
@@ -48,7 +60,6 @@
 
                 <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
 
-                    <!-- 第 1 行 -->
                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
                         <span style="background: var(--accent-dim); color: var(--accent); padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(100,255,218,0.2);">01. Markdown</span>
                         <span style="color: var(--text-muted);">→</span>
@@ -61,7 +72,6 @@
                         <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">07. Rust</span>
                     </div>
 
-                    <!-- 第 2 行：网络安全主线 -->
                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-left: 20px;">
                         <span style="background: var(--accent-dim); color: var(--accent); padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(100,255,218,0.2);">05. 第零季：火种</span>
                         <span style="color: var(--text-muted);">→</span>
@@ -72,7 +82,6 @@
                         <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">05. 第三季</span>
                     </div>
 
-                    <!-- 第 3 行：Python 系列 -->
                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-left: 20px;">
                         <span style="background: var(--accent-dim); color: var(--accent); padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(100,255,218,0.2);">06-1. Web通识</span>
                         <span style="color: var(--text-muted);">→</span>
@@ -90,12 +99,9 @@
                 </p>
             </section>
 
-            <!-- ============================================================
-             教程列表
-             ============================================================ -->
-            <h2 style="font-family: var(--font-mono); font-size: 22px; margin-bottom: 16px;">📖 全部教程</h2>
+            <!-- ====== 教程列表 ====== -->
+            <h2 id="intro" style="font-family: var(--font-mono); font-size: 22px; margin-bottom: 16px;">📖 全部教程</h2>
 
-            <!-- 01 -->
             <div class="tutorial-item done">
                 <span class="tutorial-num">#01</span>
                 <div class="tutorial-info">
@@ -105,7 +111,6 @@
                 <span class="tutorial-status done">✅ 已完成</span>
             </div>
 
-            <!-- 02 -->
             <div class="tutorial-item done">
                 <span class="tutorial-num">#02</span>
                 <div class="tutorial-info">
@@ -115,7 +120,6 @@
                 <span class="tutorial-status done">✅ 已完成</span>
             </div>
 
-            <!-- 03 -->
             <div class="tutorial-item done">
                 <span class="tutorial-num">#03</span>
                 <div class="tutorial-info">
@@ -125,7 +129,6 @@
                 <span class="tutorial-status done">✅ 已完成</span>
             </div>
 
-            <!-- 04 -->
             <div class="tutorial-item coming">
                 <span class="tutorial-num">#04</span>
                 <div class="tutorial-info">
@@ -135,7 +138,6 @@
                 <span class="tutorial-status coming">⏳ 敬请期待</span>
             </div>
 
-            <!-- 05 -->
             <div class="tutorial-item writing">
                 <span class="tutorial-num">#05</span>
                 <div class="tutorial-info">
@@ -145,7 +147,6 @@
                 <span class="tutorial-status writing">✍️ 编写中</span>
             </div>
 
-            <!-- 06 -->
             <div class="tutorial-item coming">
                 <span class="tutorial-num">#06</span>
                 <div class="tutorial-info">
@@ -161,7 +162,6 @@
                 <span class="tutorial-status coming">⏳ 敬请期待</span>
             </div>
 
-            <!-- 07 -->
             <div class="tutorial-item writing">
                 <span class="tutorial-num">#07</span>
                 <div class="tutorial-info">
@@ -171,7 +171,6 @@
                 <span class="tutorial-status writing">✍️ 编写中</span>
             </div>
 
-            <!-- 08 -->
             <div class="tutorial-item writing">
                 <span class="tutorial-num">#08</span>
                 <div class="tutorial-info">
@@ -181,10 +180,8 @@
                 <span class="tutorial-status writing">✍️ 编写中</span>
             </div>
 
-            <!-- ============================================================
-             各教程介绍（折叠/展开）
-             ============================================================ -->
-            <section style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
+            <!-- ====== 各教程介绍 ====== -->
+            <section id="about" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
                 <h2 style="font-family: var(--font-mono); font-size: 20px; cursor: pointer;" onclick="toggleIntro()">
                     📖 各教程介绍 <span id="introToggle" style="font-size: 14px; color: var(--text-muted);">(点击展开)</span>
                 </h2>
@@ -209,9 +206,7 @@
                 </div>
             </section>
 
-            <!-- ============================================================
-             关于守夜者
-             ============================================================ -->
+            <!-- ====== 关于守夜者 ====== -->
             <section style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
                 <h2 style="font-family: var(--font-mono); font-size: 20px;">🌙 关于守夜者</h2>
                 <p style="color: var(--text-secondary);">
@@ -232,9 +227,6 @@
 
     <div id="footer"></div>
 
-    <!-- ============================================================
-     折叠展开功能
-     ============================================================ -->
     <script>
         function toggleIntro() {
             const content = document.getElementById('introContent')
@@ -249,9 +241,6 @@
         }
     </script>
 
-    <!-- ============================================================
-     复用 loader：自动加载 head、sidebar、footer、components
-     ============================================================ -->
     <script src="/js/loader.js"></script>
 </body>
 </html>
