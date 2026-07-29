@@ -375,11 +375,16 @@ a:hover {
     padding: 32px 24px;
     background: var(--bg-secondary);
     margin-left: var(--sidebar-width);
+    /* 让页脚内容居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-container {
     max-width: var(--max-content-width);
-    margin: 0 auto;
+    width: 100%;
+    /* 关键：内容居中 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -392,6 +397,7 @@ a:hover {
     font-size: 14px;
     color: var(--text-secondary);
     letter-spacing: 1px;
+    margin: 0;
 }
 
 .footer-info {
