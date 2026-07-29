@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教程 · 守夜者之书</title>
+    <meta name="description" content="从零开始学网络安全 - 守夜者之书教程列表">
+</head>
+<body>
+    <div id="navbar"></div>
+    <div id="sidebar"></div>
+
+    <main class="main-content">
+        <div class="content-inner tutorial-content">
+
+            <!-- ============================================================
+             面包屑
+             ============================================================ -->
+            <nav class="breadcrumb">
+                <a href="/">首页</a>
+                <span class="separator">/</span>
+                <span class="current">教程</span>
+            </nav>
+
+            <!-- ============================================================
+             标题
+             ============================================================ -->
+            <header style="margin-bottom: 32px;">
+                <h1 style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
+                    📚 守夜者之书 · 教程
+                </h1>
+                <p style="font-size: 18px; color: var(--text-secondary);">
+                    从零开始学安全 · 每天 2 小时，雷打不动
+                </p>
+                <p style="color: var(--text-muted); margin-top: 4px;">
+                    所有教程采用中英双语编写 · 完全免费 · 持续更新
+                </p>
+            </header>
+
+            <!-- ============================================================
+             学习路径图
+             ============================================================ -->
+            <section style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 32px 24px;">
+                <h2 style="font-family: var(--font-mono); font-size: 20px; margin-bottom: 16px;">🗺️ 学习路径</h2>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">
+                    核心原则：以网络安全为主线，工具和语言在实战中随用随学。
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+
+                    <!-- 第 1 行 -->
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+                        <span style="background: var(--accent-dim); color: var(--accent); padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(100,255,218,0.2);">01. Markdown</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">02. VS Code</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">04. Git</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">03. VIM</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">07. Rust</span>
+                    </div>
+
+                    <!-- 第 2 行：网络安全主线 -->
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-left: 20px;">
+                        <span style="background: var(--accent-dim); color: var(--accent); padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(100,255,218,0.2);">05. 第零季：火种</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">05. 第一季</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">05. 第二季</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">05. 第三季</span>
+                    </div>
+
+                    <!-- 第 3 行：Python 系列 -->
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-left: 20px;">
+                        <span style="background: var(--accent-dim); color: var(--accent); padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(100,255,218,0.2);">06-1. Web通识</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">06-2. Flask</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">06-3. 安全工具（基础）</span>
+                        <span style="color: var(--text-muted);">→</span>
+                        <span style="background: var(--bg-code); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border);">06-4. 安全工具（进阶）</span>
+                    </div>
+
+                </div>
+
+                <p style="color: var(--text-muted); font-size: 13px; margin-top: 16px;">
+                    💡 提示：从 <strong style="color: var(--accent);">01. Markdown</strong> 和 <strong style="color: var(--accent);">05. 第零季：火种</strong> 同时开始
+                </p>
+            </section>
+
+            <!-- ============================================================
+             教程列表
+             ============================================================ -->
+            <h2 style="font-family: var(--font-mono); font-size: 22px; margin-bottom: 16px;">📖 全部教程</h2>
+
+            <!-- 01 -->
+            <div class="tutorial-item done">
+                <span class="tutorial-num">#01</span>
+                <div class="tutorial-info">
+                    <h3><a href="/tutorials/01-markdown/01.玩转 Markdown.html">玩转 Markdown</a></h3>
+                    <p>别再傻乎乎地用记事本写笔记了。十分钟学会，受用一辈子。</p>
+                </div>
+                <span class="tutorial-status done">✅ 已完成</span>
+            </div>
+
+            <!-- 02 -->
+            <div class="tutorial-item done">
+                <span class="tutorial-num">#02</span>
+                <div class="tutorial-info">
+                    <h3><a href="/tutorials/02-vscode/02. 玩转 VS Code.html">玩转 VS Code</a></h3>
+                    <p>武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+                </div>
+                <span class="tutorial-status done">✅ 已完成</span>
+            </div>
+
+            <!-- 03 -->
+            <div class="tutorial-item done">
+                <span class="tutorial-num">#03</span>
+                <div class="tutorial-info">
+                    <h3><a href="/tutorials/03-vim/03. VIM 从入门到得体.html">VIM 从入门到得体</a></h3>
+                    <p>没有图形界面？那就用键盘征服世界。</p>
+                </div>
+                <span class="tutorial-status done">✅ 已完成</span>
+            </div>
+
+            <!-- 04 -->
+            <div class="tutorial-item coming">
+                <span class="tutorial-num">#04</span>
+                <div class="tutorial-info">
+                    <h3><span style="color: var(--text-secondary);">拿捏 Git 与 GitHub</span></h3>
+                    <p>别再把你的代码存桌面了！版本控制是你的必修课。</p>
+                </div>
+                <span class="tutorial-status coming">⏳ 敬请期待</span>
+            </div>
+
+            <!-- 05 -->
+            <div class="tutorial-item writing">
+                <span class="tutorial-num">#05</span>
+                <div class="tutorial-info">
+                    <h3><span style="color: var(--text-secondary);">这才是网络安全（全六季）</span></h3>
+                    <p>省下一万块的培训，免费看完这一套。相声式教学，笑着学会。</p>
+                </div>
+                <span class="tutorial-status writing">✍️ 编写中</span>
+            </div>
+
+            <!-- 06 -->
+            <div class="tutorial-item coming">
+                <span class="tutorial-num">#06</span>
+                <div class="tutorial-info">
+                    <h3><span style="color: var(--text-secondary);">这才是 Python</span> <span class="level-badge">中阶</span></h3>
+                    <p>从零开始，用 Python 武装你的安全工具链。含 4 个子课程。</p>
+                    <div class="sub-course-list">
+                        <span>06-1. Web通识</span>
+                        <span>06-2. Flask</span>
+                        <span>06-3. 安全工具（基础）</span>
+                        <span>06-4. 安全工具（进阶）</span>
+                    </div>
+                </div>
+                <span class="tutorial-status coming">⏳ 敬请期待</span>
+            </div>
+
+            <!-- 07 -->
+            <div class="tutorial-item writing">
+                <span class="tutorial-num">#07</span>
+                <div class="tutorial-info">
+                    <h3><span style="color: var(--text-secondary);">Rust：灰烬之战</span> <span class="level-badge">进阶</span></h3>
+                    <p>这不是一门语言课，这是一场你必须写 Rust 才能活下来的战争。</p>
+                </div>
+                <span class="tutorial-status writing">✍️ 编写中</span>
+            </div>
+
+            <!-- 08 -->
+            <div class="tutorial-item writing">
+                <span class="tutorial-num">#08</span>
+                <div class="tutorial-info">
+                    <h3><span style="color: var(--text-secondary);">详解计算机科学丛书</span> <span class="level-badge">进阶</span></h3>
+                    <p>追随计算机科学的初心，用"大块头"体会编程之道。</p>
+                </div>
+                <span class="tutorial-status writing">✍️ 编写中</span>
+            </div>
+
+            <!-- ============================================================
+             各教程介绍（折叠/展开）
+             ============================================================ -->
+            <section style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
+                <h2 style="font-family: var(--font-mono); font-size: 20px; cursor: pointer;" onclick="toggleIntro()">
+                    📖 各教程介绍 <span id="introToggle" style="font-size: 14px; color: var(--text-muted);">(点击展开)</span>
+                </h2>
+                <div id="introContent" style="display: none;">
+
+                    <div class="intro-card"><h4>01. 玩转 Markdown</h4><p><strong>别再傻乎乎地用记事本写笔记了！</strong><br>Markdown 像极了武林秘籍里的 "轻功"——学起来只需要十分钟，但用好了能让你飞一辈子。只教你最常用的 5% 语法。<br><span style="color: var(--accent);">学完解锁：</span>优雅地写出一份连程序员看了都想 Star 的笔记。</p></div>
+
+                    <div class="intro-card"><h4>02. 玩转 VS Code</h4><p><strong>武装你的"瑞士军刀"</strong><br>很多人用了好几年 VS Code，还把它当成高级记事本。手把手教你装上那些 "开了挂" 的插件。<br><span style="color: var(--accent);">学完解锁：</span>一个能让你在任何地方写代码的云端开发环境。</p></div>
+
+                    <div class="intro-card"><h4>03. VIM 从入门到得体</h4><p><strong>没有图形界面？那就用键盘征服世界</strong><br>VIM 的学习曲线陡峭得像悬崖。只讲 10 节必修课，绝不让你背用不到的命令。<br><span style="color: var(--accent);">学完解锁：</span>在任何一个服务器上都能流畅写代码的底气。</p></div>
+
+                    <div class="intro-card"><h4>04. 拿捏 Git 与 GitHub</h4><p><strong>别再把你的代码存桌面了！</strong><br>Git 专门治"版本混乱"病。GitHub 是程序员的"朋友圈"。<br><span style="color: var(--accent);">学完解锁：</span>绿油油的 GitHub 贡献墙 + "来，先 Fork 我的项目。"</p></div>
+
+                    <div class="intro-card"><h4>05. 这才是网络安全（全六季）</h4><p><strong>省下一万块的培训，免费看完这一套</strong><br>"相声式"教学法——没有昏昏欲睡的理论，只有让你笑完还能记住的攻击手法。<br><span style="color: var(--accent);">学完解锁：</span>完整的网络安全知识体系 + 实战项目经验。</p></div>
+
+                    <div class="intro-card"><h4>06. 这才是 Python <span class="level-badge">中阶</span></h4><p><strong>从零开始，用 Python 武装你的安全工具链</strong><br>四个子课程：Web 通识 → Flask 开发 → 安全工具（基础）→ 安全工具（进阶）。<br><span style="color: var(--accent);">学完解锁：</span>把枯燥的渗透工作自动化。</p></div>
+
+                    <div class="intro-card"><h4>07. Rust：灰烬之战 <span class="level-badge">进阶</span></h4><p><strong>这不是一门语言课，这是一场你必须写 Rust 才能活下来的战争</strong><br>15 个章节，12 个真实工具，一段从废墟到牺牲的完整叙事。<br><span style="color: var(--accent);">学完解锁：</span>一门高性能系统语言的完整实战能力。</p></div>
+
+                    <div class="intro-card"><h4>08. 详解计算机科学丛书 <span class="level-badge">进阶</span></h4><p><strong>追随计算机科学的初心，用"大块头"体会编程之道</strong><br>经典"黑皮书"的伴读指南，告诉你哪些章节必考、哪些可以跳过。<br><span style="color: var(--accent);">学完解锁：</span>一颗计算机科学的大脑。</p></div>
+
+                </div>
+            </section>
+
+            <!-- ============================================================
+             关于守夜者
+             ============================================================ -->
+            <section style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
+                <h2 style="font-family: var(--font-mono); font-size: 20px;">🌙 关于守夜者</h2>
+                <p style="color: var(--text-secondary);">
+                    守夜者是一个技术学习社区。<br>
+                    <strong>我们相信</strong>：从零开始，一起进步。<br>
+                    <strong>我们不做</strong>：非法攻击、盈利、暴露成员身份。
+                </p>
+                <blockquote style="margin-top: 12px;">
+                    <p style="font-family: var(--font-mono);">「长夜将至，我从今开始守夜，今夜如此，夜夜皆然。」</p>
+                </blockquote>
+                <p style="color: var(--text-muted); font-size: 14px; margin-top: 12px;">
+                    👉 想加入？Fork 这个仓库，在 <code style="background: var(--bg-code); padding: 2px 8px; border-radius: 4px;">/community/</code> 下写下你的第一行笔记。
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <!-- ============================================================
+     折叠展开功能
+     ============================================================ -->
+    <script>
+        function toggleIntro() {
+            const content = document.getElementById('introContent')
+            const toggle = document.getElementById('introToggle')
+            if (content.style.display === 'none') {
+                content.style.display = 'block'
+                toggle.textContent = '(点击收起)'
+            } else {
+                content.style.display = 'none'
+                toggle.textContent = '(点击展开)'
+            }
+        }
+    </script>
+
+    <!-- ============================================================
+     复用 loader：自动加载 head、sidebar、footer、components
+     ============================================================ -->
+    <script src="/js/loader.js"></script>
+</body>
+</html>

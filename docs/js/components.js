@@ -1,7 +1,7 @@
 // docs/js/components.js
 // ============================================================
-// 守夜者之书 - 公共组件
-// 所有页面共享的导航栏、侧边栏、页脚
+// 守夜者之书 - 公共组件渲染
+// 导航栏、侧边栏、页脚
 // ============================================================
 
 // ============================================================
@@ -14,8 +14,8 @@ const NAV_CONFIG = {
     },
     links: [
         { text: '首页', link: '/' },
-        { text: '教程', link: '/tutorials/' },
-        { text: '关于', link: '/about/' }
+        { text: '教程', link: '/tutorials/index.html' },
+        { text: '关于', link: '/about/index.html' }
     ],
     github: 'https://github.com/TheSilentOne-creator/The-Night-Keeper-s-Book'
 }
@@ -79,18 +79,21 @@ function renderNavbar() {
 }
 
 // ============================================================
-// 3. 渲染侧边栏（从全局变量 SIDEBAR_CONFIG 读取配置）
+// 3. 渲染侧边栏
 // ============================================================
 function renderSidebar() {
     // 检查 SIDEBAR_CONFIG 是否存在
     if (typeof window.SIDEBAR_CONFIG === 'undefined') {
-        console.warn('⚠️ SIDEBAR_CONFIG 未加载，请检查 /config/sidebar.js 是否正确引入')
+        console.warn('⚠️ SIDEBAR_CONFIG 未加载，请检查 /components/sidebar-config.js 是否正确引入')
         return
     }
     
     const currentPath = window.location.pathname
     const sidebarEl = document.getElementById('sidebar')
-    if (!sidebarEl) return
+    if (!sidebarEl) {
+        console.warn('⚠️ 找不到 #sidebar 元素')
+        return
+    }
     
     let sidebarHtml = `
         <div class="sidebar-inner">
@@ -150,39 +153,71 @@ function renderSidebar() {
 }
 
 // ============================================================
-// 4. 渲染页脚
+// 4. 渲染页脚（从外部 HTML 加载）
 // ============================================================
 function renderFooter() {
     const footerEl = document.getElementById('footer')
-    if (!footerEl) return
+    if (!footerEl) {
+        console.warn('⚠️ 找不到 #footer 元素')
+        return
+    }
     
-    footerEl.innerHTML = `
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-oath">
-                    <p>「长夜将至，我从今开始守夜，今夜如此，夜夜皆然。」</p>
-                </div>
-                <div class="footer-info">
-                    <p>
-                        © 2026 守夜者之书 · 
-                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
-                            CC BY-NC-SA 4.0
-                        </a>
-                    </p>
-                    <p class="footer-version">
-                        ⚡ 从零开始学安全 · 每天 2 小时，雷打不动
-                    </p>
-                </div>
-            </div>
-        </footer>
-    `
+    fetch('/components/footer.html')
+        .then(res => {
+            if (!res.ok) throw new Error('footer.html 加载失败 (HTTP ' + res.status + ')')
+            return res.text()
+        })
+        .then(html => {
+            footerEl.innerHTML = html
+            console.log('✅ 页脚已加载')
+        })
+        .catch(err => {
+            console.warn('⚠️ 页脚加载失败:', err)
+            // 备用方案：直接显示默认页脚
+            footerEl.innerHTML = `
+                <footer class="site-footer">
+                    <div class="footer-container">
+                        <div class="footer-oath">
+                            <p>「长夜将至，我从今开始守夜，今夜如此，夜夜皆然。」</p>
+                        </div>
+                        <div class="footer-info">
+                            <p>© 2026 守夜者之书 · CC BY-NC-SA 4.0</p>
+                        </div>
+                    </div>
+                </footer>
+            `
+        })
 }
 
 // ============================================================
-// 5. 页面加载完成后初始化所有组件
+// 5. 初始化所有组件（暴露给 loader.js 调用）
 // ============================================================
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('navbar')) renderNavbar()
-    if (document.getElementById('sidebar')) renderSidebar()
-    if (document.getElementById('footer')) renderFooter()
-})
+function initComponents() {
+    console.log('🔧 开始初始化组件...')
+    
+    if (document.getElementById('navbar')) {
+        renderNavbar()
+        console.log('✅ 导航栏已渲染')
+    }
+    
+    if (document.getElementById('sidebar')) {
+        renderSidebar()
+        console.log('✅ 侧边栏已渲染')
+    }
+    
+    if (document.getElementById('footer')) {
+        renderFooter()
+        console.log('✅ 页脚已渲染')
+    }
+}
+
+// 如果页面直接加载 components.js（没有 loader），自动初始化
+// 但如果有 loader，loader 会调用 initComponents()
+if (!window.LOADER_INIT) {
+    // 等待 DOM 加载完成
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initComponents)
+    } else {
+        initComponents()
+    }
+}
