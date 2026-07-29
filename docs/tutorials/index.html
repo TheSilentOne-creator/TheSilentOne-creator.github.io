@@ -6,6 +6,7 @@
     <title>教程 · 守夜者之书</title>
     <meta name="description" content="从零开始学网络安全 - 守夜者之书教程列表">
 
+    <link rel="preload" href="/css/style.css" as="style">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,20 +14,8 @@
 <body>
     <div id="navbar"></div>
 
-    <!-- ====== 侧边栏：静态 TOC 目录 ====== -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-inner">
-            <div class="toc-header">
-                <span class="toc-title">📖 本页目录</span>
-            </div>
-            <ul class="toc-list">
-                <li class="toc-item toc-level-1"><a href="#path" class="toc-link active">🗺️ 学习路径</a></li>
-                <li class="toc-item toc-level-1"><a href="#list" class="toc-link">📖 全部教程</a></li>
-                <li class="toc-item toc-level-1"><a href="#intro" class="toc-link">📖 各教程介绍</a></li>
-                <li class="toc-item toc-level-1"><a href="#about" class="toc-link">🌙 关于守夜者</a></li>
-            </ul>
-        </div>
-    </aside>
+    <!-- 侧边栏：由 toc.js 动态生成 -->
+    <aside class="sidebar" id="sidebar"></aside>
 
     <main class="main-content">
         <div class="content-inner tutorial-content">
@@ -40,7 +29,7 @@
 
             <!-- ====== 标题 ====== -->
             <header style="margin-bottom: 32px;">
-                <h1 id="path" style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
+                <h1 id="tutorials-title" style="font-family: var(--font-mono); font-size: 36px; margin-bottom: 8px;">
                     📚 守夜者之书 · 教程
                 </h1>
                 <p style="font-size: 18px; color: var(--text-secondary);">
@@ -52,7 +41,7 @@
             </header>
 
             <!-- ====== 学习路径图 ====== -->
-            <section id="list" style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 0px 24px;">
+            <section id="tutorials-path" style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 0px 24px;">
                 <h2 style="font-family: var(--font-mono); font-size: 20px; margin-bottom: 16px;">🗺️ 学习路径</h2>
                 <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">
                     核心原则：以网络安全为主线，工具和语言在实战中随用随学。
@@ -100,7 +89,7 @@
             </section>
 
             <!-- ====== 教程列表 ====== -->
-            <h2 id="intro" style="font-family: var(--font-mono); font-size: 22px; margin-bottom: 16px;">📖 全部教程</h2>
+            <h2 id="tutorials-list" style="font-family: var(--font-mono); font-size: 22px; margin-bottom: 16px;">📖 全部教程</h2>
 
             <div class="tutorial-item done">
                 <span class="tutorial-num">#01</span>
@@ -181,7 +170,7 @@
             </div>
 
             <!-- ====== 各教程介绍 ====== -->
-            <section id="about" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
+            <section id="tutorials-intro" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
                 <h2 style="font-family: var(--font-mono); font-size: 20px; cursor: pointer;" onclick="toggleIntro()">
                     📖 各教程介绍 <span id="introToggle" style="font-size: 14px; color: var(--text-muted);">(点击展开)</span>
                 </h2>
@@ -207,7 +196,7 @@
             </section>
 
             <!-- ====== 关于守夜者 ====== -->
-            <section style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
+            <section id="tutorials-about" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
                 <h2 style="font-family: var(--font-mono); font-size: 20px;">🌙 关于守夜者</h2>
                 <p style="color: var(--text-secondary);">
                     守夜者是一个技术学习社区。<br>

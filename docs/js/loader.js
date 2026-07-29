@@ -38,28 +38,39 @@ fetch('/components/sidebar-config.js')
         script.onload = function() {
             console.log('✅ components.js 已加载')
             
-            const currentPath = window.location.pathname
-            console.log('🔍 当前路径:', currentPath)
-            
-            // ===== 渲染导航栏（所有页面） =====
+            // 渲染导航栏
             if (typeof renderNavbar === 'function') {
                 renderNavbar()
                 console.log('✅ 导航栏已渲染')
             }
             
-            // ===== 渲染侧边栏 =====
-            // 首页：动态渲染教程列表
-            // 其他页面：使用 HTML 静态侧边栏
+            const currentPath = window.location.pathname
+            console.log('🔍 当前路径:', currentPath)
+            
+            // ============================================================
+            // 首页：用 renderSidebar 渲染教程列表
+            // 其他页面：用 toc.js 生成目录
+            // ============================================================
             if (currentPath === '/' || currentPath === '/index.html') {
                 if (typeof renderSidebar === 'function') {
                     renderSidebar()
                     console.log('🏠 首页：渲染教程列表侧边栏')
                 }
             } else {
-                console.log('📄 内容页：使用 HTML 静态侧边栏')
+                // about、tutorials 和其他页面：用 toc.js 生成 TOC
+                const tocScript = document.createElement('script')
+                tocScript.src = '/js/toc.js'
+                tocScript.onload = function() {
+                    console.log('✅ toc.js 已加载，生成 TOC')
+                    if (typeof generateTOC === 'function') {
+                        generateTOC()
+                    }
+                }
+                document.body.appendChild(tocScript)
+                console.log('📄 内容页：加载 toc.js')
             }
             
-            // ===== 渲染页脚（所有页面） =====
+            // 渲染页脚
             if (typeof renderFooter === 'function') {
                 renderFooter()
                 console.log('✅ 页脚已渲染')

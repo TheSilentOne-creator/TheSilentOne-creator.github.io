@@ -6,6 +6,7 @@
     <title>关于 · 守夜者之书</title>
     <meta name="description" content="关于守夜者之书 - 从零开始学网络安全，一份公开的学习笔记。">
 
+    <link rel="preload" href="/css/style.css" as="style">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,28 +14,15 @@
 <body>
     <div id="navbar"></div>
 
-    <!-- ====== 侧边栏：静态 TOC 目录 ====== -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-inner">
-            <div class="toc-header">
-                <span class="toc-title">📖 本页目录</span>
-            </div>
-            <ul class="toc-list">
-                <li class="toc-item toc-level-1"><a href="#about-intro" class="toc-link active">📖 关于守夜者之书</a></li>
-                <li class="toc-item toc-level-1"><a href="#about-who" class="toc-link">🧑‍💻 我是谁</a></li>
-                <li class="toc-item toc-level-1"><a href="#about-what" class="toc-link">📦 这里有什么</a></li>
-                <li class="toc-item toc-level-1"><a href="#about-nightkeeper" class="toc-link">🌙 守夜者</a></li>
-                <li class="toc-item toc-level-1"><a href="#about-join" class="toc-link">🤝 加入我们</a></li>
-                <li class="toc-item toc-level-1"><a href="#about-license" class="toc-link">📄 许可证</a></li>
-            </ul>
-        </div>
-    </aside>
+    <!-- 侧边栏：由 toc.js 动态生成 -->
+    <aside class="sidebar" id="sidebar"></aside>
 
     <main class="main-content">
         <div class="content-inner tutorial-content">
 
+            <!-- ========== 面包屑 ========== -->
             <nav class="breadcrumb">
-                <a href="/" class="home">首页</a>
+                <a href="/">首页</a>
                 <span class="separator">/</span>
                 <span class="current">关于</span>
             </nav>
