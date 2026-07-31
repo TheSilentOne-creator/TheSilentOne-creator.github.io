@@ -18,7 +18,7 @@ const SIDEBAR_CONFIG = [
                 status: 'done'
             },
             { 
-                text: '03. VIM 从入门到得体', 
+                text: '03. Vim 从入门到得体', 
                 link: '/tutorials/03-vim/',
                 status: 'done'
             },

@@ -679,18 +679,35 @@ a:hover {
    教程内容页 - 专有样式
    ============================================================ */
 
-/* --- 面包屑 --- */
+/* ============================================================
+   面包屑 - 自适应每行显示多个
+   ============================================================ */
 .breadcrumb {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-muted);
     margin-bottom: 24px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 6px;
+}
+
+/* 每个子项最多占 33%，保证一行至少 3 个 */
+.breadcrumb > * {
+    flex: 0 1 auto;
+    max-width: 33%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .breadcrumb a {
     color: var(--text-secondary);
     transition: color 0.2s;
+    text-decoration: none;
 }
 
 .breadcrumb a:hover {
@@ -698,12 +715,43 @@ a:hover {
 }
 
 .breadcrumb .separator {
-    margin: 0 8px;
     color: var(--text-muted);
+    flex-shrink: 0;
+    max-width: 20px;
+    text-align: center;
 }
 
 .breadcrumb .current {
     color: var(--text-primary);
+}
+
+/* ============================================================
+   响应式调整
+   ============================================================ */
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 13px;
+        gap: 3px 4px;
+    }
+    .breadcrumb > * {
+        max-width: 50%;  /* 一行 2 个 */
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb {
+        font-size: 12px;
+        gap: 2px 4px;
+    }
+    .breadcrumb > * {
+        max-width: 50%;  /* 一行 2 个 */
+    }
+}
+
+@media (max-width: 360px) {
+    .breadcrumb > * {
+        max-width: 100%;  /* 极端情况才一行 1 个 */
+    }
 }
 
 /* --- 教程头部 --- */
