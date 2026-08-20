@@ -31,17 +31,24 @@
         switchLanguage: switchLanguage
     }
 
-    // 在导航栏注入语言切换按钮
-    document.addEventListener('DOMContentLoaded', function() {
+    // 立即注入语言切换按钮（不等待 DOMContentLoaded）
+    function injectLangButton() {
         var navActions = document.querySelector('.nav-actions')
-        if (!navActions) return
+        if (!navActions) {
+            // 如果导航栏还没渲染，等一会儿再试
+            setTimeout(injectLangButton, 100)
+            return
+        }
 
         var currentLang = getCurrentLang()
         if (!currentLang) return
 
         var targetLang = currentLang === 'zh' ? 'en' : 'zh'
-        var targetLabel = targetLang === 'zh' ? '中' : 'EN'
-        var targetFlag = targetLang === 'zh' ? '🇨🇳' : '🇬🇧'
+        var targetLabel = targetLang === 'zh' ? '中文' : 'English'
+        var targetFlag = targetLang === 'zh' ? '🌐' : '🌐'
+
+        // 检查是否已经存在按钮，避免重复注入
+        if (navActions.querySelector('.lang-switch-btn')) return
 
         var btn = document.createElement('button')
         btn.className = 'lang-switch-btn'
@@ -52,5 +59,9 @@
         })
 
         navActions.insertBefore(btn, navActions.querySelector('.github-link'))
-    })
+        console.log('✅ 语言切换按钮已注入')
+    }
+
+    // 立即执行
+    injectLangButton()
 })()

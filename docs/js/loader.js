@@ -10,28 +10,26 @@ function getCurrentLang() {
     var path = window.location.pathname
     if (path.startsWith('/zh/')) return 'zh'
     if (path.startsWith('/en/')) return 'en'
-    // 如果路径不包含语言标识，尝试从 localStorage 读取
     var saved = localStorage.getItem('nightkeeper-lang')
     if (saved === 'zh' || saved === 'en') return saved
-    // 最后根据浏览器语言
     var browserLang = navigator.language || navigator.userLanguage
     return (browserLang && browserLang.startsWith('zh')) ? 'zh' : 'en'
 }
 
 function buildSidebarConfig(data, lang) {
     var categoryMap = {
-    '01-markdown': '基础工具',
-    '02-vscode': '基础工具',
-    '03-vim': '基础工具',
-    '04-git': '基础工具',
-    '05-cybersecurity-season0': '网络安全（主线）',
-    '05-cybersecurity-season1': '网络安全（主线）',
-    '06-python-1': 'Python 系列（中阶）',
-    '06-python-2': 'Python 系列（中阶）',
-    '06-python-3': 'Python 系列（中阶）',
-    '06-python-4': 'Python 系列（中阶）',
-    '07-rust': '进阶之路',
-    '08-cs-canon': '进阶之路'
+        '01-markdown': '基础工具',
+        '02-vscode': '基础工具',
+        '03-vim': '基础工具',
+        '04-git': '基础工具',
+        '05-cybersecurity-season0': '网络安全（主线）',
+        '05-cybersecurity-season1': '网络安全（主线）',
+        '06-python-1': 'Python 系列（中阶）',
+        '06-python-2': 'Python 系列（中阶）',
+        '06-python-3': 'Python 系列（中阶）',
+        '06-python-4': 'Python 系列（中阶）',
+        '07-rust': '进阶之路',
+        '08-cs-canon': '进阶之路'
     }
     
     var categoryLabels = {
@@ -115,22 +113,30 @@ fetch('/data/tutorials.json')
                 console.log('✅ 导航栏已渲染')
             }
             
+            // ============================================================
+            // 3. 加载 i18n.js（语言切换按钮）
+            // ============================================================
+            var i18nScript = document.createElement('script')
+            i18nScript.src = '/js/i18n.js'
+            document.body.appendChild(i18nScript)
+            console.log('✅ i18n.js 已加载')
+            
+            // ============================================================
+            // 4. 判断是否首页，决定侧边栏
+            // ============================================================
             var currentPath = window.location.pathname
             var lang = getCurrentLang()
             
-            // 判断是否首页（/zh/ 或 /en/ 精确匹配）
             var isHome = (currentPath === '/' + lang + '/' || 
                           currentPath === '/' + lang + '/index.html' ||
                           currentPath === '/' || currentPath === '/index.html')
             
             if (isHome) {
-                // 首页：渲染侧边栏
                 if (typeof renderSidebar === 'function') {
                     renderSidebar()
                     console.log('🏠 首页：渲染侧边栏')
                 }
             } else {
-                // 其他页面：由 toc.js 生成目录
                 var tocScript = document.createElement('script')
                 tocScript.src = '/js/toc.js'
                 tocScript.onload = function() {
