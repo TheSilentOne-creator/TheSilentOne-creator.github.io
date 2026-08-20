@@ -1,39 +1,101 @@
 // docs/js/loader.js
 // ============================================================
-// 守夜者之书 - 页面加载器
+// 守夜者之书 - 页面加载器（支持中英文）
 // ============================================================
 
+// ============================================================
+// 辅助函数：获取当前语言
+// ============================================================
+function getCurrentLang() {
+    var path = window.location.pathname
+    if (path.startsWith('/zh/')) return 'zh'
+    if (path.startsWith('/en/')) return 'en'
+    return 'zh'
+}
+
+function buildSidebarConfig(data, lang) {
+    var categoryMap = {
+        '01-markdown': '基础工具',
+        '02-vscode': '基础工具',
+        '03-vim': '基础工具',
+        '04-git': '基础工具',
+        '05-cybersecurity': '网络安全（主线）',
+        '06-python': 'Python 系列（中阶）',
+        '07-rust': '进阶之路',
+        '08-cs-canon': '进阶之路'
+    }
+    
+    var categoryLabels = {
+        '基础工具': '⚔️ 基础工具',
+        '网络安全（主线）': '🌐 网络安全（主线）',
+        'Python 系列（中阶）': '🐍 Python 系列（中阶）',
+        '进阶之路': '🚀 进阶之路'
+    }
+    
+    var result = {}
+    var tutorials = data.tutorials || []
+    
+    tutorials.forEach(function(t) {
+        var cat = categoryMap[t.id] || '其他'
+        if (!result[cat]) result[cat] = []
+        var content = t[lang] || t['zh']
+        result[cat].push({
+            text: content.title,
+            link: content.link,
+            status: t.status
+        })
+    })
+    
+    var sidebarArray = []
+    for (var cat in result) {
+        sidebarArray.push({
+            category: categoryLabels[cat] || cat,
+            items: result[cat]
+        })
+    }
+    return sidebarArray
+}
+
+// ============================================================
 // 0. 加载公共 head
+// ============================================================
 fetch('/components/head.html')
-    .then(res => {
-        if (!res.ok) throw new Error('head.html 加载失败 (HTTP ' + res.status + ')')
+    .then(function(res) {
+        if (!res.ok) throw new Error('head.html 加载失败')
         return res.text()
     })
-    .then(html => {
+    .then(function(html) {
         document.head.insertAdjacentHTML('beforeend', html)
         console.log('✅ 公共 head 已加载')
     })
-    .catch(err => {
+    .catch(function(err) {
         console.warn('⚠️ head.html 加载失败:', err)
     })
 
-// 1. 加载侧边栏配置
-fetch('/components/sidebar-config.js')
-    .then(res => {
-        if (!res.ok) throw new Error('sidebar-config.js 加载失败 (HTTP ' + res.status + ')')
-        return res.text()
+// ============================================================
+// 1. 加载教程数据
+// ============================================================
+fetch('/data/tutorials.json')
+    .then(function(res) {
+        if (!res.ok) throw new Error('tutorials.json 加载失败')
+        return res.json()
     })
-    .then(code => {
-        eval(code)
-        console.log('✅ 侧边栏配置已加载')
+    .then(function(data) {
+        var lang = getCurrentLang()
+        window.TUTORIALS_DATA = data
+        window.CURRENT_LANG = lang
+        window.SIDEBAR_CONFIG = buildSidebarConfig(data, lang)
+        console.log('✅ 教程数据已加载，当前语言:', lang)
     })
-    .catch(err => {
-        console.warn('⚠️ 侧边栏配置加载失败:', err)
+    .catch(function(err) {
+        console.warn('⚠️ 教程数据加载失败:', err)
         window.SIDEBAR_CONFIG = []
     })
-    .finally(() => {
+    .finally(function() {
+        // ============================================================
         // 2. 加载 components.js
-        const script = document.createElement('script')
+        // ============================================================
+        var script = document.createElement('script')
         script.src = '/js/components.js'
         script.onload = function() {
             console.log('✅ components.js 已加载')
@@ -44,30 +106,27 @@ fetch('/components/sidebar-config.js')
                 console.log('✅ 导航栏已渲染')
             }
             
-            const currentPath = window.location.pathname
-            console.log('🔍 当前路径:', currentPath)
+            var currentPath = window.location.pathname
             
-            // ============================================================
-            // 首页：用 renderSidebar 渲染教程列表
-            // 其他页面：用 toc.js 生成目录
-            // ============================================================
-            if (currentPath === '/' || currentPath === '/index.html') {
+            // 首页：渲染侧边栏
+            if (currentPath === '/zh/' || currentPath === '/zh/index.html' ||
+                currentPath === '/en/' || currentPath === '/en/index.html' ||
+                currentPath === '/' || currentPath === '/index.html') {
                 if (typeof renderSidebar === 'function') {
                     renderSidebar()
-                    console.log('🏠 首页：渲染教程列表侧边栏')
+                    console.log('🏠 首页：渲染侧边栏')
                 }
             } else {
-                // about、tutorials 和其他页面：用 toc.js 生成 TOC
-                const tocScript = document.createElement('script')
+                // 其他页面：由 toc.js 生成目录
+                var tocScript = document.createElement('script')
                 tocScript.src = '/js/toc.js'
                 tocScript.onload = function() {
-                    console.log('✅ toc.js 已加载，生成 TOC')
+                    console.log('✅ toc.js 已加载')
                     if (typeof generateTOC === 'function') {
                         generateTOC()
                     }
                 }
                 document.body.appendChild(tocScript)
-                console.log('📄 内容页：加载 toc.js')
             }
             
             // 渲染页脚

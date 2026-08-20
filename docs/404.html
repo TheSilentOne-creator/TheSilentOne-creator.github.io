@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 · 守夜者之书</title>
-    <meta name="description" content="页面未找到 - 守夜者之书">
-
     <link rel="preload" href="/css/style.css" as="style">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -19,17 +17,69 @@
             <h1 style="font-size: 80px; font-family: var(--font-mono); opacity: 0.12; margin: 0; line-height: 1; color: var(--text-primary); font-weight: 700;">
                 404
             </h1>
-            <p style="font-size: 24px; color: var(--text-secondary); margin-top: 8px;">
+            <p id="error-msg" style="font-size: 24px; color: var(--text-secondary); margin-top: 8px;">
                 🌑 这片黑暗里没有你找的东西
             </p>
-            <p style="color: var(--text-muted); margin: 16px 0 32px 0; font-size: 16px;">
+            <p id="error-hint" style="color: var(--text-muted); margin: 16px 0 32px 0; font-size: 16px;">
                 也许它还在编写中，或者从未存在过。
             </p>
-            <a href="/" style="color: var(--accent); border: 1px solid var(--accent); padding: 10px 32px; border-radius: 8px; display: inline-block; transition: all 0.3s; text-decoration: none;">
+            <a id="back-home" href="/zh/" style="color: var(--accent); border: 1px solid var(--accent); padding: 10px 32px; border-radius: 8px; display: inline-block; transition: all 0.3s; text-decoration: none;">
                 ← 返回首页
             </a>
         </div>
     </main>
+
+    <div id="footer"></div>
+
+    <script>
+        // ============================================================
+        // 语言判断：根据当前路径或 localStorage 决定 404 显示语言
+        // ============================================================
+        (function() {
+            var path = window.location.pathname
+            var lang = 'zh'
+
+            // 1. 从路径判断
+            if (path.startsWith('/en/')) {
+                lang = 'en'
+            } else if (path.startsWith('/zh/')) {
+                lang = 'zh'
+            } else {
+                // 2. 从 localStorage 读取
+                var saved = localStorage.getItem('nightkeeper-lang')
+                if (saved === 'en' || saved === 'zh') {
+                    lang = saved
+                } else {
+                    // 3. 从浏览器语言判断
+                    var browserLang = navigator.language || navigator.userLanguage
+                    if (browserLang && browserLang.startsWith('zh')) {
+                        lang = 'zh'
+                    } else {
+                        lang = 'en'
+                    }
+                }
+            }
+
+            // 根据语言设置 404 内容
+            var msgEl = document.getElementById('error-msg')
+            var hintEl = document.getElementById('error-hint')
+            var homeLink = document.getElementById('back-home')
+
+            if (lang === 'en') {
+                msgEl.textContent = '🌑 Nothing here in the darkness'
+                hintEl.textContent = 'Maybe it\'s still being written, or never existed at all.'
+                homeLink.textContent = '← Back to Home'
+                homeLink.href = '/en/'
+                document.title = '404 · The Night Keeper\'s Book'
+            } else {
+                msgEl.textContent = '🌑 这片黑暗里没有你找的东西'
+                hintEl.textContent = '也许它还在编写中，或者从未存在过。'
+                homeLink.textContent = '← 返回首页'
+                homeLink.href = '/zh/'
+                document.title = '404 · 守夜者之书'
+            }
+        })()
+    </script>
 
     <script src="/js/loader.js"></script>
 </body>

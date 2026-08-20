@@ -1,0 +1,168 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-08-20",
+  "languages": {
+    "zh": { "code": "zh", "label": "中文", "short": "中", "flag": "🇨🇳", "dir": "/zh/" },
+    "en": { "code": "en", "label": "English", "short": "EN", "flag": "🇬🇧", "dir": "/en/" }
+  },
+  "tutorials": [
+    {
+      "id": "01-markdown",
+      "number": "01",
+      "status": "done",
+      "level": "基础",
+      "zh": {
+        "title": "玩转 Markdown",
+        "description": "别再傻乎乎地用记事本写笔记了。十分钟学会，受用一辈子。",
+        "link": "/zh/tutorials/01-markdown/01.玩转 Markdown.html",
+        "tags": ["工具", "写作"]
+      },
+      "en": {
+        "title": "Mastering Markdown",
+        "description": "Stop using Notepad like a caveman. Ten minutes to learn, a lifetime to use.",
+        "link": "/en/tutorials/01-markdown/01.Mastering Markdown.html",
+        "tags": ["Tools", "Writing"]
+      }
+    },
+    {
+      "id": "02-vscode",
+      "number": "02",
+      "status": "done",
+      "level": "基础",
+      "zh": {
+        "title": "玩转 VS Code",
+        "description": "武装你的瑞士军刀，把编辑器变成真正的开发工作台。",
+        "link": "/zh/tutorials/02-vscode/02.玩转 VS Code.html",
+        "tags": ["工具", "编辑器"]
+      },
+      "en": {
+        "title": "Mastering VS Code",
+        "description": "Arm your Swiss Army Knife and turn your editor into a true development workbench.",
+        "link": "/en/tutorials/02-vscode/02.Mastering VS Code.html",
+        "tags": ["Tools", "Editor"]
+      }
+    },
+    {
+      "id": "03-vim",
+      "number": "03",
+      "status": "done",
+      "level": "基础",
+      "zh": {
+        "title": "VIM 从入门到得体",
+        "description": "没有图形界面？那就用键盘征服世界。",
+        "link": "/zh/tutorials/03-vim/03.VIM 从入门到得体.html",
+        "tags": ["工具", "终端"]
+      },
+      "en": {
+        "title": "VIM: From Entry to Decency",
+        "description": "No GUI? Conquer the world with your keyboard.",
+        "link": "/en/tutorials/03-vim/03.VIM From Entry to Decency.html",
+        "tags": ["Tools", "Terminal"]
+      }
+    },
+    {
+      "id": "04-git",
+      "number": "04",
+      "status": "coming",
+      "level": "基础",
+      "zh": {
+        "title": "拿捏 Git 与 GitHub",
+        "description": "别再把你的代码存桌面了！版本控制是你的必修课。",
+        "link": "/zh/tutorials/04-git/index.html",
+        "tags": ["工具", "版本控制"]
+      },
+      "en": {
+        "title": "Git & GitHub by the Horns",
+        "description": "Stop saving your code to your desktop! Version control is a must.",
+        "link": "/en/tutorials/04-git/index.html",
+        "tags": ["Tools", "Version Control"]
+      }
+    },
+    {
+      "id": "05-cybersecurity",
+      "number": "05",
+      "status": "writing",
+      "level": "进阶",
+      "zh": {
+        "title": "这才是网络安全（全六季）",
+        "description": "省下一万块的培训，免费看完这一套。相声式教学，笑着学会。",
+        "link": "/zh/tutorials/05-cybersecurity/index.html",
+        "tags": ["安全", "渗透"]
+      },
+      "en": {
+        "title": "This Is Cybersecurity (6 Seasons)",
+        "description": "Save yourself the cost of a training course. Watch this for free instead.",
+        "link": "/en/tutorials/05-cybersecurity/index.html",
+        "tags": ["Security", "Penetration"]
+      }
+    },
+    {
+      "id": "06-python",
+      "number": "06",
+      "status": "coming",
+      "level": "中阶",
+      "zh": {
+        "title": "这才是 Python",
+        "description": "从零开始，用 Python 武装你的安全工具链。含 4 个子课程。",
+        "link": "/zh/tutorials/06-python/index.html",
+        "tags": ["Python", "安全工具"]
+      },
+      "en": {
+        "title": "This Is Python",
+        "description": "From scratch, arm your security toolchain with Python. Includes 4 sub-courses.",
+        "link": "/en/tutorials/06-python/index.html",
+        "tags": ["Python", "Security Tools"]
+      }
+    },
+    {
+      "id": "07-rust",
+      "number": "07",
+      "status": "writing",
+      "level": "进阶",
+      "zh": {
+        "title": "Rust：灰烬之战",
+        "description": "这不是一门语言课，这是一场你必须写 Rust 才能活下来的战争。",
+        "link": "/zh/tutorials/07-rust/index.html",
+        "tags": ["Rust", "系统编程"]
+      },
+      "en": {
+        "title": "Rust: The Ash War",
+        "description": "This is not a language course. This is a war you must write Rust to survive.",
+        "link": "/en/tutorials/07-rust/index.html",
+        "tags": ["Rust", "Systems Programming"]
+      }
+    },
+    {
+      "id": "08-cs-canon",
+      "number": "08",
+      "status": "writing",
+      "level": "进阶",
+      "zh": {
+        "title": "详解计算机科学丛书",
+        "description": "追随计算机科学的初心，用「大块头」体会编程之道。",
+        "link": "/zh/tutorials/08-cs-canon/index.html",
+        "tags": ["计算机科学", "读书"]
+      },
+      "en": {
+        "title": "The Computer Science Canon Explained",
+        "description": "Return to the heart of computer science. Grasp the Tao of programming through these mighty tomes.",
+        "link": "/en/tutorials/08-cs-canon/index.html",
+        "tags": ["Computer Science", "Reading"]
+      }
+    }
+  ],
+  "pythonSubCourses": {
+    "zh": [
+      { "id": "06-1", "title": "Web 通识扫盲课", "link": "/zh/tutorials/06-python/06-1-web/index.html" },
+      { "id": "06-2", "title": "Flask Web 开发", "link": "/zh/tutorials/06-python/06-2-flask/index.html" },
+      { "id": "06-3", "title": "Python 安全工具（基础）", "link": "/zh/tutorials/06-python/06-3-basic/index.html" },
+      { "id": "06-4", "title": "Python 安全工具（进阶）", "link": "/zh/tutorials/06-python/06-4-advanced/index.html" }
+    ],
+    "en": [
+      { "id": "06-1", "title": "Web Fundamentals", "link": "/en/tutorials/06-python/06-1-web/index.html" },
+      { "id": "06-2", "title": "Flask Web Development", "link": "/en/tutorials/06-python/06-2-flask/index.html" },
+      { "id": "06-3", "title": "Python Security Tools (Basic)", "link": "/en/tutorials/06-python/06-3-basic/index.html" },
+      { "id": "06-4", "title": "Python Security Tools (Advanced)", "link": "/en/tutorials/06-python/06-4-advanced/index.html" }
+    ]
+  }
+}

@@ -1176,3 +1176,31 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 80px;
 }
+
+/* 语言切换按钮 */
+.lang-switch-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--bg-secondary);
+}
+
+.lang-switch-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+    .lang-switch-btn {
+        font-size: 12px;
+        padding: 3px 10px;
+    }
+}
