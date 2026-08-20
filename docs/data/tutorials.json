@@ -48,22 +48,22 @@
       "status": "done",
       "level": "基础",
       "zh": {
-        "title": "VIM 从入门到得体",
+        "title": "Vim 从入门到得体",
         "description": "没有图形界面？那就用键盘征服世界。",
-        "link": "/zh/tutorials/03-vim/03.VIM 从入门到得体.html",
+        "link": "/zh/tutorials/03-vim/03.Vim 从入门到得体.html",
         "tags": ["工具", "终端"]
       },
       "en": {
-        "title": "VIM: From Entry to Decency",
+        "title": "Vim: From Entry to Decency",
         "description": "No GUI? Conquer the world with your keyboard.",
-        "link": "/en/tutorials/03-vim/03.VIM From Entry to Decency.html",
+        "link": "/en/tutorials/03-vim/03.Vim From Entry to Decency.html",
         "tags": ["Tools", "Terminal"]
       }
     },
     {
       "id": "04-git",
       "number": "04",
-      "status": "coming",
+      "status": "writing",
       "level": "基础",
       "zh": {
         "title": "拿捏 Git 与 GitHub",
@@ -79,38 +79,110 @@
       }
     },
     {
-      "id": "05-cybersecurity",
-      "number": "05",
+      "id": "05-cybersecurity-season0",
+      "number": "05-0",
+      "status": "done",
+      "level": "进阶",
+      "zh": {
+        "title": "第零季：火种",
+        "description": "黑客文化与精神，点燃你的热情。",
+        "link": "/zh/tutorials/05-cybersecurity/0.第零季：火种.html",
+        "tags": ["安全", "文化"]
+      },
+      "en": {
+        "title": "Season Zero: The Spark",
+        "description": "Hacker culture and spirit — ignite your passion.",
+        "link": "/en/tutorials/05-cybersecurity/0.Season Zero The Spark.html",
+        "tags": ["Security", "Culture"]
+      }
+    },
+    {
+      "id": "05-cybersecurity-season1",
+      "number": "05-1",
       "status": "writing",
       "level": "进阶",
       "zh": {
-        "title": "这才是网络安全（全六季）",
-        "description": "省下一万块的培训，免费看完这一套。相声式教学，笑着学会。",
-        "link": "/zh/tutorials/05-cybersecurity/index.html",
+        "title": "第一季：筑基",
+        "description": "Web渗透测试基础，从信息收集到漏洞利用。",
+        "link": "/zh/tutorials/05-cybersecurity/1.第一季：筑基.html",
         "tags": ["安全", "渗透"]
       },
       "en": {
-        "title": "This Is Cybersecurity (6 Seasons)",
-        "description": "Save yourself the cost of a training course. Watch this for free instead.",
-        "link": "/en/tutorials/05-cybersecurity/index.html",
+        "title": "Season One: Foundation",
+        "description": "Web penetration testing fundamentals — from recon to exploitation.",
+        "link": "/en/tutorials/05-cybersecurity/1.Season One Foundation.html",
         "tags": ["Security", "Penetration"]
       }
     },
     {
-      "id": "06-python",
-      "number": "06",
+      "id": "06-python-1",
+      "number": "06-1",
+      "status": "done",
+      "level": "中阶",
+      "zh": {
+        "title": "Web 通识扫盲课",
+        "description": "零基础也能懂的 Web 世界。",
+        "link": "/zh/tutorials/06-python/06-1.Web通识扫盲课.html",
+        "tags": ["Python", "Web"]
+      },
+      "en": {
+        "title": "Web Fundamentals Crash Course",
+        "description": "Understand the Web from scratch.",
+        "link": "/en/tutorials/06-python/06-1.Web Fundamentals.html",
+        "tags": ["Python", "Web"]
+      }
+    },
+    {
+      "id": "06-python-2",
+      "number": "06-2",
+      "status": "writing",
+      "level": "中阶",
+      "zh": {
+        "title": "Flask Web 开发",
+        "description": "用 Python 搭建你的第一个网站。",
+        "link": "/zh/tutorials/06-python/06-2.Flask Web开发.html",
+        "tags": ["Python", "Flask"]
+      },
+      "en": {
+        "title": "Flask Web Development",
+        "description": "Build your first website with Python.",
+        "link": "/en/tutorials/06-python/06-2.Flask Web Development.html",
+        "tags": ["Python", "Flask"]
+      }
+    },
+    {
+      "id": "06-python-3",
+      "number": "06-3",
       "status": "coming",
       "level": "中阶",
       "zh": {
-        "title": "这才是 Python",
-        "description": "从零开始，用 Python 武装你的安全工具链。含 4 个子课程。",
-        "link": "/zh/tutorials/06-python/index.html",
+        "title": "用 Python 写安全工具（基础）",
+        "description": "从爬虫到 GUI，把你的脚本包装成工具。",
+        "link": "/zh/tutorials/06-python/06-3.用Python写安全工具（基础）.html",
         "tags": ["Python", "安全工具"]
       },
       "en": {
-        "title": "This Is Python",
-        "description": "From scratch, arm your security toolchain with Python. Includes 4 sub-courses.",
-        "link": "/en/tutorials/06-python/index.html",
+        "title": "Writing Security Tools in Python (Basic)",
+        "description": "From web scraping to GUI — wrap your scripts into tools.",
+        "link": "/en/tutorials/06-python/06-3.Writing Security Tools in Python (Basic).html",
+        "tags": ["Python", "Security Tools"]
+      }
+    },
+    {
+      "id": "06-python-4",
+      "number": "06-4",
+      "status": "coming",
+      "level": "进阶",
+      "zh": {
+        "title": "用 Python 写安全工具（进阶）",
+        "description": "端口扫描器、弱口令爆破、日志分析脚本。",
+        "link": "/zh/tutorials/06-python/06-4.用Python写安全工具（进阶）.html",
+        "tags": ["Python", "安全工具"]
+      },
+      "en": {
+        "title": "Writing Security Tools in Python (Advanced)",
+        "description": "Port scanners, brute-force tools, log analysis scripts.",
+        "link": "/en/tutorials/06-python/06-4.Writing Security Tools in Python (Advanced).html",
         "tags": ["Python", "Security Tools"]
       }
     },
@@ -153,16 +225,16 @@
   ],
   "pythonSubCourses": {
     "zh": [
-      { "id": "06-1", "title": "Web 通识扫盲课", "link": "/zh/tutorials/06-python/06-1-web/index.html" },
-      { "id": "06-2", "title": "Flask Web 开发", "link": "/zh/tutorials/06-python/06-2-flask/index.html" },
-      { "id": "06-3", "title": "Python 安全工具（基础）", "link": "/zh/tutorials/06-python/06-3-basic/index.html" },
-      { "id": "06-4", "title": "Python 安全工具（进阶）", "link": "/zh/tutorials/06-python/06-4-advanced/index.html" }
+      { "id": "06-1", "title": "Web 通识扫盲课", "link": "/zh/tutorials/06-python/06-1.Web通识扫盲课.html" },
+      { "id": "06-2", "title": "Flask Web 开发", "link": "/zh/tutorials/06-python/06-2.Flask Web开发.html" },
+      { "id": "06-3", "title": "用 Python 写安全工具（基础）", "link": "/zh/tutorials/06-python/06-3.用Python写安全工具（基础）.html" },
+      { "id": "06-4", "title": "用 Python 写安全工具（进阶）", "link": "/zh/tutorials/06-python/06-4.用Python写安全工具（进阶）.html" }
     ],
     "en": [
-      { "id": "06-1", "title": "Web Fundamentals", "link": "/en/tutorials/06-python/06-1-web/index.html" },
-      { "id": "06-2", "title": "Flask Web Development", "link": "/en/tutorials/06-python/06-2-flask/index.html" },
-      { "id": "06-3", "title": "Python Security Tools (Basic)", "link": "/en/tutorials/06-python/06-3-basic/index.html" },
-      { "id": "06-4", "title": "Python Security Tools (Advanced)", "link": "/en/tutorials/06-python/06-4-advanced/index.html" }
+      { "id": "06-1", "title": "Web Fundamentals", "link": "/en/tutorials/06-python/06-1.Web Fundamentals.html" },
+      { "id": "06-2", "title": "Flask Web Development", "link": "/en/tutorials/06-python/06-2.Flask Web Development.html" },
+      { "id": "06-3", "title": "Python Security Tools (Basic)", "link": "/en/tutorials/06-python/06-3.Python Security Tools (Basic).html" },
+      { "id": "06-4", "title": "Python Security Tools (Advanced)", "link": "/en/tutorials/06-python/06-4.Python Security Tools (Advanced).html" }
     ]
   }
 }

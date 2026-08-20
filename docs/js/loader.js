@@ -20,14 +20,18 @@ function getCurrentLang() {
 
 function buildSidebarConfig(data, lang) {
     var categoryMap = {
-        '01-markdown': '基础工具',
-        '02-vscode': '基础工具',
-        '03-vim': '基础工具',
-        '04-git': '基础工具',
-        '05-cybersecurity': '网络安全（主线）',
-        '06-python': 'Python 系列（中阶）',
-        '07-rust': '进阶之路',
-        '08-cs-canon': '进阶之路'
+    '01-markdown': '基础工具',
+    '02-vscode': '基础工具',
+    '03-vim': '基础工具',
+    '04-git': '基础工具',
+    '05-cybersecurity-season0': '网络安全（主线）',
+    '05-cybersecurity-season1': '网络安全（主线）',
+    '06-python-1': 'Python 系列（中阶）',
+    '06-python-2': 'Python 系列（中阶）',
+    '06-python-3': 'Python 系列（中阶）',
+    '06-python-4': 'Python 系列（中阶）',
+    '07-rust': '进阶之路',
+    '08-cs-canon': '进阶之路'
     }
     
     var categoryLabels = {
