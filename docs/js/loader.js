@@ -4,13 +4,18 @@
 // ============================================================
 
 // ============================================================
-// 辅助函数：获取当前语言
+// 辅助函数：获取当前语言（从 URL 路径）
 // ============================================================
 function getCurrentLang() {
     var path = window.location.pathname
     if (path.startsWith('/zh/')) return 'zh'
     if (path.startsWith('/en/')) return 'en'
-    return 'zh'
+    // 如果路径不包含语言标识，尝试从 localStorage 读取
+    var saved = localStorage.getItem('nightkeeper-lang')
+    if (saved === 'zh' || saved === 'en') return saved
+    // 最后根据浏览器语言
+    var browserLang = navigator.language || navigator.userLanguage
+    return (browserLang && browserLang.startsWith('zh')) ? 'zh' : 'en'
 }
 
 function buildSidebarConfig(data, lang) {
@@ -107,11 +112,15 @@ fetch('/data/tutorials.json')
             }
             
             var currentPath = window.location.pathname
+            var lang = getCurrentLang()
             
-            // 首页：渲染侧边栏
-            if (currentPath === '/zh/' || currentPath === '/zh/index.html' ||
-                currentPath === '/en/' || currentPath === '/en/index.html' ||
-                currentPath === '/' || currentPath === '/index.html') {
+            // 判断是否首页（/zh/ 或 /en/ 精确匹配）
+            var isHome = (currentPath === '/' + lang + '/' || 
+                          currentPath === '/' + lang + '/index.html' ||
+                          currentPath === '/' || currentPath === '/index.html')
+            
+            if (isHome) {
+                // 首页：渲染侧边栏
                 if (typeof renderSidebar === 'function') {
                     renderSidebar()
                     console.log('🏠 首页：渲染侧边栏')

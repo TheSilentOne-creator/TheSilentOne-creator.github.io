@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>守夜者之书</title>
+    <title>守夜者之书 · 从零开始学网络安全</title>
     <script>
-        // 检测浏览器语言，跳转到对应版本
+        // ============================================================
+        // 根目录自动跳转：检测语言偏好 → /zh/ 或 /en/
+        // ============================================================
         (function() {
-            // 1. 检查 localStorage 是否有保存的语言偏好
+            // 1. 检查 localStorage
             var savedLang = localStorage.getItem('nightkeeper-lang')
             if (savedLang === 'zh' || savedLang === 'en') {
                 window.location.replace('/' + savedLang + '/')
                 return
             }
-            
-            // 2. 检测浏览器语言
+
+            // 2. 检查浏览器语言
             var browserLang = navigator.language || navigator.userLanguage
-            var targetLang = browserLang && browserLang.startsWith('zh') ? 'zh' : 'en'
-            
+            var targetLang = (browserLang && browserLang.startsWith('zh')) ? 'zh' : 'en'
+
             // 3. 跳转
             window.location.replace('/' + targetLang + '/')
         })()

@@ -12,7 +12,7 @@
 <body>
     <div id="navbar"></div>
 
-    <main style="display: flex; align-items: center; justify-content: center; min-height: 70vh; margin-left: 0; padding: 0 20px;">
+    <main style="display: flex; align-items: center; justify-content: center; min-height: 80vh; margin-left: 0; padding: 0 20px;">
         <div style="text-align: center; max-width: 600px;">
             <h1 style="font-size: 80px; font-family: var(--font-mono); opacity: 0.12; margin: 0; line-height: 1; color: var(--text-primary); font-weight: 700;">
                 404
@@ -29,38 +29,28 @@
         </div>
     </main>
 
-    <div id="footer"></div>
-
     <script>
         // ============================================================
-        // 语言判断：根据当前路径或 localStorage 决定 404 显示语言
+        // 语言判断 + 设置 404 内容
         // ============================================================
         (function() {
             var path = window.location.pathname
             var lang = 'zh'
 
-            // 1. 从路径判断
             if (path.startsWith('/en/')) {
                 lang = 'en'
             } else if (path.startsWith('/zh/')) {
                 lang = 'zh'
             } else {
-                // 2. 从 localStorage 读取
                 var saved = localStorage.getItem('nightkeeper-lang')
                 if (saved === 'en' || saved === 'zh') {
                     lang = saved
                 } else {
-                    // 3. 从浏览器语言判断
                     var browserLang = navigator.language || navigator.userLanguage
-                    if (browserLang && browserLang.startsWith('zh')) {
-                        lang = 'zh'
-                    } else {
-                        lang = 'en'
-                    }
+                    lang = (browserLang && browserLang.startsWith('zh')) ? 'zh' : 'en'
                 }
             }
 
-            // 根据语言设置 404 内容
             var msgEl = document.getElementById('error-msg')
             var hintEl = document.getElementById('error-hint')
             var homeLink = document.getElementById('back-home')
@@ -81,6 +71,21 @@
         })()
     </script>
 
-    <script src="/js/loader.js"></script>
+    <!-- ============================================================
+    加载导航栏（只渲染导航栏）
+    ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var script = document.createElement('script')
+            script.src = '/js/components.js'
+            script.onload = function() {
+                if (typeof renderNavbar === 'function') {
+                    renderNavbar()
+                    console.log('✅ 404：导航栏已渲染')
+                }
+            }
+            document.body.appendChild(script)
+        })
+    </script>
 </body>
 </html>
