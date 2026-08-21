@@ -22,7 +22,7 @@
 
             <!-- ====== 面包屑 ====== -->
             <nav class="breadcrumb">
-                <a href="/">首页</a>
+                <a href="/zh/">首页</a>
                 <span class="separator">/</span>
                 <span class="current">教程</span>
             </nav>
@@ -41,7 +41,7 @@
             </header>
 
             <!-- ====== 学习路径图 ====== -->
-            <section id="tutorials-path" style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 0px 16px;">
+            <section id="tutorials-path" style="margin-bottom: 48px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); padding: 20px 16px;">
                 <h2 style="font-family: var(--font-mono); font-size: 18px; margin-bottom: 12px;">🗺️ 学习路径</h2>
                 <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">
                     核心原则：以网络安全为主线，工具和语言在实战中随用随学。
@@ -99,7 +99,7 @@
             <div class="tutorial-item done">
                 <span class="tutorial-num">#01</span>
                 <div class="tutorial-info">
-                    <h3><a href="/tutorials/01-markdown/01.玩转 Markdown.html">玩转 Markdown</a></h3>
+                    <h3><a href="/zh/tutorials/01-markdown/zh-01-0.html">玩转 Markdown</a></h3>
                     <p>别再傻乎乎地用记事本写笔记了。十分钟学会，受用一辈子。</p>
                 </div>
                 <span class="tutorial-status done">✅ 已完成</span>
@@ -117,7 +117,7 @@
             <div class="tutorial-item done">
                 <span class="tutorial-num">#03</span>
                 <div class="tutorial-info">
-                    <h3><a href="/tutorials/03-vim/03. Vim 从入门到得体.html">Vim 从入门到得体</a></h3>
+                    <h3><a href="/zh/tutorials/03-vim/zh-03-0.html">Vim 从入门到得体</a></h3>
                     <p>没有图形界面？那就用键盘征服世界。</p>
                 </div>
                 <span class="tutorial-status done">✅ 已完成</span>
@@ -129,7 +129,7 @@
                     <h3><span style="color: var(--text-secondary);">拿捏 Git 与 GitHub</span></h3>
                     <p>别再把你的代码存桌面了！版本控制是你的必修课。</p>
                 </div>
-                <span class="tutorial-status coming">✍️ 编写中</span>
+                <span class="tutorial-status writing">✍️ 编写中</span>
             </div>
 
             <div class="tutorial-item writing">
@@ -153,7 +153,7 @@
                         <span>06-4. 安全工具（进阶）</span>
                     </div>
                 </div>
-                <span class="tutorial-status coming">✍️ 编写中</span>
+                <span class="tutorial-status writing">✍️ 编写中</span>
             </div>
 
             <div class="tutorial-item writing">
@@ -174,12 +174,12 @@
                 <span class="tutorial-status writing">✍️ 编写中</span>
             </div>
 
-            <!-- ====== 各教程介绍 ====== -->
+            <!-- ====== 各教程介绍（默认展开，不折叠） ====== -->
             <section id="tutorials-intro" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 20px; cursor: pointer;" onclick="toggleIntro()">
-                    📖 各教程介绍 <span id="introToggle" style="font-size: 14px; color: var(--text-muted);">(点击展开)</span>
+                <h2 id="intro-heading" style="font-family: var(--font-mono); font-size: 20px; margin-bottom: 12px;">
+                    📖 各教程介绍
                 </h2>
-                <div id="introContent" style="display: none;">
+                <div id="introContent">
 
                     <div class="intro-card"><h4>01. 玩转 Markdown</h4><p><strong>别再傻乎乎地用记事本写笔记了！</strong><br>Markdown 像极了武林秘籍里的 "轻功"——学起来只需要十分钟，但用好了能让你飞一辈子。只教你最常用的 5% 语法。<br><span style="color: var(--accent);">学完解锁：</span>优雅地写出一份连程序员看了都想 Star 的笔记。</p></div>
 
@@ -202,7 +202,7 @@
 
             <!-- ====== 关于守夜者 ====== -->
             <section id="tutorials-about" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
-                <h2 style="font-family: var(--font-mono); font-size: 20px;">🌙 关于守夜者</h2>
+                <h2 id="about-heading" style="font-family: var(--font-mono); font-size: 20px;">🌙 关于守夜者</h2>
                 <p style="color: var(--text-secondary);">
                     守夜者是一个技术学习社区。<br>
                     <strong>我们相信</strong>：从零开始，一起进步。<br>
@@ -220,20 +220,6 @@
     </main>
 
     <div id="footer"></div>
-
-    <script>
-        function toggleIntro() {
-            const content = document.getElementById('introContent')
-            const toggle = document.getElementById('introToggle')
-            if (content.style.display === 'none') {
-                content.style.display = 'block'
-                toggle.textContent = '(点击收起)'
-            } else {
-                content.style.display = 'none'
-                toggle.textContent = '(点击展开)'
-            }
-        }
-    </script>
 
     <script src="/js/loader.js"></script>
 </body>
