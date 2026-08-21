@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三章 - 写作效率技巧 · 守夜者之书</title>
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                theme: 'dark',
+                themeVariables: {
+                    background: '#0a0e14',
+                    primaryColor: '#64ffda',
+                    primaryTextColor: '#e6edf3',
+                    primaryBorderColor: '#64ffda',
+                    lineColor: '#64ffda',
+                    secondaryColor: '#1a2636',
+                    tertiaryColor: '#111821'
+                }
+            });
+        });
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+    <style>
+        .sidebar-menu .sidebar-category {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            padding: 16px 12px 8px 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 4px 12px 4px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .sidebar-menu li a:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+        .sidebar-menu li a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+        }
+        .mermaid {
+            background: var(--bg-code);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0 24px 0;
+            border-left: 3px solid var(--accent);
+            text-align: center;
+        }
+        .MathJax {
+            color: var(--text-primary) !important;
+        }
+        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }
+        .codehilite pre { margin: 0; background: transparent; }
+        .tutorial-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .tutorial-body th, .tutorial-body td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .tutorial-body th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tutorial-body td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <ul class="sidebar-menu">
+                <li class="sidebar-category">暂无目录</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-inner tutorial-content">
+
+            <nav class="breadcrumb">
+                <a href="/zh/">首页</a>
+                <span class="separator">/</span>
+                <a href="/zh/tutorials/">教程</a>
+                <span class="separator">/</span>
+                <span class="current">02-vscode</span>
+            </nav>
+
+            <header class="tutorial-header">
+                <div class="tutorial-meta">
+                    <span class="tutorial-number">02</span>
+                    <span class="tutorial-status done">✅ 已完成</span>
+                    <span class="tutorial-level">基础</span>
+                    <span class="tutorial-readtime">⏱️ 约 30 分钟</span>
+                </div>
+                <h1>玩转 VS Code</h1>
+                <p class="tutorial-subtitle">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+            </header>
+
+            <section class="tutorial-body">
+                <h1 id="-">第三章 - 写作效率技巧</h1>
+<h2 id="31">3.1 快速打开文件：别再在一堆标签页里翻来翻去了</h2>
+<p>你在 VS Code 里是怎么打开文件的？</p>
+<p>是不是这样：左手离开键盘 → 摸到鼠标 → 眼睛看向左侧的“资源管理器” → 在一堆文件夹里一层一层地找 → 点一下文件名 → 手回到键盘上。</p>
+<p>如果你同时开着七八个文件，这个动作你一天可能要重复几十次。每一次都在打断你的写作思路，让你的手离开键盘去摸鼠标，再回来重新找到刚才敲到一半的那一行。</p>
+<p><strong>快速打开文件，就是要消灭这个“切换成本”。</strong></p>
+<hr />
+<h3 id="311-ctrlp">3.1.1 快捷键：<code>Ctrl+P</code><!-- omit in toc --></h3>
+<p>按 <code>Ctrl+P</code>（Mac 上是 <code>Cmd+P</code>），屏幕顶部中央会弹出一个搜索框。</p>
+<p><img alt="Ctrl+P file search" src="./Images/Chapter 3/3.1/ctrl-p.png" /></p>
+<p>在这个搜索框里，输入文件名的一部分——不需要完整的文件名，不需要完整的路径。只需要几个字母，VS Code 会模糊匹配所有你当前打开过的文件。</p>
+<p>比如，你想打开 <code>01-玩转-Markdown.md</code>，你只需要输入 <code>01</code> 或 <code>mark</code> 或 <code>md</code> 中的任意几个字母，文件名就会出现在列表里。按回车，文件立刻打开。</p>
+<blockquote>
+<p><em>Kate 按了 <code>Ctrl+P</code>，输入了 <code>mark</code>，她的 Markdown 教程文件瞬间出现在列表最前面。她按了回车，文件打开了。她说：“我以前每次打开这个文件，都是去侧边栏翻——先找到文件夹，再找到子文件夹，再在一堆文件里找。现在只需要 <code>Ctrl+P</code> 然后打几个字母。这中间我省了多少秒？”</em></p>
+<p><em>“大概每次 3-5 秒。一天几十次，就是几分钟。一年下来，可能是几十个小时——几十个小时你不去找文件，而是在写内容。”</em></p>
+</blockquote>
+<hr />
+<h3 id="312">3.1.2 搜索技巧<!-- omit in toc --></h3>
+<p><code>Ctrl+P</code> 不只是“输入文件名”，它有几个非常实用的搜索技巧：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">技巧</th>
+<th style="text-align: left;">输入方式</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>模糊匹配</strong></td>
+<td style="text-align: left;">文件名里的任意几个字母</td>
+<td style="text-align: left;">快速缩小列表范围</td>
+<td style="text-align: left;">输入 <code>pla</code> 能匹配到 <code>01-玩转-Markdown.md</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>路径匹配</strong></td>
+<td style="text-align: left;">文件夹名 + 文件名</td>
+<td style="text-align: left;">在特定文件夹里找文件</td>
+<td style="text-align: left;">输入 <code>chapter/01</code> 只匹配 <code>chapter</code> 文件夹里的 <code>01</code> 文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最近打开</strong></td>
+<td style="text-align: left;">直接按 <code>Ctrl+P</code>，不看列表</td>
+<td style="text-align: left;">列表默认按最近打开排序</td>
+<td style="text-align: left;">你刚关掉的文件排在最上面，直接回车就打开</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>守夜人心法：</strong> <code>Ctrl+P</code> 是你一天里用得最多的快捷键。把它刻进肌肉记忆——每当你需要打开另一个文件，第一反应不是去摸鼠标，而是按下 <code>Ctrl+P</code>。</p>
+</blockquote>
+<hr />
+<h3 id="313">3.1.3 和侧边栏的关系<!-- omit in toc --></h3>
+<p><code>Ctrl+P</code> 不是要取代侧边栏——侧边栏适合<strong>浏览</strong>你不知道名字的文件，而 <code>Ctrl+P</code> 适合<strong>快速定位</strong>你已经知道名字的文件。两者<strong>是互补的</strong>，<strong>不是互斥的</strong>。</p>
+<ul>
+<li><strong>知道文件叫什么</strong> → <code>Ctrl+P</code>，几个字母定位</li>
+<li><strong>不知道文件叫什么，想浏览整个项目结构</strong> → 侧边栏，一层层展开</li>
+<li><strong>刚关掉的文件</strong> → <code>Ctrl+P</code>，它排在最上面</li>
+</ul>
+<blockquote>
+<p><em>Kate 说：“所以我不用在侧边栏和 <code>Ctrl+P</code> 之间二选一——知道名字用 <code>Ctrl+P</code>，不知道名字用侧边栏。”</em></p>
+</blockquote>
+<hr />
+<h2 id="32">3.2 多光标编辑：同时改多个地方，不用一个一个来</h2>
+<p>你有没有遇到过这种情况：一篇笔记里，你写错了同一个词——比如把“守夜者”写成了“守夜人”——这个词出现了五六次。你一个一个地找到、选中、修改、再找下一个。改了五次，手酸眼累。</p>
+<p><strong>多光标编辑，就是要让你同时改完所有这些地方，一次搞定。</strong></p>
+<hr />
+<h3 id="321-ctrld">3.2.1 快捷键：<code>Ctrl+D</code><!-- omit in toc --></h3>
+<p>把光标放在一个单词上（或者选中一段文字），按 <code>Ctrl+D</code>（Mac 上是 <code>Cmd+D</code>）。</p>
+<p>第一次按 <code>Ctrl+D</code>：VS Code 会选中当前光标所在的单词。<br />
+第二次按 <code>Ctrl+D</code>：VS Code 会找到下一个相同的单词，<strong>同时选中它</strong>。现在你有两个光标了。<br />
+第三次按 <code>Ctrl+D</code>：第三个相同的单词也被选中。现在你有三个光标。</p>
+<p>这三个光标是<strong>同时工作的</strong>。你输入任何东西，三个光标位置会<strong>同时</strong>出现你输入的内容。你按删除键，三个光标位置会<strong>同时</strong>删除。你按方向键，三个光标会<strong>同时</strong>移动。</p>
+<blockquote>
+<p><em>Kate 把光标放在“守夜人”上，按了五次 <code>Ctrl+D</code>——整篇笔记里所有五个“守夜人”全部被选中。然后她敲了“守夜者”——五个地方同时改完了。她说：“我以前改这个错别字要花半分钟，一个一个找、一个一个改。现在我只需要五次 <code>Ctrl+D</code> 和三个字。这不是快捷键，这是时间机器。”</em></p>
+</blockquote>
+<hr />
+<h3 id="322-ctrlk-ctrld">3.2.2 跳过不需要的匹配：<code>Ctrl+K Ctrl+D</code><!-- omit in toc --></h3>
+<p>有时候，<code>Ctrl+D</code> 会选中一个你不想要的位置——比如“守夜者”出现了六次，但有一处是故意写成“守夜人”的，你不想改那一处。</p>
+<p>这时候，按 <code>Ctrl+K</code> 然后 <code>Ctrl+D</code>（注意是先后按，不是同时按）。这个操作会<strong>跳过当前匹配</strong>，把刚刚选中的那个额外光标取消掉，然后跳到下一个匹配。</p>
+<ul>
+<li><code>Ctrl+D</code>：选中下一个相同词，增加一个光标</li>
+<li><code>Ctrl+K Ctrl+D</code>：跳过当前选中的那个词，取消刚才增加的光标</li>
+</ul>
+<blockquote>
+<p><em>Kate 在第六个“守夜人”上不想改，按了 <code>Ctrl+K Ctrl+D</code>，那个光标消失了。她说：“所以我可以选择性跳过——不是全选，是挑着选。”</em></p>
+</blockquote>
+<hr />
+<h3 id="323-altclick">3.2.3 在任意位置添加光标：<code>Alt+Click</code><!-- omit in toc --></h3>
+<p>如果你想要的光标位置不是同一个单词——比如你想在三行代码的末尾各加一个分号——<code>Ctrl+D</code> 帮不了你。</p>
+<p>这时候用鼠标：按住 <code>Alt</code> 键（Mac 上是 <code>Option</code> 键），然后在你想加光标的位置<strong>点一下</strong>。每点一下，那个位置就会出现一个新光标。你可以点出任意多个光标，分布在不同行的不同列。</p>
+<p>然后你输入任何东西，所有光标位置会同时出现。</p>
+<blockquote>
+<p><em>Kate 按住 <code>Alt</code>，在三行 Markdown 标题的末尾各点了一下，然后敲了 <code>🔥</code>——三个标题末尾同时出现了一个火焰表情。她说：“这个操作是‘随心所欲版’的多光标——我想在哪加就在哪加。”</em></p>
+</blockquote>
+<hr />
+<h3 id="324">3.2.4 多光标的使用场景<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">场景</th>
+<th style="text-align: left;">用什么操作</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">批量修改同一个词</td>
+<td style="text-align: left;"><code>Ctrl+D</code></td>
+<td style="text-align: left;">把“守夜人”改成“守夜者”</td>
+</tr>
+<tr>
+<td style="text-align: left;">在多个行末尾同时加内容</td>
+<td style="text-align: left;">按住 <code>Alt</code> + 逐行点击</td>
+<td style="text-align: left;">在三行标题末尾同时加 <code>🔥</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">同时编辑多个相同的结构</td>
+<td style="text-align: left;"><code>Ctrl+D</code></td>
+<td style="text-align: left;">修改多个 <code>&lt;a&gt;</code> 标签里的链接地址</td>
+</tr>
+<tr>
+<td style="text-align: left;">格式化多个相似的列表项</td>
+<td style="text-align: left;"><code>Ctrl+D</code> 或 <code>Alt+Click</code></td>
+<td style="text-align: left;">给多个列表项的开头加 <code>**</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>守夜人心法：</strong> <code>Ctrl+D</code> 是你对付“重复劳动”的最强武器。如果你发现自己在做同一件事超过三次——停下来，想想能不能用 <code>Ctrl+D</code> 一口气搞定。这不是偷懒，这是效率。</p>
+</blockquote>
+<hr />
+<h2 id="33">3.3 分屏写作</h2>
+<p>你正在写一篇 Markdown 笔记，左边是源码，右边是预览。这已经很爽了——但有时候，你需要的不是“左边写右边看”，而是<strong>同时看两份不同的内容</strong>。</p>
+<p>比如：你正在写一篇教程，需要参考另一篇笔记里的内容。你现在的做法可能是 <code>Ctrl+Tab</code> 在两个文件之间来回切——看一眼参考笔记，切回来写几行，忘了，再切回去看一眼，再切回来。两个文件在你面前来回跳，思路也跟着来回跳。</p>
+<p>分屏写作就是解决这个问题的。它让你在<strong>同一个 VS Code 窗口里同时打开两个编辑器</strong>，左右各一个，互相独立。你可以左边看参考笔记，右边写自己的内容——或者左边写 Markdown 源码，右边看实时预览——或者左边写代码，右边看文档。</p>
+<blockquote>
+<p><em>Kate 说：“所以分屏就是‘双屏模式’。我不是在两个窗口之间切来切去，而是同时看到两个文件。”</em></p>
+</blockquote>
+<hr />
+<h3 id="331">3.3.1 打开分屏<!-- omit in toc --></h3>
+<p>按 <code>Ctrl+\</code>（Mac 上是 <code>Cmd+\</code>）。</p>
+<p>编辑区会从中间分成两半。当前打开的文件会出现在左边，右边是一个空的编辑区。</p>
+<p>你现在有两个编辑器并排在一起。它们互相独立——你在左边滚动，右边不动；你在右边打字，左边不变。你可以把任意文件拖到左边或右边，也可以在左边和右边各自打开不同的文件。</p>
+<p>如果你想把两个编辑器上下排列而不是左右排列，按 <code>Ctrl+K</code> 然后 <code>Ctrl+\</code>（注意是先按 <code>Ctrl+K</code>，松开，再按 <code>Ctrl+\</code>）。这个操作会在<strong>左右分屏</strong>和<strong>上下分屏</strong>之间切换。</p>
+<blockquote>
+<p><em>Kate 按了一下 <code>Ctrl+\</code>，编辑区变成了两半。她说：“所以我可以左边写笔记、右边看参考文章？不用 Alt+Tab 来回切？”</em></p>
+<p>“对。分屏是‘一边读一边写’的最佳姿势。”</p>
+</blockquote>
+<hr />
+<h3 id="332">3.3.2 在分屏之间切换<!-- omit in toc --></h3>
+<p>你现在有两个编辑器，光标停在其中一个里面。怎么把光标切到另一个编辑器里？</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+1</code></td>
+<td style="text-align: left;">跳到<strong>左边</strong>的编辑器</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+2</code></td>
+<td style="text-align: left;">跳到<strong>右边</strong>的编辑器</td>
+</tr>
+</tbody>
+</table>
+<p>如果你开了三个分屏（是的，你可以继续按 <code>Ctrl+\</code> 再分出一个），<code>Ctrl+3</code> 跳到第三个，以此类推。</p>
+<blockquote>
+<p><em>Kate 说：“所以 <code>Ctrl+\</code> 是开分屏，<code>Ctrl+1</code> 和 <code>Ctrl+2</code> 是在左右之间跳。三个键，两个动作，我的屏幕变成了两张桌子。”</em></p>
+</blockquote>
+<hr />
+<h3 id="333">3.3.3 关闭分屏<!-- omit in toc --></h3>
+<p>把不想保留的那个编辑器里的文件关掉：<code>Ctrl+W</code>。</p>
+<p>当右边编辑器里的最后一个文件被关掉，右边的编辑器会自动消失，剩下左边一个编辑器独占整个屏幕——回到单屏模式。</p>
+<p>如果你想把当前编辑器<strong>最大化</strong>（暂时盖住另一个编辑器），按 <code>Ctrl+Shift+Enter</code>。再按一次恢复分屏。这不是“关掉”另一个编辑器，只是“暂时让它让开”，让你专注当前文件。</p>
+<hr />
+<h3 id="334">3.3.4 分屏的实战场景<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">场景</th>
+<th style="text-align: left;">左边</th>
+<th style="text-align: left;">右边</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>看教程</strong></td>
+<td style="text-align: left;">我的教程 Markdown 源码</td>
+<td style="text-align: left;">实时预览（MPE）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>写笔记</strong></td>
+<td style="text-align: left;">你的笔记 Markdown 源码</td>
+<td style="text-align: left;">参考文章/视频</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>写代码</strong></td>
+<td style="text-align: left;">你的代码文件</td>
+<td style="text-align: left;">文档/API 参考</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>对比文件</strong></td>
+<td style="text-align: left;">旧版本文件</td>
+<td style="text-align: left;">新版本文件</td>
+</tr>
+</tbody>
+</table>
+<p>最后一个场景特别有用——你在 02 教程 1.4.4 节学过 <code>code -d</code> 命令行对比文件，分屏是同一个功能的“编辑器内版本”。你可以把两个文件分别拖到左右两个编辑器里，用眼睛逐行对比哪里改了哪里没改。</p>
+<blockquote>
+<p><em>Kate 把她昨天和今天的笔记分别放在左右两个编辑器里，一行一行对比。她说：“昨天的我在左边，今天的我在右边。中间那条线，是我一天学到的东西。”</em></p>
+</blockquote>
+<hr />
+<h3 id="335">3.3.5 分屏和预览的区别<!-- omit in toc --></h3>
+<p>你可能已经发现了——你从 01 教程开始就在用“左边写源码，右边看预览”。那也是一种分屏。MPE 预览窗口本质上就是一个<strong>只读的分屏编辑器</strong>——它和普通编辑器分屏的区别只是：预览窗口不能编辑，只能看。</p>
+<p>如果你只想一边写一边看效果，用预览就够了。如果你需要同时编辑两个文件——两个都能改、都能保存——用分屏。</p>
+<blockquote>
+<p><em>Kate 说：“所以我这一个月来一直在用分屏，只是我自己不知道。左边写 Markdown，右边 MPE 预览——这就是分屏。只不过右边的编辑器是只读的。”</em></p>
+<p>“对。分屏是你已经在用的功能，这一节只是告诉你——右边的编辑器不只能预览，还能打开任何文件。”</p>
+</blockquote>
+<hr />
+<h3 id="336">3.3.6 本节小结<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+\</code></td>
+<td style="text-align: left;">打开/切换分屏（左右）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+K Ctrl+\</code></td>
+<td style="text-align: left;">切换分屏方向（左右 ↔ 上下）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+1</code> / <code>Ctrl+2</code></td>
+<td style="text-align: left;">跳到左边/右边的编辑器</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+W</code></td>
+<td style="text-align: left;">关闭当前编辑器（分屏也随之关闭）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Shift+Enter</code></td>
+<td style="text-align: left;">最大化/还原当前编辑器</td>
+</tr>
+</tbody>
+</table>
+<p>分屏不是“高级技巧”——它是你每天都会用到的写作方式。左边读、右边写、中间一条线，你的思路在这条线上来回流动，不再被 <code>Alt+Tab</code> 打断。🔪</p>
+<hr />
+<h2 id="34">3.4 保存时自动格式化</h2>
+<p><strong>什么是格式化文件？</strong></p>
+<p>格式化文件，就是让源码的“长相”保持一致。同一篇笔记，你可以写成这样：</p>
+<div class="codehilite"><pre><span></span><span class="gu">## 今天学了什么</span>
+
+<span class="k">-</span><span class="w"> </span>标题
+<span class="k">-</span><span class="w"> </span>列表
+<span class="k">-</span><span class="w"> </span>表格
+</pre></div>
+
+<p>也可以写成这样：</p>
+<div class="codehilite"><pre><span></span><span class="gu">## 今天学了什么</span>
+<span class="k">-</span><span class="w"> </span>标题
+-列表
+-表格
+</pre></div>
+
+<p>两段源码在预览里渲染出来的效果<strong>完全一样</strong>——都是一个大标题下面跟着三个小黑点。但你扫一眼源码就知道，第一段整齐、干净、每个 <code>-</code> 后面都有空格；第二段有的有空格有的没有，读起来像走在坑坑洼洼的路上。</p>
+<p>格式化做的事情就是：<strong>把第二段自动变成第一段。</strong> 它不改你写的内容，只改你写的方式——空格、缩进、空行、对齐。这些细节不影响电脑理解你的文档，但影响人阅读你的源码。</p>
+<p><strong>为什么需要自动格式化？</strong></p>
+<p>你可以手动遵守这些规则——01 教程 4.8 节教了你所有排版技巧，你完全可以每次写完笔记之后自己检查一遍。但三个月后你回来翻一篇旧笔记，你会发现自己当初漏了几个空格、忘了几处空行。人不是机器——人会忘、会累、会在凌晨一点写完笔记之后懒得检查。</p>
+<p>自动格式化就是帮你解决这个问题的：你只管写内容，格式交给工具。按一下保存，源码自动变整齐。</p>
+<blockquote>
+<p><em>Kate 说：“所以自动格式化就是‘我写的时候随便乱写，保存的时候它帮我收拾’。就像一个自动整理桌面的机器人。”</em></p>
+</blockquote>
+<hr />
+<h3 id="341">3.4.1 配置自动格式化<!-- omit in toc --></h3>
+<p>自动格式化不是 VS Code 自带的功能——它需要你安装一个额外的插件：<strong>Prettier</strong>。</p>
+<p>Prettier 是一个通用的代码格式化工具，支持 Markdown、HTML、CSS、JavaScript 等几十种语言。你在 01 教程里装的六神装没有它，因为 01 教程的定位是“写 Markdown 的语法”，而 Prettier 是“帮你维护代码整洁的工具”。现在你在 02 教程里学 VS Code 的效率技巧，Prettier 正好属于这一块。</p>
+<p><strong>第一步：安装 Prettier 插件</strong>  </p>
+<ol>
+<li>按 <code>Ctrl+Shift+X</code> 打开扩展商店</li>
+<li>搜索 <code>Prettier - Code formatter</code></li>
+<li>认准作者是 <strong>Prettier</strong>（不是其他个人开发者），安装它</li>
+</ol>
+<p><img alt="Prettier 插件" src="./Images/Chapter 3/3.4/prettier-extension.png" /></p>
+<p><strong>第二步：开启保存时自动格式化</strong>  </p>
+<ol>
+<li>按 <code>Ctrl+,</code> 打开 VS Code 设置</li>
+<li>在搜索框里输入 <code>format on save</code></li>
+<li>找到 <strong>Editor: Format On Save</strong> 选项，<strong>勾上它</strong></li>
+</ol>
+<p>这个开关打开之后，VS Code 会在你保存文件时自动调用格式化工具——但具体用哪个工具来格式化 Markdown 文件，还需要下一步来指定。</p>
+<p><strong>第三步：把 Prettier 设为 Markdown 文件的默认格式化工具</strong>  </p>
+<ol>
+<li>按 <code>Ctrl+,</code> 打开 VS Code 设置</li>
+<li>在搜索框里输入 <code>default formatter</code></li>
+<li>找到 <strong>Editor: Default Formatter</strong> 选项，点击它</li>
+<li>在弹出的下拉列表里，选择 <strong>Prettier - Code formatter</strong>（作者是 Prettier）</li>
+</ol>
+<p>这样设置之后，VS Code 就知道：“所有支持的文件类型，优先用 Prettier 来格式化。”从现在开始，你每次按 <code>Ctrl+S</code> 保存 Markdown 文件，Prettier 会自动帮你格式化。</p>
+<blockquote>
+<p><em>Kate 按完这三步，打开了一篇之前写的笔记，按了 <code>Ctrl+S</code>。她看着屏幕上那些歪歪扭扭的表格竖线自动归位，多余的空行自动消失，说：“这就跟我妈收拾我的房间一样——我什么都没干，房间就干净了。”</em></p>
+</blockquote>
+<hr />
+<h3 id="342">3.4.2 自动格式化做了什么？<!-- omit in toc --></h3>
+<p>你保存文件的时候，Prettier 在背后帮你做了这些事：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">你写的时候</th>
+<th style="text-align: left;">保存后 Prettier 帮你</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">行尾多打了几个空格</td>
+<td style="text-align: left;">自动删掉多余空格</td>
+</tr>
+<tr>
+<td style="text-align: left;">表格竖线歪歪扭扭</td>
+<td style="text-align: left;">自动对齐竖线</td>
+</tr>
+<tr>
+<td style="text-align: left;">列表缩进用了 Tab</td>
+<td style="text-align: left;">自动转成空格（保持一致）</td>
+</tr>
+<tr>
+<td style="text-align: left;">代码块前后少了空行</td>
+<td style="text-align: left;">自动补上空行</td>
+</tr>
+<tr>
+<td style="text-align: left;">文件末尾少了一个空行</td>
+<td style="text-align: left;">自动在最后加一行</td>
+</tr>
+</tbody>
+</table>
+<p>这些都是你在 01 教程 4.8 节“排版技巧”里学过的规则——当时你是手动遵守的，现在是 Prettier 自动帮你遵守。你不需要记住每一条规则，只需要记住一个动作：<strong>写完按 Ctrl+S。</strong></p>
+<blockquote>
+<p><em>Kate 说：“所以我学了那么多排版规则——空格、空行、缩进、对齐——现在一个 <code>Ctrl+S</code> 全搞定了？”</em></p>
+<p>“对。01 教程教你‘规则是什么’，02 教程教你‘让工具替你执行规则’。先知道为什么，再学会怎么自动化。顺序不能反——如果你不知道 Prettier 在背后做了什么，它帮你改了什么你都不知道。”</p>
+</blockquote>
+<hr />
+<h3 id="343-prettier-markdown-lint">3.4.3 Prettier 和 Markdown Lint 的区别<!-- omit in toc --></h3>
+<p>你可能想问：“自动格式化和 Markdown Lint 有什么区别？它们不都是帮我检查 Markdown 的吗？”</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">工具</th>
+<th style="text-align: left;">干什么的</th>
+<th style="text-align: left;">什么时候工作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Markdown Lint</strong></td>
+<td style="text-align: left;">检查你写错的地方，画波浪线提醒你</td>
+<td style="text-align: left;">你<strong>正在写</strong>的时候，实时检查</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prettier</strong></td>
+<td style="text-align: left;">自动修正格式问题，帮你整理源码</td>
+<td style="text-align: left;">你<strong>保存文件</strong>的时候，自动执行</td>
+</tr>
+</tbody>
+</table>
+<p>它们不是竞争对手——它们是搭档。Markdown Lint 是教官，在你写的时候站在你身后，看到哪里不对就“啧——”一声，画一道波浪线。Prettier 是勤务兵，你按保存的时候默默帮你把东西收拾整齐。教官提醒你哪里错了，勤务兵帮你改掉。</p>
+<blockquote>
+<p><em>Kate 说：“所以我写的时候 Lint 教官在我耳边啧，保存的时候 Prettier 帮我收拾残局。这俩人一个唱红脸一个唱白脸。”</em></p>
+</blockquote>
+<hr />
+<h3 id="344">3.4.4 如果你不想格式化某个文件<!-- omit in toc --></h3>
+<p>Prettier 默认会对所有支持的文件类型生效。但有时候你不想让它格式化某个文件——比如你故意写了一段格式“混乱”的代码来展示错误示例。</p>
+<p>在项目的根目录（最外层文件夹）创建一个 <code>.prettierignore</code> 文件，内容写法跟 <code>.gitignore</code> 一样：</p>
+<pre><code class="language-prettierignore"># 不格式化这些文件
+演示-错误示范.md
+测试/乱码笔记.md
+</code></pre>
+<p>Prettier 看到这个文件，会跳过你列出的那些文件，不动它们。</p>
+<hr />
+<h3 id="345">3.4.5 本节小结<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">操作</th>
+<th style="text-align: left;">快捷键 / 方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">安装 Prettier</td>
+<td style="text-align: left;"><code>Ctrl+Shift+X</code> → 搜索 <code>Prettier - Code formatter</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">开启保存时自动格式化</td>
+<td style="text-align: left;"><code>Ctrl+,</code> → 搜 <code>format on save</code> → 勾上</td>
+</tr>
+<tr>
+<td style="text-align: left;">手动格式化当前文件</td>
+<td style="text-align: left;"><code>Ctrl+Shift+P</code> → <code>Format Document</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">把 Prettier 设为默认</td>
+<td style="text-align: left;"><code>Ctrl+Shift+P</code> → <code>Format Document With...</code> → 选 Prettier</td>
+</tr>
+<tr>
+<td style="text-align: left;">排除某个文件不格式化</td>
+<td style="text-align: left;">创建 <code>.prettierignore</code>，写入文件名</td>
+</tr>
+</tbody>
+</table>
+<p>自动格式化不是“炫技”——它是让你把精力集中在内容上，而不是格式上。你写的内容才是笔记的灵魂，空格和缩进是勤务兵的事。🔪</p>
+<hr />
+<h2 id="35">3.5 其他实用设置</h2>
+<p>前四节你学了快速打开文件、多光标编辑、分屏写作、自动格式化——这些是“每天都在用”的核心技巧。这一节我们收个尾，讲几个<strong>不用每天用、但需要的时候能救命</strong>的实用设置。</p>
+<h3 id="351">3.5.1 行号<!-- omit in toc --></h3>
+<p>编辑器左边那排数字就是行号。它们不是装饰——你在 1.4.3 节学过 <code>code -g</code> 跳转到指定行的时候，靠的就是行号。你在 Markdown Lint 报错的时候，它告诉你的也是“第几行有问题”。</p>
+<p>行号默认是开的。如果你不小心关掉了（或者想确认它是开的），按 <code>Ctrl+,</code> 搜索 <code>line numbers</code>，确保 <strong>Editor: Line Numbers</strong> 是 <code>on</code>。</p>
+<hr />
+<h3 id="352">3.5.2 缩进参考线<!-- omit in toc --></h3>
+<p>写嵌套列表或嵌套代码块的时候，你经常需要知道“当前这一行缩进了多少层”。如果你不想一个一个空格去数，可以让 VS Code 帮你画出缩进参考线——每缩进一层，就多一条淡淡的竖线。</p>
+<p>按 <code>Ctrl+,</code> 搜索 <code>render indent guides</code>，找到 <strong>Editor: Render Indent Guides</strong>，确保它是 <code>on</code>（默认就是开的）。如果你想让参考线更明显，把 <strong>Editor: Guides: Indentation</strong> 改成 <code>always</code>。</p>
+<blockquote>
+<p><em>Kate 打开了缩进参考线，看着编辑器里那些淡淡的竖线，说：“原来我的列表嵌套有这么多层。不用数空格了，数竖线就行。”</em></p>
+</blockquote>
+<hr />
+<h3 id="353">3.5.3 迷你地图<!-- omit in toc --></h3>
+<p>VS Code 右侧有一长条缩略图，把你整个文件的内容压缩成一个微缩视图。这叫<strong>迷你地图</strong>。它的作用是让你快速定位——你看到迷你地图上某个区域颜色比较深（说明那里代码很密集），点一下，编辑区就跳到那个位置。</p>
+<p>对于写代码的人来说，迷你地图很有用。但对于写 Markdown 的人来说，迷你地图大多数时候只是占位置。你的 Markdown 文件通常不会长到需要迷你地图来导航——目录和 <code>Ctrl+P</code> 已经够用了。</p>
+<p>如果你觉得迷你地图碍眼，按 <code>Ctrl+,</code> 搜索 <code>minimap</code>，找到 <strong>Editor: Minimap Enabled</strong>，把它关掉。编辑区会多出一小截空间——你的文字多了一行呼吸。</p>
+<blockquote>
+<p><em>Kate 关掉了迷你地图，说：“我从来没有用过这个东西。它在右边一直待着，像一个我从来不去逛的景区。”</em></p>
+</blockquote>
+<hr />
+<h3 id="354">3.5.4 保存时自动删除行尾空格<!-- omit in toc --></h3>
+<p>你在 01 教程 3.4 节学过——Markdown 的段内换行需要在行尾敲两个空格。但 VS Code 有一个“好心”的设计：默认情况下，保存文件的时候它会自动删掉所有行尾的多余空格，包括你辛辛苦苦敲的那两个用来换行的空格。</p>
+<p>结果就是：你明明敲了两个空格，预览里换行了，保存之后换行消失。你还以为自己哪里写错了，其实是 VS Code 把你的空格当“多余的”给清理了。</p>
+<p>如果你经常用段内换行（两个空格 + 回车），建议把这个自动清理关掉。按 <code>Ctrl+,</code> 搜索 <code>trim trailing whitespace</code>，找到 <strong>Files: Trim Trailing Whitespace</strong>，<strong>取消勾选</strong>。如果你只想对 Markdown 文件关掉这个功能，可以在设置里搜 <code>files.trimTrailingWhitespace</code>，然后在 Markdown 的专属设置里单独关闭它。</p>
+<blockquote>
+<p><em>Kate 看着设置页面，说：“所以 VS Code 会偷偷删掉我的空格——那些我故意敲的空格。这不是帮我，是在坑我。”</em></p>
+<p>“对。这是一个‘好心办坏事’的经典案例。你知道它的存在之后，就可以关掉它，或者利用它——取决于你写的是什么文件。”</p>
+</blockquote>
+<hr />
+<h3 id="355">3.5.5 本节小结<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">你想干什么</th>
+<th style="text-align: left;">怎么设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">显示行号</td>
+<td style="text-align: left;"><code>Ctrl+,</code> → 搜 <code>line numbers</code> → 确保 <code>on</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">显示缩进参考线</td>
+<td style="text-align: left;"><code>Ctrl+,</code> → 搜 <code>render indent guides</code> → 确保 <code>on</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">关掉迷你地图</td>
+<td style="text-align: left;"><code>Ctrl+,</code> → 搜 <code>minimap</code> → 取消勾选</td>
+</tr>
+<tr>
+<td style="text-align: left;">保留行尾空格（Markdown 换行用）</td>
+<td style="text-align: left;"><code>Ctrl+,</code> → 搜 <code>trim trailing whitespace</code> → 取消勾选</td>
+</tr>
+</tbody>
+</table>
+<p>这些设置不需要全记住。你现在只需要知道：<strong>VS Code 几乎什么都能调。</strong> 以后你觉得哪里不舒服——字体太小、主题太暗、迷你地图挡视线——先别忍着，去设置里搜一下，大概率能调。调完之后的 VS Code，不是“默认的那个 VS Code”，是<strong>你的 VS Code</strong>。🔪</p>
+            </section>
+
+            <div class="tutorial-nav">
+                <a href="zh-02-2.html" class="prev">← zh-02-2</a>
+                <a href="zh-02-4.html" class="next">第四章 - 快捷键：从常用到速查 →</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.run({
+                    querySelector: '.mermaid'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前言 · 守夜者之书</title>
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                theme: 'dark',
+                themeVariables: {
+                    background: '#0a0e14',
+                    primaryColor: '#64ffda',
+                    primaryTextColor: '#e6edf3',
+                    primaryBorderColor: '#64ffda',
+                    lineColor: '#64ffda',
+                    secondaryColor: '#1a2636',
+                    tertiaryColor: '#111821'
+                }
+            });
+        });
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+    <style>
+        .sidebar-menu .sidebar-category {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            padding: 16px 12px 8px 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 4px 12px 4px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .sidebar-menu li a:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+        .sidebar-menu li a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+        }
+        .mermaid {
+            background: var(--bg-code);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0 24px 0;
+            border-left: 3px solid var(--accent);
+            text-align: center;
+        }
+        .MathJax {
+            color: var(--text-primary) !important;
+        }
+        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }
+        .codehilite pre { margin: 0; background: transparent; }
+        .tutorial-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .tutorial-body th, .tutorial-body td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .tutorial-body th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tutorial-body td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <ul class="sidebar-menu">
+                <li class="sidebar-category">暂无目录</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-inner tutorial-content">
+
+            <nav class="breadcrumb">
+                <a href="/zh/">首页</a>
+                <span class="separator">/</span>
+                <a href="/zh/tutorials/">教程</a>
+                <span class="separator">/</span>
+                <span class="current">02-vscode</span>
+            </nav>
+
+            <header class="tutorial-header">
+                <div class="tutorial-meta">
+                    <span class="tutorial-number">02</span>
+                    <span class="tutorial-status done">✅ 已完成</span>
+                    <span class="tutorial-level">基础</span>
+                    <span class="tutorial-readtime">⏱️ 约 30 分钟</span>
+                </div>
+                <h1>玩转 VS Code</h1>
+                <p class="tutorial-subtitle">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+            </header>
+
+            <section class="tutorial-body">
+                <h1 id="_1">前言</h1>
+<p>Hello World again！</p>
+<p>恭喜你，从《01. 玩转 Markdown》里活着出来了。Kate 也活着出来了——她现在已经能用 Markdown 写出一篇格式清晰的笔记，标题、列表、链接、图片，样样都能来几下。</p>
+<p>但学了几天之后，Kate 发现了一个问题。</p>
+<p>她写 Markdown 的时候，左手键盘右手鼠标来回切换。敲几个 <code>#</code> 写标题——手在键盘上。然后要打开另一个文件——手挪到鼠标上，去侧边栏点。点完再回来敲键盘。过一会又要格式化表格——又去摸鼠标。</p>
+<p>她说：“我总感觉哪里不够帅。”</p>
+<p>你的直觉和 Kate 一样。这个直觉是对的。</p>
+<p><strong>鼠标是效率的减速带</strong>  </p>
+<p>你在 01 里学会了用 <code>**</code> 加粗、用 <code>#</code> 写标题——这些都是纯键盘操作，手不离开键盘，思路如流水。</p>
+<p>但你的右手还在偷偷摸鼠标：</p>
+<ul>
+<li>打开另一个文件 → 鼠标去侧边栏点</li>
+<li>切换文档 → 鼠标去标签栏点</li>
+<li>格式化表格 → 鼠标去插件菜单点</li>
+<li>截图粘贴 → 还要先打开截图软件</li>
+</ul>
+<p>每一次鼠标移动，都像在高速公路上踩一脚刹车。一次无所谓，但一天踩一百次，你会发现自己的另一半时间不是花在<strong>写</strong>上，而是花在<strong>点</strong>上。</p>
+<p><em>试想一下，如果用 Word 写这些——每一步都要摸鼠标。改个标题字号，你得在工具栏的下拉菜单里翻好几秒；插个图片，你得从菜单栏一层层点进去；想保持代码格式？想都别想，Word 会“贴心”地把你的直引号全弯掉。你在 Word 里花的时间，至少有一半不是在写内容，是在伺候格式。</em></p>
+<p>Kate 算了一下：她写一篇笔记要 30 分钟，其中大概有 10 分钟是在用鼠标找文件、点菜单、拖窗口。如果把这 10 分钟省下来，她每天能多写半篇笔记，或者多喝一杯咖啡。</p>
+<p><strong>VS Code 是什么？</strong></p>
+<p><strong>Visual Studio Code</strong>（简称 VS Code）是微软在 2015 年发布的一款编辑器。</p>
+<p>“编辑器”就是用来写字的软件——就像 Word 是用来写文档的，VS Code 是用来写代码和 Markdown 的。但它比 Word 轻得多（打开速度飞快），又比记事本强得多（功能多到数不完）。</p>
+<p>它凭什么从几百款编辑器里杀出来，成了全球程序员的首选？</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">理由</th>
+<th style="text-align: left;">一句话解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>免费 + 开源</strong></td>
+<td style="text-align: left;">不花一分钱。“开源”的意思是它的源代码是公开的，全世界的开发者都可以检查它、改进它。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>跨平台</strong></td>
+<td style="text-align: left;">Windows、macOS、Linux 都能装，而且界面一模一样。你在学校用 Windows 学了，回家用 Mac 也能无缝衔接。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>插件生态</strong></td>
+<td style="text-align: left;">几万个免费插件，就像一个应用商店。想加什么功能就装什么插件——从 Markdown 到 Python 到 AI 助手。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>内置终端</strong></td>
+<td style="text-align: left;">不用切换窗口，编辑器里直接就能敲命令行。Kate 第一次发现这个功能时，说了一句“这也太方便了吧”。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Git 集成</strong></td>
+<td style="text-align: left;">Git 是一个帮你记录文件修改历史的工具。VS Code 把 Git 的功能做进了界面里，你改了什么，旁边一目了然，不用打开命令行慢慢敲。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>速度快</strong></td>
+<td style="text-align: left;">启动快，打开大文件也不卡。不像某些软件，启动的时间够你去倒一杯水。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>社区庞大</strong></td>
+<td style="text-align: left;">遇到问题，在 Google 或百度上一搜“VS Code 怎么xxx”，全是答案。你基本不会是第一个遇到那个问题的人。</td>
+</tr>
+</tbody>
+</table>
+<p>简单说：VS Code 不只是个“写字板”，它是一个<strong>集写作、终端、版本控制、插件扩展于一体的指挥中心</strong>。</p>
+<p>在《01. 玩转 Markdown》的第一章，我们帮你把 VS Code 请进了家门，还给它装了六个插件。但说实话——那只是“安装”。</p>
+<p>就像你买了一辆法拉利，只学会了怎么发动引擎，还没挂挡上路。你现在会踩油门，但你还不知道这辆车可以漂移、可以弹射起步、可以在任何地形上开。</p>
+<p>这套教程，就是你的 <strong>《VS Code 驾驶手册》</strong>。Kate 正在驾校门口等你。</p>
+<p><strong>📐 我们会讲</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">章</th>
+<th style="text-align: left;">内容</th>
+<th style="text-align: left;">学完你能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">第一章</td>
+<td style="text-align: left;">Windows、macOS、Linux 安装详解</td>
+<td style="text-align: left;">在任何系统上正确安装 VS Code，配置 <code>code</code> 命令</td>
+</tr>
+<tr>
+<td style="text-align: left;">第二章</td>
+<td style="text-align: left;">界面布局与核心区域</td>
+<td style="text-align: left;">知道活动栏、编辑区、终端、状态栏、命令面板各自干什么，不再对着屏幕一脸懵</td>
+</tr>
+<tr>
+<td style="text-align: left;">第三章</td>
+<td style="text-align: left;">写作效率技巧</td>
+<td style="text-align: left;">快速打开文件、多光标编辑、分屏写作、自动格式化——用键盘速度碾压鼠标流</td>
+</tr>
+<tr>
+<td style="text-align: left;">第四章</td>
+<td style="text-align: left;">快捷键：从常用到速查</td>
+<td style="text-align: left;">详解 5 个最常用的快捷键 + 一张可打印的速查表，练成肌肉记忆</td>
+</tr>
+</tbody>
+</table>
+<p><strong>📐 这套教程和 01 的关系</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">01. 玩转 Markdown</th>
+<th style="text-align: left;">02. 玩转 VS Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">教<strong>语言</strong>——Markdown 语法</td>
+<td style="text-align: left;">教<strong>工具</strong>——VS Code 编辑器</td>
+</tr>
+<tr>
+<td style="text-align: left;">学完你能写出好看的文字</td>
+<td style="text-align: left;">学完你能用最快的速度写出好看的文字</td>
+</tr>
+<tr>
+<td style="text-align: left;">剑法</td>
+<td style="text-align: left;">剑</td>
+</tr>
+</tbody>
+</table>
+<p>两套教程互相独立，又互相补位。你可以先学 01，再学 02；也可以正在学 01 的时候，遇到某个操作不知道怎么更快，跳到 02 的对应章节翻翻。Kate 是学完 01 再开始 02 的，她说这样顺序正好。</p>
+<p><strong>⚔️ 本教程的规矩</strong>  </p>
+<p>和 01 一样，只有一条：</p>
+<p><strong>打开 VS Code，跟着敲。</strong> 别开着教程当电视剧看。</p>
+<p>每一章都有实战操作。Kate 会在每一章等你——她敲错了，你来分析哪里错了。你敲对了，Kate 会给你发一个 👍。</p>
+<p>你没动手，就等于没学。</p>
+<p><strong>准备好了吗？</strong></p>
+<p>第一章，我们先把 VS Code 在你的系统上<strong>装得明明白白</strong>。不管你是 Windows、Mac 还是 Linux，都有一份专属的安装指南。</p>
+<p>守夜人，敲键盘！🔪</p>
+            </section>
+
+            <div class="tutorial-nav">
+                <span class="prev disabled">← 上一篇</span>
+                <a href="zh-02-1.html" class="next">第一章 - Windows、macOS、Linux 安装详解 →</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.run({
+                    querySelector: '.mermaid'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

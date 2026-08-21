@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部通关 · 守夜者之书</title>
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                theme: 'dark',
+                themeVariables: {
+                    background: '#0a0e14',
+                    primaryColor: '#64ffda',
+                    primaryTextColor: '#e6edf3',
+                    primaryBorderColor: '#64ffda',
+                    lineColor: '#64ffda',
+                    secondaryColor: '#1a2636',
+                    tertiaryColor: '#111821'
+                }
+            });
+        });
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+    <style>
+        .sidebar-menu .sidebar-category {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            padding: 16px 12px 8px 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 4px 12px 4px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .sidebar-menu li a:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+        .sidebar-menu li a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+        }
+        .mermaid {
+            background: var(--bg-code);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0 24px 0;
+            border-left: 3px solid var(--accent);
+            text-align: center;
+        }
+        .MathJax {
+            color: var(--text-primary) !important;
+        }
+        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }
+        .codehilite pre { margin: 0; background: transparent; }
+        .tutorial-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .tutorial-body th, .tutorial-body td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .tutorial-body th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tutorial-body td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <ul class="sidebar-menu">
+                <li class="sidebar-category">暂无目录</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-inner tutorial-content">
+
+            <nav class="breadcrumb">
+                <a href="/zh/">首页</a>
+                <span class="separator">/</span>
+                <a href="/zh/tutorials/">教程</a>
+                <span class="separator">/</span>
+                <span class="current">02-vscode</span>
+            </nav>
+
+            <header class="tutorial-header">
+                <div class="tutorial-meta">
+                    <span class="tutorial-number">02</span>
+                    <span class="tutorial-status done">✅ 已完成</span>
+                    <span class="tutorial-level">基础</span>
+                    <span class="tutorial-readtime">⏱️ 约 30 分钟</span>
+                </div>
+                <h1>玩转 VS Code</h1>
+                <p class="tutorial-subtitle">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+            </header>
+
+            <section class="tutorial-body">
+                <h1 id="_1">全部通关</h1>
+<p><strong>🎉 《玩转 VS Code》，全部通关！</strong></p>
+<p>你从一台刚装好的 VS Code 开始，学会了：</p>
+<ul>
+<li>[x] <strong>第一章：</strong> 在三个系统上安装 VS Code，配置 <code>code</code> 命令，调整个性化设置</li>
+<li>[x] <strong>第二章：</strong> 认识活动栏、编辑区、终端、状态栏、命令面板——不再对着屏幕一脸懵</li>
+<li>[x] <strong>第三章：</strong> 快速打开文件、多光标编辑、分屏写作、自动格式化、自动保存——用键盘速度碾压鼠标流</li>
+<li>[x] <strong>第四章：</strong> <code>Ctrl+P</code>、<code>Ctrl+Shift+P</code>、<code>Ctrl+D</code>、<code>Ctrl+``、</code>Alt+↑/↓<code>、</code>Ctrl+H`——六个核心快捷键，加上一张可打印的速查表</li>
+</ul>
+<p>这不是一本“教你装 VS Code”的教程。这是一本<strong>让你的手指比大脑更快的驾驶手册</strong>。</p>
+<blockquote>
+<p><em>Kate 在她的笔记本封底写了一行字：“从‘这是什么东西’到‘手指比大脑快’，用了四章。”</em>  </p>
+</blockquote>
+<p>守夜人，VS Code 毕业了。</p>
+<p><strong>《守夜者之书》第二册：《玩转 VS Code》—— 终。</strong>  </p>
+            </section>
+
+            <div class="tutorial-nav">
+                <a href="zh-02-4.html" class="prev">← 第四章 - 快捷键：从常用到速查</a>
+                <span class="next disabled">下一篇 →</span>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.run({
+                    querySelector: '.mermaid'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

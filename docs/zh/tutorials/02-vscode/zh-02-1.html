@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一章 - Windows、macOS、Linux 安装详解 · 守夜者之书</title>
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                theme: 'dark',
+                themeVariables: {
+                    background: '#0a0e14',
+                    primaryColor: '#64ffda',
+                    primaryTextColor: '#e6edf3',
+                    primaryBorderColor: '#64ffda',
+                    lineColor: '#64ffda',
+                    secondaryColor: '#1a2636',
+                    tertiaryColor: '#111821'
+                }
+            });
+        });
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+    <style>
+        .sidebar-menu .sidebar-category {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            padding: 16px 12px 8px 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 4px 12px 4px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .sidebar-menu li a:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+        .sidebar-menu li a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+        }
+        .mermaid {
+            background: var(--bg-code);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0 24px 0;
+            border-left: 3px solid var(--accent);
+            text-align: center;
+        }
+        .MathJax {
+            color: var(--text-primary) !important;
+        }
+        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }
+        .codehilite pre { margin: 0; background: transparent; }
+        .tutorial-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .tutorial-body th, .tutorial-body td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .tutorial-body th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tutorial-body td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <ul class="sidebar-menu">
+                <li class="sidebar-category">暂无目录</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-inner tutorial-content">
+
+            <nav class="breadcrumb">
+                <a href="/zh/">首页</a>
+                <span class="separator">/</span>
+                <a href="/zh/tutorials/">教程</a>
+                <span class="separator">/</span>
+                <span class="current">02-vscode</span>
+            </nav>
+
+            <header class="tutorial-header">
+                <div class="tutorial-meta">
+                    <span class="tutorial-number">02</span>
+                    <span class="tutorial-status done">✅ 已完成</span>
+                    <span class="tutorial-level">基础</span>
+                    <span class="tutorial-readtime">⏱️ 约 30 分钟</span>
+                </div>
+                <h1>玩转 VS Code</h1>
+                <p class="tutorial-subtitle">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+            </header>
+
+            <section class="tutorial-body">
+                <h1 id="-windowsmacoslinux">第一章 - Windows、macOS、Linux 安装详解</h1>
+<p>在《01. 玩转 Markdown》里，我们只是匆匆扫了一眼安装步骤——勾两个框，一路 Next。但实际情况是：<strong>不同操作系统，安装方式完全不同，踩的坑也完全不同。</strong></p>
+<p>这一章，我们把三个系统分开讲。你可以只读自己系统的那一节，但建议把三个都扫一遍——以后帮同学装 VS Code 时，你就是他们的“IT 支援部”。</p>
+<hr />
+<h2 id="11-windows">1.1 Windows 安装</h2>
+<p><strong>第一步：下载</strong>  </p>
+<p>打开 <a href="https://code.visualstudio.com/Download">VS Code 官网</a>，点击那个大大的 <strong>Download for Windows</strong> 按钮。</p>
+<p><img alt="Download page" src="Images/Chapter 1/Download page.png" /></p>
+<p>你会下载到一个 <code>VSCodeSetup-x64-版本号.exe</code> 文件，大概 80-100MB。</p>
+<blockquote>
+<p><strong>⚠️ 别下错了：</strong> 有两种安装包——<strong>User Installer</strong> 和 <strong>System Installer</strong>。官网默认给你的是 User Installer，只装给当前用户，不需要“管理员权限”（就是电脑的最高控制权）。如果你想让电脑上所有账号都能用 VS Code，选 System Installer（在下载按钮旁边的箭头里切换）。</p>
+<p><em>Kate 问：“我选哪个？”</em><br />
+<em>“你自己的电脑，选 User Installer 就行。学校机房那种公用电脑才需要 System Installer。”</em></p>
+</blockquote>
+<p><strong>第二步：安装</strong>  </p>
+<p>双击 <code>.exe</code> 文件，进入安装向导。</p>
+<p>一路点“下一步”，直到看到 <strong>“选择附加任务”</strong> 页面。这里是本章的<strong>核心战场</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">勾不勾</th>
+<th style="text-align: left;">原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">添加到右键菜单</td>
+<td style="text-align: left;">✅ <strong>必须勾</strong></td>
+<td style="text-align: left;">以后在任意文件夹上右键 → “Open with Code”，一秒打开。不勾？每次都要先开 VS Code，再 File → Open Folder，多三步</td>
+</tr>
+<tr>
+<td style="text-align: left;">添加到 PATH</td>
+<td style="text-align: left;">✅ <strong>必须勾</strong></td>
+<td style="text-align: left;">勾了才能在终端里输入 <code>code .</code> 打开项目。不勾？你会在命令行里看到 <code>'code' 不是内部或外部命令</code>，当场社死</td>
+</tr>
+<tr>
+<td style="text-align: left;">注册为支持的编辑器</td>
+<td style="text-align: left;">随便</td>
+<td style="text-align: left;">不影响使用</td>
+</tr>
+<tr>
+<td style="text-align: left;">创建桌面快捷方式</td>
+<td style="text-align: left;">随便</td>
+<td style="text-align: left;">看你习惯</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>守夜人铁律：</strong> 那两个勾，少一个都不行。这不是“建议”，是“第一章在教你的时候就这么定的”。你在01教程里已经享受过这两个勾的好处了——右键一秒打开文件夹、终端里 <code>code .</code> 直接起飞。</p>
+</blockquote>
+<p>其他步骤无脑 Next，安装完成。</p>
+<p><strong>第三步：验证</strong>  </p>
+<p>打开终端。什么是终端？在第一章里我们讲过——它是一个黑框框，你可以在里面打字控制电脑。</p>
+<ul>
+<li>按下键盘上的 <code>Win + R</code>（按住 Win 键不松手，点一下 R 键），会弹出一个叫“运行”的小窗口。</li>
+<li>在输入框里打 <code>cmd</code>，然后回车。</li>
+<li>一个黑底白字的窗口弹出来了。这就是终端。</li>
+</ul>
+<p>在终端里输入：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>--version
+</pre></div>
+
+<p>如果跳出来一串版本号（比如 <code>1.100.0</code>），恭喜你，装好了。</p>
+<p><em>Kate 看到版本号跳出来的时候，说：“这就装好了？我以为还要填一堆东西。”</em>  </p>
+<hr />
+<h2 id="12-macos">1.2 macOS 安装</h2>
+<p><strong>第一步：下载</strong>  </p>
+<p>打开 <a href="https://code.visualstudio.com/Download">VS Code 官网</a>，点击 <strong>Download for macOS</strong>。</p>
+<p>你会下载到一个 <code>VSCode-darwin-版本号.zip</code> 文件。</p>
+<p><strong>第二步：安装</strong>  </p>
+<p>双击 <code>.zip</code> 解压，把解出来的 <code>Visual Studio Code.app</code> <strong>拖进“应用程序”文件夹</strong>。</p>
+<blockquote>
+<p>什么是“应用程序”文件夹？打开 Finder（Mac 上的文件管理器，图标是一个蓝白笑脸），左边侧栏里有一个叫“应用程序”的文件夹。把 <code>Visual Studio Code.app</code> 拖进去就行。</p>
+<p><strong>⚠️ 新手常见错误：</strong> 很多 Mac 用户直接在下载文件夹里双击 <code>.app</code>，用了一周后发现“怎么每次都要重新下载？”——因为它根本没被安装，只是临时运行。</p>
+<p><strong>守夜人铁律：</strong> 拖进“应用程序”文件夹，才算真正“装好”。</p>
+</blockquote>
+<p><strong>第三步：配置 code 命令（macOS 重点）</strong>  </p>
+<p>在 Windows 上，安装向导帮你勾了 PATH。macOS 没有这一步，需要手动操作：</p>
+<ol>
+<li>打开 VS Code</li>
+<li>按 <code>Cmd+Shift+P</code>。<code>Cmd</code> 键在空格键旁边，上面画着一个 <code>⌘</code> 符号。按住它不松手，再按 <code>Shift</code> 和 <code>P</code>。这会打开一个叫“命令面板”的东西——屏幕顶部中间会弹出一个输入框。</li>
+<li>在输入框里打 <code>shell command</code>。你会看到一个选项叫 <strong>“Shell Command: Install &lsquo;code&rsquo; command in PATH”</strong>。</li>
+<li>点它，回车。</li>
+</ol>
+<p>完成后，打开终端（在“应用程序” → “实用工具” → “终端”，或者按 <code>Cmd+空格</code> 输入“终端”），输入：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>--version
+</pre></div>
+
+<p>跳出版本号就是成功了。以后在任何文件夹里，输入 <code>code .</code> 就能用 VS Code 打开当前目录。</p>
+<hr />
+<h2 id="13-linux">1.3 Linux 安装</h2>
+<p>Linux 的安装方式取决于你的“发行版”。什么是发行版？Linux 不是一个单一的系统——它有很多“版本”，叫发行版。最常见的有 Ubuntu、Fedora、Arch Linux。不同发行版的安装命令不一样。</p>
+<p>以下是最常见的三种：</p>
+<p><strong>Ubuntu / Debian 系列</strong>  </p>
+<div class="codehilite"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wget<span class="w"> </span>gpg
+wget<span class="w"> </span>-qO-<span class="w"> </span>https://packages.microsoft.com/keys/microsoft.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>&gt;<span class="w"> </span>packages.microsoft.gpg
+sudo<span class="w"> </span>install<span class="w"> </span>-D<span class="w"> </span>-o<span class="w"> </span>root<span class="w"> </span>-g<span class="w"> </span>root<span class="w"> </span>-m<span class="w"> </span><span class="m">644</span><span class="w"> </span>packages.microsoft.gpg<span class="w"> </span>/etc/apt/keyrings/packages.microsoft.gpg
+sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main&quot; &gt; /etc/apt/sources.list.d/vscode.list&#39;</span>
+rm<span class="w"> </span>-f<span class="w"> </span>packages.microsoft.gpg
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>code
+</pre></div>
+
+<blockquote>
+<p><strong>简单说：</strong> 添加微软的软件源，然后 <code>apt install code</code>。一行 <code>code</code> 命令就装好了。</p>
+</blockquote>
+<p><strong>Fedora / RHEL 系列</strong>  </p>
+<div class="codehilite"><pre><span></span>sudo<span class="w"> </span>rpm<span class="w"> </span>--import<span class="w"> </span>https://packages.microsoft.com/keys/microsoft.asc
+sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo -e &quot;[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc&quot; &gt; /etc/yum.repos.d/vscode.repo&#39;</span>
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>code
+</pre></div>
+
+<p><strong>Arch Linux</strong>  </p>
+<div class="codehilite"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>code
+</pre></div>
+
+<blockquote>
+<p>Arch 用户：就这一行。你们懂的。</p>
+</blockquote>
+<p><strong>Snap（通用方式，但不太推荐）</strong>  </p>
+<div class="codehilite"><pre><span></span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>code<span class="w"> </span>--classic
+</pre></div>
+
+<p>Snap 版能用，但有两个问题：启动比正常版本慢好几秒，插件更新也经常滞后。能不用就不用。</p>
+<blockquote>
+<p><strong>守夜人建议：</strong> 不管你用哪个发行版，优先用官方软件源安装，别去“软件中心”点——那里的版本经常是社区打包的，缺功能。</p>
+</blockquote>
+<hr />
+<h2 id="14-code-vs-code">1.4 code 命令：在终端里打开 VS Code</h2>
+<p>Windows 用户安装时勾了 PATH，macOS 用户手动配置了 <code>shell command</code>，Linux 用户用包管理器安装时自动加了——现在三个系统都有了 <code>code</code> 命令。</p>
+<p>这是你 VS Code 生涯的<strong>第一个效率工具</strong>，也是最常用的一个。</p>
+<h3 id="141">1.4.1 基础用法<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">什么时候用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>code .</code></td>
+<td style="text-align: left;">用 VS Code 打开<strong>当前目录</strong></td>
+<td style="text-align: left;">打开一个项目文件夹</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code 文件名.md</code></td>
+<td style="text-align: left;">用 VS Code 打开<strong>单个文件</strong></td>
+<td style="text-align: left;">快速编辑某个文档</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code 文件夹名</code></td>
+<td style="text-align: left;">用 VS Code 打开<strong>指定文件夹</strong></td>
+<td style="text-align: left;">打开不是当前目录的项目</td>
+</tr>
+</tbody>
+</table>
+<p><strong>怎么用？</strong></p>
+<p>打开你的终端：</p>
+<ul>
+<li>Windows：<code>Win+R</code> → 输入 <code>cmd</code> → 回车</li>
+<li>macOS：<code>Cmd+空格</code> → 输入 <code>终端</code> → 回车</li>
+<li>Linux：<code>Ctrl+Alt+T</code></li>
+</ul>
+<p>然后直接敲 <code>code</code>，回车。VS Code 就打开了。</p>
+<p>如果你想打开一个文件夹，不用先启动 VS Code 再 File → Open Folder。在终端里 <code>cd</code> 到那个文件夹，输入：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>.
+</pre></div>
+
+<p><code>.</code> 代表“当前目录”。VS Code 会瞬间启动，并且左侧文件列表已经显示了这个文件夹里的所有文件。</p>
+<p>以后你再也不需要“先打开 VS Code → File → Open Folder → 找到文件夹 → 点确定”。四步操作，<code>code .</code> 一步搞定。</p>
+<p><img alt="code-command-terminal" src="Images/Chapter 1/code-command-terminal.png" /></p>
+<p><em>Kate 第一次用 <code>code .</code> 的时候，愣了一下，然后说：“这就打开了？我连鼠标都没碰。”</em></p>
+<hr />
+<h3 id="142-vs">1.4.2 窗口管理：重用 vs 新建<!-- omit in toc --></h3>
+<p>默认情况下，每次执行 <code>code .</code> 都会在<strong>同一个窗口</strong>里打开。如果你想让新项目在一个<strong>新窗口</strong>里打开：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 在新窗口中打开（不关掉原来的窗口）</span>
+code<span class="w"> </span>-n<span class="w"> </span>.
+
+<span class="c1"># 在已有窗口中打开（替换当前项目）</span>
+code<span class="w"> </span>-r<span class="w"> </span>新文件夹名
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">全称</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>-n</code></td>
+<td style="text-align: left;"><code>--new-window</code></td>
+<td style="text-align: left;">强制打开一个<strong>新窗口</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-r</code></td>
+<td style="text-align: left;"><code>--reuse-window</code></td>
+<td style="text-align: left;">在<strong>已打开的窗口</strong>中打开文件或文件夹</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>守夜人心法：</strong> 同时写两个项目时用 <code>-n</code>，各开各的窗口。只写一个项目时用 <code>-r</code>，或者什么都不加（默认就是重用窗口）。</p>
+</blockquote>
+<p><em>Kate 现在左边屏幕开着 01 的 Markdown 教程，右边屏幕开着 02 的 VS Code 教程。她说：“<code>code -n</code> 就是我的分身术。”</em></p>
+<hr />
+<h3 id="143">1.4.3 跳转到指定行<!-- omit in toc --></h3>
+<p>代码报错了，报错信息告诉你 <code>main.py:42</code>——意思是 <code>main.py</code> 的第 42 行出了问题。</p>
+<blockquote>
+<p>什么是“行号”？打开 VS Code，编辑区左边有一排数字——1、2、3、4……这些就是行号。每一行代码都有一个编号，方便你快速定位。</p>
+</blockquote>
+<p>你可以这样直接跳到那一行：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>-g<span class="w"> </span>main.py:42
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">全称</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>-g</code></td>
+<td style="text-align: left;"><code>--goto</code></td>
+<td style="text-align: left;">打开文件并<strong>跳转到指定行</strong></td>
+</tr>
+</tbody>
+</table>
+<p>后面还可以加列号（第几个字符）：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>-g<span class="w"> </span>main.py:42:5
+</pre></div>
+
+<p>跳到 <code>main.py</code> 第 42 行第 5 个字符。</p>
+<hr />
+<h3 id="144">1.4.4 对比两个文件<!-- omit in toc --></h3>
+<p>想知道 <code>旧版本.md</code> 和 <code>新版本.md</code> 有什么区别？不用装任何插件，VS Code 自带对比功能：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>-d<span class="w"> </span>旧版本.md<span class="w"> </span>新版本.md
+</pre></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">全称</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>-d</code></td>
+<td style="text-align: left;"><code>--diff</code></td>
+<td style="text-align: left;">打开<strong>两个文件并排对比</strong>差异</td>
+</tr>
+</tbody>
+</table>
+<p><strong>效果：</strong> 左右两个编辑区，改动的行被高亮标出来。写教程改稿子时特别有用——旧版和新版一字排开，哪里改了哪里没改，一目了然。</p>
+<blockquote>
+<p><em>Kate 用这个功能对比了她昨天和今天的 Markdown 笔记。她指着左边被划掉的一行字说：“这是我昨天写的‘Python 好难’。右边没了。”“你现在怎么想？”“……Python 还是好难。但至少我不用再写两遍笔记了。”</em>  </p>
+</blockquote>
+<hr />
+<h3 id="145">1.4.5 命令行安装插件<!-- omit in toc --></h3>
+<p>不用打开 VS Code 的扩展商店，直接在终端里装插件：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>--install-extension<span class="w"> </span>插件ID
+</pre></div>
+
+<p>比如装 Markdown 相关插件：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>--install-extension<span class="w"> </span>yzhang.markdown-all-in-one
+code<span class="w"> </span>--install-extension<span class="w"> </span>shd101wyy.markdown-preview-enhanced
+</pre></div>
+
+<p>这在重装系统后特别有用：把所有插件 ID 写成一个脚本，一行命令全部装回来。</p>
+<hr />
+<h3 id="146">1.4.6 查看所有参数<!-- omit in toc --></h3>
+<p>如果你想知道 <code>code</code> 命令还支持什么参数：</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>-h
+</pre></div>
+
+<p>或者</p>
+<div class="codehilite"><pre><span></span>code<span class="w"> </span>--help
+</pre></div>
+
+<p>会列出所有可用的命令行参数。</p>
+<hr />
+<h3 id="147">1.4.7 速查表<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>code .</code></td>
+<td style="text-align: left;">打开当前目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code 文件名</code></td>
+<td style="text-align: left;">打开指定文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code -n .</code></td>
+<td style="text-align: left;">在新窗口打开当前目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code -r 文件夹</code></td>
+<td style="text-align: left;">在已打开窗口里替换项目</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code -g 文件:行号</code></td>
+<td style="text-align: left;">打开文件并跳转到指定行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code -d 文件1 文件2</code></td>
+<td style="text-align: left;">并排对比两个文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code --install-extension ID</code></td>
+<td style="text-align: left;">在终端里装插件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code -h</code></td>
+<td style="text-align: left;">查看所有参数</td>
+</tr>
+</tbody>
+</table>
+<p>这就是为什么我们在第一章就强调<strong>那两个勾必须打上</strong>。不打勾，<code>code</code> 命令根本不能用——你就永远体验不到“一个命令打开一个世界，再一个参数跳到你想要的那一行”的快感。</p>
+<hr />
+<h2 id="15-vs-code">1.5 这几个配置，让你的 VS Code 更好用</h2>
+<h3 id="151">1.5.1 缩放字体<!-- omit in toc --></h3>
+<p>有时候你在给别人演示代码，希望字体大一点，让后排的人也能看到。有时候你在认真写文章，希望字体小一点，屏幕上能多显示几行。</p>
+<p>VS Code 支持用 <code>Ctrl + 滚轮</code> 来缩放字体，但这个功能<strong>默认是关闭的</strong>。你需要先打开它。</p>
+<p><strong>第一步：开启鼠标滚轮缩放</strong>  </p>
+<ol>
+<li>按 <code>文件 → 首选项 → 设置</code>（或按快捷键 <code>Ctrl + ,</code>，Mac 上是 <code>Cmd + ,</code>）打开设置页面。</li>
+<li>在搜索框里输入 <code>mouse</code>。</li>
+<li>找到一个叫 <strong>“Editor: Mouse Wheel Zoom”</strong> 的选项。它默认是<strong>没勾选</strong>的。</li>
+<li><strong>勾上它。</strong></li>
+</ol>
+<p><img alt="Mouse wheel zoom" src="Images/Chapter 1/Mouse wheel zoom.png" /></p>
+<p><strong>第二步：使用</strong>  </p>
+<p>勾上之后，你就可以按住 <code>Ctrl</code>（Mac 上是 <code>Cmd</code>），然后滚动鼠标滚轮。往前滚放大字体，往后滚缩小字体。松开 <code>Ctrl</code>，字体大小就固定了。</p>
+<blockquote>
+<p>这个操作只影响当前窗口的显示大小，不会改变文件本身的内容。就像你用两个手指在手机上缩放照片一样——照片没变，只是你看到的大小变了。  </p>
+<p><em>Kate 勾上这个选项，把字体放大到 150%，然后往后一靠，说：“这下可以躺着写笔记了。不过这功能竟然默认是关的——藏的也太深了。”</em>  </p>
+</blockquote>
+<hr />
+<h3 id="152">1.5.2 换主题：给你的编辑器换件衣服<!-- omit in toc --></h3>
+<p>VS Code 默认的深色主题叫“<em>Dark+</em>”。如果你不喜欢深色，或者看久了觉得累，可以换一个。</p>
+<ol>
+<li>按 <code>Ctrl+K</code>，松开，再按 <code>Ctrl+T</code>（Mac 上是 <code>Cmd+K</code> 然后 <code>Cmd+T</code>）。注意这不是同时按——先按 <code>Ctrl+K</code>，松开，再按 <code>Ctrl+T</code>。</li>
+<li>屏幕中间会弹出一个主题列表。用上下箭头键预览不同的主题——你每移到一个主题上，VS Code 会立刻显示那个主题的效果，不用点确认。</li>
+<li>选一个你喜欢的，回车确定。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">主题名</th>
+<th style="text-align: left;">风格</th>
+<th style="text-align: left;">适合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><em>Dark+</em></td>
+<td style="text-align: left;">深色，VS Code 默认</td>
+<td style="text-align: left;">长时间写作，眼睛不容易累</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Light+</em></td>
+<td style="text-align: left;">浅色，白底黑字</td>
+<td style="text-align: left;">白天光线强的时候看得更清楚</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Monokai</em></td>
+<td style="text-align: left;">深色，咖啡色调</td>
+<td style="text-align: left;">很多程序员的最爱，看起来像老式终端</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Solarized Light</em></td>
+<td style="text-align: left;">浅色，暖黄色调</td>
+<td style="text-align: left;">护眼，适合读代码多过写代码的人</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>守夜人建议：</strong> 如果你每天写 Markdown 超过两个小时，用深色主题。浅色主题在长时间看屏幕时会比深色更刺眼。当然，这完全看个人喜好——Kate 用的是 Dark+，她说“深色让我觉得自己是黑客”。</p>
+<p><em>Kate 把主题列表从头到尾翻了一遍，最后选了 Dark+。她说：“还是默认的好看。但至少我知道怎么换了。”</em>  </p>
+</blockquote>
+<hr />
+<h3 id="153">1.5.3 文件自动保存<!-- omit in toc --></h3>
+<p>你写了半天笔记，电脑突然蓝屏了——重启之后发现，之前写的内容全没了。因为你忘了保存。</p>
+<p>VS Code 可以帮你自动保存，不用每次按 <code>Ctrl+S</code>。</p>
+<ol>
+<li>按 <code>Ctrl+,</code>（Mac 上是 <code>Cmd+,</code>）打开设置页面。</li>
+<li>在搜索框里输入 <code>auto save</code>。</li>
+<li>找到一个叫 <strong>“Files: Auto Save”</strong> 的选项。它默认是 <code>off</code>（关闭）。</li>
+<li>把它改成 <code>afterDelay</code>（延迟后自动保存）。下面会出现一个“Auto Save Delay”的选项，默认是 1000 毫秒，也就是 1 秒。你停止打字 1 秒之后，VS Code 自动帮你保存。</li>
+</ol>
+<blockquote>
+<p>不用担心“万一我写错了它自动保存了怎么办”——你随时可以 <code>Ctrl+Z</code> 撤销，自动保存不影响撤销。</p>
+<p><em>Kate 打开自动保存之后，说：“我再也不用每写一行就按一次 Ctrl+S 了。我的左手小拇指终于可以休息了。”</em>  </p>
+</blockquote>
+<hr />
+<h3 id="154">1.5.4 调整字体大小（固定值）<!-- omit in toc --></h3>
+<p><code>Ctrl+滚轮</code> 是临时缩放。如果你想永久改变字体大小，可以在设置里调。</p>
+<ol>
+<li>按 <code>Ctrl+,</code> 打开设置。</li>
+<li>搜索 <code>font size</code>。</li>
+<li>找到 <strong>“Editor: Font Size”</strong>，默认是 14。你可以改成 16 或 18，看你自己舒服。</li>
+</ol>
+<blockquote>
+<p>这个设置会影响编辑区的字体大小。如果你想调整终端（VS Code 里面那个黑框框）的字体大小，搜索 <code>terminal font size</code>，单独调。</p>
+</blockquote>
+<hr />
+<h3 id="155">1.5.5 总结<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">你想干嘛</th>
+<th style="text-align: left;">怎么操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">临时放大/缩小字体</td>
+<td style="text-align: left;"><code>Ctrl + 滚轮</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">换主题</td>
+<td style="text-align: left;"><code>Ctrl+K</code> 然后 <code>Ctrl+T</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">自动保存</td>
+<td style="text-align: left;">设置里搜 <code>auto save</code>，改成 <code>afterDelay</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">永久改字体大小</td>
+<td style="text-align: left;">设置里搜 <code>font size</code>，改数字</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>守夜人心法：</strong> VS Code 的设置多到可以出一本书。你不需要全部搞懂。把上面这四个调好，你就能舒舒服服地写 Markdown 了。其他的设置，等你遇到“这个能不能改”的冲动时再搜——大概率能改，而且只用改一个选项。</p>
+</blockquote>
+<p><em>Kate 调完这四个设置之后，看着她的 VS Code，说：“现在它是我的了。不是默认的那个 VS Code，是我的 VS Code。”</em>  </p>
+<hr />
+<p><strong>🎉 第一章，通关！</strong></p>
+<p>VS Code 已经在你电脑上安家落户了，而且它现在不是“默认设置”，是<strong>你的设置</strong>。</p>
+<p>下一章，我们逛逛它的“房间”——活动栏、编辑区、终端、状态栏、命令面板，每个区域干什么，我们一个个认。</p>
+<p>守夜人，继续敲！🔪</p>
+            </section>
+
+            <div class="tutorial-nav">
+                <a href="zh-02-0.html" class="prev">← 前言</a>
+                <a href="zh-02-2.html" class="next">zh-02-2 →</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.run({
+                    querySelector: '.mermaid'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

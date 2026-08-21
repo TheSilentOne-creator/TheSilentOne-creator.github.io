@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四章 - 快捷键：从常用到速查 · 守夜者之书</title>
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                theme: 'dark',
+                themeVariables: {
+                    background: '#0a0e14',
+                    primaryColor: '#64ffda',
+                    primaryTextColor: '#e6edf3',
+                    primaryBorderColor: '#64ffda',
+                    lineColor: '#64ffda',
+                    secondaryColor: '#1a2636',
+                    tertiaryColor: '#111821'
+                }
+            });
+        });
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+    <style>
+        .sidebar-menu .sidebar-category {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            padding: 16px 12px 8px 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 4px 12px 4px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .sidebar-menu li a:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+        .sidebar-menu li a.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+        }
+        .mermaid {
+            background: var(--bg-code);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0 24px 0;
+            border-left: 3px solid var(--accent);
+            text-align: center;
+        }
+        .MathJax {
+            color: var(--text-primary) !important;
+        }
+        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }
+        .codehilite pre { margin: 0; background: transparent; }
+        .tutorial-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .tutorial-body th, .tutorial-body td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .tutorial-body th {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tutorial-body td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+            <ul class="sidebar-menu">
+                <li class="sidebar-category">暂无目录</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-inner tutorial-content">
+
+            <nav class="breadcrumb">
+                <a href="/zh/">首页</a>
+                <span class="separator">/</span>
+                <a href="/zh/tutorials/">教程</a>
+                <span class="separator">/</span>
+                <span class="current">02-vscode</span>
+            </nav>
+
+            <header class="tutorial-header">
+                <div class="tutorial-meta">
+                    <span class="tutorial-number">02</span>
+                    <span class="tutorial-status done">✅ 已完成</span>
+                    <span class="tutorial-level">基础</span>
+                    <span class="tutorial-readtime">⏱️ 约 30 分钟</span>
+                </div>
+                <h1>玩转 VS Code</h1>
+                <p class="tutorial-subtitle">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
+            </header>
+
+            <section class="tutorial-body">
+                <h1 id="-">第四章 - 快捷键：从常用到速查</h1>
+<p>前几章你学了 VS Code 的安装、界面布局、写作效率技巧。这些章节里散落着很多快捷键——<code>Ctrl+P</code> 快速打开文件、<code>Ctrl+D</code> 多光标编辑、<code>Ctrl+\</code> 分屏写作、<code>Ctrl+S</code> 保存时自动格式化。</p>
+<p>这一章不是教你新快捷键——是把前面散落的快捷键<strong>收拢到一起</strong>，按使用频率排序，让你一眼就能找到自己需要的那个。</p>
+<blockquote>
+<p><em>Kate 说：“所以这一章不是‘学新的’，是‘复习旧的’。把我已经会的东西整理成一张表。”</em></p>
+<p>“对。而且不只是表——前五节我会挑五个最常用的快捷键，单独拆开讲透。不是‘这个键干什么’，而是‘你什么时候会用到它、用错了会怎样、怎么和别的快捷键配合’。”</p>
+</blockquote>
+<hr />
+<h2 id="41-ctrlp">4.1 Ctrl+P：快速打开文件</h2>
+<p>你在 VS Code 里是怎么打开文件的？</p>
+<p>是不是这样：左手离开键盘 → 摸到鼠标 → 眼睛看向左侧的资源管理器 → 在一堆文件夹里一层一层地找 → 点一下文件名 → 手回到键盘上。如果你同时开着七八个文件，这个动作你一天要重复几十次。每一次都在打断你的写作思路。</p>
+<p><code>Ctrl+P</code> 就是要消灭这个“切换成本”。它是你在 VS Code 里用的最多的快捷键——不是之一。</p>
+<hr />
+<h3 id="411">4.1.1 怎么用<!-- omit in toc --></h3>
+<p>按 <code>Ctrl+P</code>（Mac 上是 <code>Cmd+P</code>），屏幕顶部中央会弹出一个搜索框。</p>
+<p><img alt="Ctrl+P 文件搜索" src="./Images/Chapter 4/4.1/ctrl-p.png" /></p>
+<p>在这个搜索框里，输入文件名的一部分——不需要完整的文件名，不需要完整的路径。只需要几个字母，VS Code 会模糊匹配所有你当前打开过的文件。</p>
+<p>比如你想打开 <code>01-玩转-Markdown.md</code>，你只需要输入 <code>01</code> 或 <code>mark</code> 或 <code>md</code> 中的任意几个字母，文件名就会出现在列表里。按回车，文件立刻打开。</p>
+<blockquote>
+<p><em>Kate 按了 <code>Ctrl+P</code>，输入了 <code>mark</code>，她的 Markdown 教程文件瞬间出现在列表最前面。她按了回车，文件打开了。她说：“我以前每次打开这个文件，都是去侧边栏翻——先找到文件夹，再找到子文件夹，再在一堆文件里找。现在只需要 <code>Ctrl+P</code> 然后打几个字母。这中间我省了多少秒？”</em></p>
+<p>“每次大概 3-5 秒。一天几十次，就是几分钟。一年下来，可能是几十个小时——几十个小时你不去找文件，而是在写内容。”</p>
+</blockquote>
+<hr />
+<h3 id="412">4.1.2 搜索技巧<!-- omit in toc --></h3>
+<p><code>Ctrl+P</code> 不只是“输入文件名”，它有几个非常实用的搜索技巧：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">技巧</th>
+<th style="text-align: left;">输入方式</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>模糊匹配</strong></td>
+<td style="text-align: left;">文件名里的任意几个字母</td>
+<td style="text-align: left;">快速缩小列表范围</td>
+<td style="text-align: left;">输入 <code>pla</code> 能匹配到 <code>01-玩转-Markdown.md</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>路径匹配</strong></td>
+<td style="text-align: left;">文件夹名 + 文件名</td>
+<td style="text-align: left;">在特定文件夹里找文件</td>
+<td style="text-align: left;">输入 <code>chapter/01</code> 只匹配 <code>chapter</code> 文件夹里的 <code>01</code> 文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最近打开</strong></td>
+<td style="text-align: left;">直接按 <code>Ctrl+P</code>，不看列表</td>
+<td style="text-align: left;">列表默认按最近打开排序</td>
+<td style="text-align: left;">你刚关掉的文件排在最上面，直接回车就打开</td>
+</tr>
+</tbody>
+</table>
+<p><strong>模糊匹配的规则</strong>：<code>Ctrl+P</code> 的搜索不是“精确匹配”，而是“模糊匹配”。你输入 <code>vm</code>，它可能匹配到 <code>VIM-从入门到得体.md</code>，因为文件名里有 <code>V</code> 和 <code>M</code> 这两个字母——即使它们不连在一起。你输入的字母不需要在文件名里连续出现，只要文件名里有这些字母，VS Code 就能找到它。</p>
+<p>这意味着你可以用最少的按键找到目标文件。<code>01</code> 匹配所有以 01 开头的文件，<code>mark</code> 匹配所有文件名里有 “mark” 的文件，<code>css</code> 匹配所有 CSS 文件。你不需要记住完整的文件名——只需要记住文件名的“特征”。</p>
+<p><strong>路径匹配的高级用法</strong>：如果你的项目里有两个同名文件——比如 <code>README.md</code> 同时出现在根目录和 <code>docs/</code> 文件夹里——你可以用路径来区分。输入 <code>docs/readme</code>，列表里只会显示 <code>docs/README.md</code>。输入 <code>root/readme</code> 或直接输入 <code>readme</code>，VS Code 会列出所有匹配的文件，你手动选一个。</p>
+<hr />
+<h3 id="413">4.1.3 和其他打开方式的对比<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">方式</th>
+<th style="text-align: left;">适合场景</th>
+<th style="text-align: left;">不适合场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+P</code></td>
+<td style="text-align: left;">知道文件叫什么，想快速跳过去</td>
+<td style="text-align: left;">不知道文件叫什么，想浏览整个项目结构</td>
+</tr>
+<tr>
+<td style="text-align: left;">侧边栏</td>
+<td style="text-align: left;">不知道文件叫什么，想一层层展开找</td>
+<td style="text-align: left;">知道文件叫什么——用侧边栏翻太慢了</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Tab</code></td>
+<td style="text-align: left;">在最近打开的两三个文件之间切换</td>
+<td style="text-align: left;">想打开一个很久没打开的文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>code .</code></td>
+<td style="text-align: left;">刚打开 VS Code，想打开整个项目</td>
+<td style="text-align: left;">已经在 VS Code 里了，只想打开一个文件</td>
+</tr>
+</tbody>
+</table>
+<p>这四种方式不是“谁替代谁”——它们是互补的。知道文件名就用 <code>Ctrl+P</code>，不知道就用侧边栏，在两个文件之间来回切用 <code>Ctrl+Tab</code>，刚启动 VS Code 用 <code>code .</code>。</p>
+<blockquote>
+<p><em>Kate 说：“所以我不用在侧边栏和 Ctrl+P 之间二选一——知道名字用 Ctrl+P，不知道名字用侧边栏。它们不是竞争对手，是队友。”</em></p>
+</blockquote>
+<hr />
+<h3 id="414-ctrlp">4.1.4 特殊用法：用 <code>Ctrl+P</code> 执行命令<!-- omit in toc --></h3>
+<p><code>Ctrl+P</code> 的搜索框不只是用来打开文件的。你在输入框里输入 <code>&gt;</code>（一个大于号），它会立刻切换到<strong>命令模式</strong>——和 <code>Ctrl+Shift+P</code> 打开的命令面板完全一样。输入 <code>@</code>，它会列出当前文件里所有的标题和函数——你可以直接跳转到某个标题。输入 <code>:</code>，你可以输入行号直接跳转到那一行。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">输入</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>文件名</code></td>
+<td style="text-align: left;">打开文件</td>
+<td style="text-align: left;"><code>01-markdown</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&gt; 命令名</code></td>
+<td style="text-align: left;">执行命令（等同于命令面板）</td>
+<td style="text-align: left;"><code>&gt; format document</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>@ 标题名</code></td>
+<td style="text-align: left;">跳转到当前文件的某个标题</td>
+<td style="text-align: left;"><code>@ 分屏写作</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>: 行号</code></td>
+<td style="text-align: left;">跳转到当前文件的某一行</td>
+<td style="text-align: left;"><code>:42</code></td>
+</tr>
+</tbody>
+</table>
+<p>这四个用法里，你最常用的是第一个——打开文件。但后面三个值得记住：它们让你不需要再按 <code>Ctrl+Shift+P</code>、<code>Ctrl+Shift+O</code>、<code>Ctrl+G</code>——所有的跳转和命令都在同一个搜索框里完成。</p>
+<blockquote>
+<p><em>Kate 在 <code>Ctrl+P</code> 里输入了 <code>:42</code>，光标直接跳到了当前文件的第 42 行。她说：“所以 <code>Ctrl+P</code> 不只是‘打开文件’，是一个‘全能搜索框’。文件、命令、标题、行号——我只需要记住这一个快捷键。”</em></p>
+<p>“精准。<code>Ctrl+P</code> 是 VS Code 的万能入口。你用的越多，越不需要记住其他快捷键。”</p>
+</blockquote>
+<hr />
+<h3 id="415">4.1.5 养成肌肉记忆<!-- omit in toc --></h3>
+<p><code>Ctrl+P</code> 是你一天里用得最多的快捷键。把它刻进肌肉记忆——每当你需要打开另一个文件，第一反应不是去摸鼠标，而是按下 <code>Ctrl+P</code>。</p>
+<p>如果你觉得“我老是忘记用 Ctrl+P”，试试这个办法：下一次你想打开文件的时候，先把手从鼠标上拿开，放在键盘上，然后问自己：“我要打开的那个文件，名字里有什么字母？”输入那几个字母，回车。重复一周，你的手指会自动去找 <code>Ctrl+P</code>。🔪</p>
+<hr />
+<h2 id="42-ctrlshiftp">4.2 Ctrl+Shift+P：命令面板</h2>
+<p>你在 VS Code 里想做一件事，但你不记得它的快捷键是什么——甚至不确定它有没有快捷键。你打开菜单栏，一层一层翻，找不到。你在设置里搜，找到了，但下次又忘了。</p>
+<p>命令面板就是解决这个问题的。它不需要你记住任何快捷键——你只需要记住一个快捷键：<code>Ctrl+Shift+P</code>。然后告诉它你想做什么，它帮你执行。</p>
+<hr />
+<h3 id="421">4.2.1 怎么用<!-- omit in toc --></h3>
+<p>按 <code>Ctrl+Shift+P</code>（Mac 上是 <code>Cmd+Shift+P</code>），屏幕顶部中央会弹出一个输入框。</p>
+<p><img alt="命令面板" src="./Images/Chapter 4/4.2/command-palette.jpg" /></p>
+<p>在这个输入框里，输入你想做的事情——不需要完整的命令名，只需要几个关键词。VS Code 会模糊匹配所有可用的命令，把最相关的排在最前面。</p>
+<p>比如你想打开设置，但你忘了快捷键是 <code>Ctrl+,</code>。你只需要按 <code>Ctrl+Shift+P</code>，输入 <code>settings</code>，列表里会出现“Preferences: Open Settings”。回车，设置页面打开了。</p>
+<blockquote>
+<p><em>Kate 按了 <code>Ctrl+Shift+P</code>，输入了 <code>table</code>，命令面板弹出了一堆和表格相关的选项——格式化表格、创建表格、删除表格。她说：“所以我不需要记住格式化表格的快捷键——我只需要记住 <code>Ctrl+Shift+P</code>，然后输入 <code>table</code>。”</em></p>
+<p>“精准。命令面板是快捷键的替代品。你只需要记住一个快捷键——<code>Ctrl+Shift+P</code>——然后告诉它你想做什么。”</p>
+</blockquote>
+<hr />
+<h3 id="422">4.2.2 你最常用的几个命令<!-- omit in toc --></h3>
+<p>以下是你写 Markdown 时最可能用到的命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">输入关键词</th>
+<th style="text-align: left;">找到的命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>table of contents</code></td>
+<td style="text-align: left;">Markdown All in One: Create Table of Contents</td>
+<td style="text-align: left;">自动生成目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>format document</code></td>
+<td style="text-align: left;">Format Document</td>
+<td style="text-align: left;">用 Prettier 格式化当前文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>export to</code></td>
+<td style="text-align: left;">Markdown Preview Enhanced: Export to&hellip;</td>
+<td style="text-align: left;">导出 PDF/HTML/PNG</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>toggle preview</code></td>
+<td style="text-align: left;">Markdown: Open Preview to the Side</td>
+<td style="text-align: left;">打开实时预览</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>format all tables</code></td>
+<td style="text-align: left;">Markdown Table: Format All Tables</td>
+<td style="text-align: left;">一键对齐所有表格</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>fix all</code></td>
+<td style="text-align: left;">Markdownlint: Fix all supported violations</td>
+<td style="text-align: left;">自动修复所有 Lint 报错</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>settings</code></td>
+<td style="text-align: left;">Preferences: Open Settings</td>
+<td style="text-align: left;">打开设置页面</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>keyboard shortcuts</code></td>
+<td style="text-align: left;">Preferences: Open Keyboard Shortcuts</td>
+<td style="text-align: left;">查看所有快捷键</td>
+</tr>
+</tbody>
+</table>
+<p>你不需要记住这些命令的全名——只需要记住关键词。想生成目录就输入 <code>toc</code> 或 <code>table of</code>，想格式化就输入 <code>format</code>，想导出就输入 <code>export</code>。命令面板是模糊匹配的——你输入的字母只要在命令名里存在（不一定连续），它就能找到。</p>
+<blockquote>
+<p><em>Kate 说：“所以我以后遇到‘这个功能到底有没有快捷键’的时候，不需要去 Google 了——直接 <code>Ctrl+Shift+P</code> 搜关键词。搜不到，说明 VS Code 没这个功能。搜到了，直接回车执行。”</em></p>
+</blockquote>
+<p><strong>两个你不知道但很实用的命令：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">输入关键词</th>
+<th style="text-align: left;">找到的命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>reopen closed</code></td>
+<td style="text-align: left;">View: Reopen Closed Editor</td>
+<td style="text-align: left;">重新打开你刚才关掉的文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>collapse all</code></td>
+<td style="text-align: left;">Fold All</td>
+<td style="text-align: left;">折叠所有标题块，只看文档大纲</td>
+</tr>
+</tbody>
+</table>
+<p>第一个命令救了Kate一命：她有一次不小心关掉了写了一半的笔记，<code>Ctrl+Z</code> 不管用（撤销只针对编辑器内的文字操作，不针对文件关闭），急得差点摔键盘。后来她用 <code>Ctrl+Shift+P</code> → <code>reopen closed</code> 找了回来。这个命令可以重复执行——按一次打开最近关掉的一个文件，再按一次打开倒数第二个。</p>
+<p>第二个命令适合长文档：你在写一篇几千字的教程，想在各个章节之间快速跳转。用 <code>Fold All</code> 把全文折叠成只有标题，找到你要去的那一节，点一下展开，立刻到达。</p>
+<hr />
+<h3 id="423-ctrlp">4.2.3 命令面板和 Ctrl+P 的关系<!-- omit in toc --></h3>
+<p>你在 4.1.4 节学过——在 <code>Ctrl+P</code> 的搜索框里输入 <code>&gt;</code>，它会立刻变成命令面板。两者的区别在于：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">入口</th>
+<th style="text-align: left;">默认搜索</th>
+<th style="text-align: left;">但也可以</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+P</code></td>
+<td style="text-align: left;">搜索文件名</td>
+<td style="text-align: left;">输入 <code>&gt;</code> 后变成命令面板</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Shift+P</code></td>
+<td style="text-align: left;">搜索命令</td>
+<td style="text-align: left;">只能搜索命令</td>
+</tr>
+</tbody>
+</table>
+<p>如果你更习惯“一个入口做所有事”，可以只用 <code>Ctrl+P</code>——打开文件直接输入文件名，执行命令先输入 <code>&gt;</code> 再输入命令名。如果你更喜欢“打开文件”和“执行命令”用两个不同的快捷键，那就分别用 <code>Ctrl+P</code> 和 <code>Ctrl+Shift+P</code>。两种方式都可以，选你顺手的那种。</p>
+<blockquote>
+<p><em>Kate 说：“所以我其实不需要 <code>Ctrl+Shift+P</code>——我只需要 <code>Ctrl+P</code>，然后多打一个 <code>&gt;</code>。但两个都记着也没什么坏处。”</em></p>
+<p>“对。<code>Ctrl+Shift+P</code> 少按一个字符，<code>Ctrl+P</code> 更通用。选哪个取决于你今天有多懒。”</p>
+</blockquote>
+<hr />
+<h3 id="424">4.2.4 养成肌肉记忆<!-- omit in toc --></h3>
+<p><code>Ctrl+Shift+P</code> 是 VS Code 里最重要的快捷键之一——不是因为它能做什么，而是因为它能找到所有你会忘记快捷键的功能。</p>
+<p>每次你想做一件事但不知道快捷键的时候，别去菜单栏翻，别去 Google 搜。先按 <code>Ctrl+Shift+P</code>，输入你想做的事的关键词。如果命令存在，它会出现——同时它旁边还会显示这个命令的快捷键（如果有的话）。你不仅完成了操作，还顺便学会了它的快捷键。下次你就可以直接用快捷键，不用再打开命令面板。</p>
+<p>这就是“用命令面板学快捷键”的循环：忘记快捷键 → 打开命令面板 → 执行命令（同时看到快捷键） → 下次直接用快捷键。反复几轮，你不需要刻意背快捷键——你的手指会自动记住。🔪</p>
+<hr />
+<h2 id="43-ctrl">4.3 Ctrl+`：打开/关闭终端</h2>
+<p>你在 02 教程第二章学过——VS Code 底部有一个集成终端，它就是一个嵌入在编辑器里的命令行窗口。你不用切换窗口，在编辑器里就能敲命令。</p>
+<p>打开和关闭终端只需要一个快捷键：<code>Ctrl+`</code>（键盘左上角 <code>ESC</code> 下面的那个反引号键，Mac 上是 <code>Cmd+`</code>）。</p>
+<hr />
+<h3 id="431">4.3.1 怎么用<!-- omit in toc --></h3>
+<p>按一下 <code>Ctrl+`</code>，终端面板从底部弹出。再按一下，终端面板缩回去。</p>
+<p>终端弹出来之后，光标会自动定位到终端的输入行里。你可以直接输入命令，不需要再用鼠标点一下终端区域。</p>
+<blockquote>
+<p><em>Kate 按了 <code>Ctrl+`</code>，底部弹出一个终端面板。她输入 <code>ls</code>，看到了当前文件夹里的所有文件。她说：“原来我不用最小化 VS Code 去开 PowerShell——它自己就有。这就是你 02 前言里说的‘指挥中心’。”</em></p>
+</blockquote>
+<hr />
+<h3 id="432">4.3.2 你在终端里最常做的事<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">什么时候用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>code .</code></td>
+<td style="text-align: left;">用 VS Code 打开当前目录</td>
+<td style="text-align: left;">在终端里切到某个文件夹，想用 VS Code 打开它</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>git status</code></td>
+<td style="text-align: left;">查看 Git 状态</td>
+<td style="text-align: left;">看看改了哪些文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>git add . &amp;&amp; git commit -m "..."</code></td>
+<td style="text-align: left;">提交代码</td>
+<td style="text-align: left;">保存修改到本地仓库</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>git push</code></td>
+<td style="text-align: left;">推送到 GitHub</td>
+<td style="text-align: left;">把本地提交同步到远程仓库</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>python 脚本名.py</code></td>
+<td style="text-align: left;">运行 Python 脚本</td>
+<td style="text-align: left;">测试你写的安全工具</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls</code> / <code>dir</code></td>
+<td style="text-align: left;">查看当前目录下的文件列表</td>
+<td style="text-align: left;">看看文件夹里有什么</td>
+</tr>
+</tbody>
+</table>
+<p>你在终端里输入的命令和你在系统终端里输入的完全一样——只是你现在不需要离开 VS Code 去另一个窗口。</p>
+<hr />
+<h3 id="433">4.3.3 终端和编辑器的切换<!-- omit in toc --></h3>
+<p>你正在写 Markdown，需要去终端敲一个命令。你按 <code>Ctrl+`</code>，终端弹出来，敲完命令，想回到编辑器继续写。怎么回去？</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+`</code></td>
+<td style="text-align: left;">打开/关闭终端</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+1</code></td>
+<td style="text-align: left;">光标跳回编辑器（第一个编辑区）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+2</code></td>
+<td style="text-align: left;">光标跳到第二个编辑区（如果你开了分屏）</td>
+</tr>
+</tbody>
+</table>
+<p>所以完整的操作流程是：<code>Ctrl+`</code> 打开终端 → 敲命令 → <code>Ctrl+1</code> 回到编辑器。三个键，来回切换不到一秒。</p>
+<blockquote>
+<p><em>Kate 说：“所以 <code>Ctrl+`</code> 是‘去指挥中心’，<code>Ctrl+1</code> 是‘回办公室’。我不需要在键盘和鼠标之间反复切换，手指一直在键盘上。”</em></p>
+</blockquote>
+<hr />
+<h3 id="434">4.3.4 多个终端<!-- omit in toc --></h3>
+<p>你可以同时打开多个终端——就像浏览器可以同时打开多个标签页一样。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">操作</th>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">新建终端</td>
+<td style="text-align: left;"><code>Ctrl + Shift + `</code></td>
+<td style="text-align: left;">在当前窗口里再开一个终端</td>
+</tr>
+<tr>
+<td style="text-align: left;">在终端之间切换</td>
+<td style="text-align: left;">点击终端面板右上角的终端标签</td>
+<td style="text-align: left;">切换到另一个终端</td>
+</tr>
+<tr>
+<td style="text-align: left;">关闭当前终端</td>
+<td style="text-align: left;">在终端里输入 <code>exit</code> 回车</td>
+<td style="text-align: left;">关掉当前终端</td>
+</tr>
+</tbody>
+</table>
+<p>什么时候需要多个终端？比如你在学习 05 教程的实战章节，一边用终端 A 运行 Python 脚本测试漏洞，一边用终端 B 查看服务器日志。两个终端互不干扰，各干各的。</p>
+<blockquote>
+<p><em>Kate 开了两个终端，左边跑着 Python 脚本，右边监控着日志输出。她说：“这就像有两个助手，一个帮我干活，一个帮我望风。”</em></p>
+</blockquote>
+<hr />
+<h3 id="435">4.3.5 终端里选中和复制<!-- omit in toc --></h3>
+<p>终端里不能用 <code>Ctrl+C</code> 复制——因为 <code>Ctrl+C</code> 在命令行里的含义是“终止当前正在运行的程序”。在终端里复制粘贴用另一套快捷键：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">操作</th>
+<th style="text-align: left;">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">复制</td>
+<td style="text-align: left;"><code>Ctrl+Shift+C</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">粘贴</td>
+<td style="text-align: left;"><code>Ctrl+Shift+V</code></td>
+</tr>
+</tbody>
+</table>
+<p>如果你觉得 <code>Ctrl+Shift+C</code> 和 <code>Ctrl+Shift+V</code> 太别扭——可以在 VS Code 设置里搜 <code>terminal copy selection</code>，找到 <strong>Terminal &gt; Integrated: Copy On Selection</strong>，<strong>勾上它</strong>。之后你在终端里选中任何文字，它会自动复制到剪贴板——不需要再按任何键。粘贴仍然用 <code>Ctrl+Shift+V</code>。</p>
+<hr />
+<h3 id="436">4.3.6 养成肌肉记忆<!-- omit in toc --></h3>
+<p><code>Ctrl+`</code> 是你和终端之间的“传送门”。你需要终端的时候按一下，终端弹出来；用完再按一下，终端缩回去。你不需要在 VS Code 和系统终端之间来回切窗口——所有操作都在同一个窗口里完成。</p>
+<p>下次你需要敲 Git 命令、运行 Python 脚本、或者用 <code>code .</code> 打开另一个项目的时候，别去开新的 PowerShell 窗口。按 <code>Ctrl+`</code>，在 VS Code 里完成一切。🔪</p>
+<hr />
+<h2 id="44-alt">4.4 Alt+↑/↓：整行移动</h2>
+<p>你写了一行文字，发现它应该放在上一行前面。你现在的做法可能是：选中这一整行 → <code>Ctrl+X</code> 剪切 → 光标移到上一行前面 → 回车 → <code>Ctrl+V</code> 粘贴。四步。如果这一行很长，光选中就要花好几秒。</p>
+<p><code>Alt+↑</code> 和 <code>Alt+↓</code> 把这个操作压缩成了<strong>一步</strong>。</p>
+<hr />
+<h3 id="441">4.4.1 怎么用<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Alt+↑</code></td>
+<td style="text-align: left;">把当前行<strong>向上</strong>移动一行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Alt+↓</code></td>
+<td style="text-align: left;">把当前行<strong>向下</strong>移动一行</td>
+</tr>
+</tbody>
+</table>
+<p>不需要选中整行。光标只要在这一行的任意位置，按 <code>Alt+↑</code>，整行就会和上一行交换位置。按一次移动一行，按住不放可以连续移动——这一行会一直往你按的方向挪，直到你松开键。</p>
+<p>Mac 上是 <code>Option+↑</code> 和 <code>Option+↓</code>。</p>
+<blockquote>
+<p><em>Kate 写了一段笔记，发现第三行应该放在第一行前面。她把光标移到第三行，按住 <code>Alt+↑</code> 不松手——第三行像坐电梯一样升到了第一行前面。她说：“我以前做这件事要四步：全选、剪切、找位置、粘贴。现在只需要一个动作——按住，松手。我以前的四步，现在一步。”</em></p>
+</blockquote>
+<hr />
+<h3 id="442">4.4.2 多行同时移动<!-- omit in toc --></h3>
+<p>如果你要移动的不止一行——比如你想把三个连续的段落整体往上移——先选中这三行，再按 <code>Alt+↑</code> 或 <code>Alt+↓</code>。三行会作为一个整体同时移动，不会散开。</p>
+<p>选中多行不需要全选每一行——只需要确保选中区域覆盖了所有目标行的任意部分。把光标放在第一行开头，按住 <code>Shift</code> 点一下第三行末尾，这三行就被选中了。然后 <code>Alt+↑</code>，整个选中的块一起向上移动。</p>
+<hr />
+<h3 id="443">4.4.3 和剪切粘贴的区别<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">方式</th>
+<th style="text-align: left;">步骤</th>
+<th style="text-align: left;">适合场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Alt+↑/↓</code></td>
+<td style="text-align: left;">1 步</td>
+<td style="text-align: left;">在当前视野内上下移动，目标位置离得不远</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+X</code> + <code>Ctrl+V</code></td>
+<td style="text-align: left;">4 步</td>
+<td style="text-align: left;">移动到很远的位置（比如从文件末尾移到文件开头）</td>
+</tr>
+</tbody>
+</table>
+<p>如果目标位置就在附近——往上或往下几行——用 <code>Alt+↑/↓</code>。如果目标位置很远——比如要把文件末尾的一句话移到文件开头——用 <code>Ctrl+X</code> 剪切，然后 <code>gg</code> 跳到开头，<code>Ctrl+V</code> 粘贴。两种方式互补，不是替代。</p>
+<hr />
+<h3 id="444">4.4.4 实战场景<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">场景</th>
+<th style="text-align: left;">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">调整列表顺序</td>
+<td style="text-align: left;">选中列表项，<code>Alt+↑/↓</code> 上下调整</td>
+</tr>
+<tr>
+<td style="text-align: left;">调整笔记段落顺序</td>
+<td style="text-align: left;">把光标放在段落任意位置，<code>Alt+↑/↓</code> 整段移动</td>
+</tr>
+<tr>
+<td style="text-align: left;">调整代码行顺序</td>
+<td style="text-align: left;">把光标放在那行代码上，<code>Alt+↑/↓</code> 移动</td>
+</tr>
+<tr>
+<td style="text-align: left;">批量移动多个段落</td>
+<td style="text-align: left;">选中多个段落，<code>Alt+↑/↓</code> 整体移动</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Kate 把她笔记里的待办清单重新排了序——按住 <code>Alt</code>，上下箭头，三秒钟搞定。她说：“这个快捷键我应该第一天就学的。”</em></p>
+</blockquote>
+<hr />
+<h3 id="445">4.4.5 养成肌肉记忆<!-- omit in toc --></h3>
+<p><code>Alt+↑/↓</code> 是那种“用一次就回不去”的快捷键。在你还没学会它之前，移动一行文字需要四步——你习惯了，不觉得麻烦。一旦你学会了它，再回去用剪切粘贴会觉得“怎么这么慢”。</p>
+<p>下次你想把一行文字挪到上面或下面，别选中、别剪切、别粘贴。把光标放在那一行上，按住 <code>Alt</code>，点一下箭头，松手。你的手指会记住这种感觉。🔪</p>
+<hr />
+<h2 id="45">4.5 替换与查找</h2>
+<p>你写了一篇长笔记，里面把“GitHub”全写成了“Github”——小写的h。你知道错了，但你不知道这个词出现了多少次、在哪些位置。你不想一个一个翻。</p>
+<p>查找和替换就是解决这个问题的。查找让你在整篇文档里快速定位某个词出现的位置。替换让你一次性把所有错误的词改成正确的。</p>
+<hr />
+<h3 id="451">4.5.1 查找<!-- omit in toc --></h3>
+<p>按 <code>Ctrl+F</code>（Mac 上是 <code>Cmd+F</code>），编辑器右上角会弹出一个搜索框。</p>
+<p><img alt="查找框" src="./Images/Chapter 4/4.6/find.png" /></p>
+<p>输入你要找的词，VS Code 会在当前文件里高亮所有匹配的位置。编辑区右侧的滚动条上会出现小色块，每一个色块对应一个匹配位置——你能看到它们在文档里的分布。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">操作</th>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">跳到下一个匹配</td>
+<td style="text-align: left;"><code>Enter</code></td>
+<td style="text-align: left;">光标跳到下一个匹配位置</td>
+</tr>
+<tr>
+<td style="text-align: left;">跳到上一个匹配</td>
+<td style="text-align: left;"><code>Shift+Enter</code></td>
+<td style="text-align: left;">光标跳到上一个匹配位置</td>
+</tr>
+<tr>
+<td style="text-align: left;">关闭查找框</td>
+<td style="text-align: left;"><code>Esc</code></td>
+<td style="text-align: left;">退出查找模式</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Kate 按了 <code>Ctrl+F</code>，输入了 <code>Github</code>——文档里所有的“Github”都被高亮了。她说：“原来我写错了这么多次。不用一个一个翻，VS Code 全帮我找出来了。”</em></p>
+</blockquote>
+<hr />
+<h3 id="452">4.5.2 替换<!-- omit in toc --></h3>
+<p>按 <code>Ctrl+H</code>（Mac 上是 <code>Cmd+H</code>），编辑器右上角会弹出<strong>替换框</strong>——比查找框多一行。</p>
+<p><img alt="替换框" src="./Images/Chapter 4/4.6/replace.png" /></p>
+<p>第一行输入你要找的词（被替换的词），第二行输入你要换成什么词（替换成什么）。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">操作</th>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">替换当前这一个</td>
+<td style="text-align: left;"><code>Enter</code>（在第二行）</td>
+<td style="text-align: left;">只替换光标当前所在的这个匹配</td>
+</tr>
+<tr>
+<td style="text-align: left;">跳过这一个</td>
+<td style="text-align: left;"><code>Tab</code> → <code>Enter</code>（在第二行）</td>
+<td style="text-align: left;">不替换当前匹配，跳到下一个</td>
+</tr>
+<tr>
+<td style="text-align: left;">替换所有</td>
+<td style="text-align: left;"><code>Ctrl+Alt+Enter</code></td>
+<td style="text-align: left;">一次性替换文件里<strong>所有</strong>匹配</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong> <code>Ctrl+Alt+Enter</code> 会替换<strong>整个文件</strong>里所有匹配——包括你可能不想改的那些。如果你只改了部分匹配，建议先用 <code>Enter</code> 一个一个确认，或者先查找确认每个位置都该改，再用“替换所有”。</p>
+<blockquote>
+<p><em>Kate 在替换框第一行输入了 <code>Github</code>，第二行输入了 <code>GitHub</code>，按了 <code>Ctrl+Alt+Enter</code>。文档里所有的“Github”瞬间变成了“GitHub”。她说：“六次写错，一次改完。我以前一个一个找、一个一个改，现在只需要按一次快捷键。”</em></p>
+</blockquote>
+<hr />
+<h3 id="453">4.5.3 查找和替换的选项<!-- omit in toc --></h3>
+<p>查找框和替换框右边有几个小按钮，用来控制搜索行为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">按钮</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">什么时候用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>区分大小写</strong>（Aa）</td>
+<td style="text-align: left;">开启后，<code>github</code> 不会匹配 <code>GitHub</code></td>
+<td style="text-align: left;">你想精确匹配大小写</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>全字匹配</strong>（Ab）</td>
+<td style="text-align: left;">开启后，<code>in</code> 不会匹配 <code>internal</code></td>
+<td style="text-align: left;">你只想找独立的单词，不想找到包含这个词的长词</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>正则表达式</strong>（<code>.*</code>）</td>
+<td style="text-align: left;">开启后，可以用正则表达式搜索</td>
+<td style="text-align: left;">你需要匹配某种模式——比如所有邮箱地址</td>
+</tr>
+</tbody>
+</table>
+<p>前两个按钮对 Markdown 写作者最实用。比如你想把所有<strong>单独出现的</strong> <code>Git</code> 改成 <code>GitHub</code>，但不想把 <code>GitHub</code> 本身也匹配到——开启“全字匹配”，<code>Git</code> 就只会匹配独立的 <code>Git</code>，不会匹配到 <code>GitHub</code> 里的 <code>Git</code>。</p>
+<blockquote>
+<p><em>Kate 开了“全字匹配”，输入了 <code>Git</code>，文档里只高亮了那些单独出现的 <code>Git</code>，<code>GitHub</code> 没有被高亮。她说：“原来‘全字匹配’就是告诉 VS Code——我找的是这个单词，不是这个字母组合。”</em></p>
+</blockquote>
+<hr />
+<h3 id="454">4.5.4 跨文件搜索<!-- omit in toc --></h3>
+<p><code>Ctrl+F</code> 只能在当前打开的文件里查找。如果你想在<strong>整个项目文件夹</strong>里搜索某个词——比如你想找到所有提到“守夜者”的笔记文件，但你不知道这个词出现在哪几个文件里——按 <code>Ctrl+Shift+F</code>（Mac 上是 <code>Cmd+Shift+F</code>）。</p>
+<p>左侧会打开搜索面板，输入你要找的词，VS Code 会列出项目里<strong>所有包含这个词的文件</strong>，以及每个匹配出现在文件的第几行。点一下搜索结果，自动打开那个文件并跳到对应位置。</p>
+<p>你也可以在跨文件搜索里执行替换——点击搜索框右边的三个点（<code>...</code>），展开替换输入框，输入替换词，然后点“全部替换”。<strong>这个操作不可撤销</strong>——它会修改所有文件里的所有匹配。在执行跨文件全部替换之前，务必先用 <code>git commit</code> 保存当前状态，万一误操作可以用 <code>git checkout</code> 回退。</p>
+<hr />
+<h3 id="455-ctrld">4.5.5 查找和 <code>Ctrl+D</code> 的区别<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">方式</th>
+<th style="text-align: left;">适合场景</th>
+<th style="text-align: left;">操作方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+F</code> 查找</td>
+<td style="text-align: left;">只是想看看某个词出现在哪些位置——不一定要改</td>
+<td style="text-align: left;">搜索 → 浏览 → 关闭</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+H</code> 替换</td>
+<td style="text-align: left;">想把某个词全部或部分替换成另一个词</td>
+<td style="text-align: left;">搜索 → 替换 → 确认</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+D</code> 多光标</td>
+<td style="text-align: left;">只想改某几个位置，而且你能一眼看到它们</td>
+<td style="text-align: left;">选中 → <code>Ctrl+D</code> 逐个添加 → 手动修改</td>
+</tr>
+</tbody>
+</table>
+<p><code>Ctrl+D</code> 适合“我看到了，我想改这一处和那一处”。<code>Ctrl+H</code> 适合“我不知道它出现了多少次，我想全部或部分替换”。两者互补，不是替代。</p>
+<hr />
+<h3 id="456">4.5.6 养成肌肉记忆<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+F</code></td>
+<td style="text-align: left;">在当前文件里查找</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+H</code></td>
+<td style="text-align: left;">在当前文件里查找并替换</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Shift+F</code></td>
+<td style="text-align: left;">在整个项目里跨文件搜索</td>
+</tr>
+</tbody>
+</table>
+<p>查找和替换是你写长文档时最常用的功能之一。下次你在笔记里发现一个写错的词，别手动一个一个改——先按 <code>Ctrl+H</code>，输入错误词和正确词，决定是逐个替换还是一次性全部替换。你的手指在键盘上完成这一切，不需要碰鼠标。🔪</p>
+<hr />
+<h2 id="46">4.6 快捷键速查表</h2>
+<p>这一节是第四章的收尾。前面六节你逐个学完了最常用的快捷键——快速打开文件、命令面板、多光标、终端、整行移动、查找替换。这一节把它们汇总成一张速查表，方便你以后忘了随时回来翻。</p>
+<p>按 <code>Ctrl+K Ctrl+S</code>（Mac 上是 <code>Cmd+K Cmd+S</code>）可以打开 VS Code 自带的快捷键编辑器，里面列出了所有快捷键，支持搜索和自定义修改。</p>
+<hr />
+<h3 id="461">4.6.1 核心快捷键速查<!-- omit in toc --></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">分类</th>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">出现章节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>文件</strong></td>
+<td style="text-align: left;"><code>Ctrl+P</code></td>
+<td style="text-align: left;">快速打开文件</td>
+<td style="text-align: left;">4.1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>文件</strong></td>
+<td style="text-align: left;"><code>Ctrl+Shift+Tab</code></td>
+<td style="text-align: left;">在最近打开的文件之间切换</td>
+<td style="text-align: left;">4.1.3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>文件</strong></td>
+<td style="text-align: left;"><code>Ctrl+W</code></td>
+<td style="text-align: left;">关闭当前文件</td>
+<td style="text-align: left;">3.3.3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>命令</strong></td>
+<td style="text-align: left;"><code>Ctrl+Shift+P</code></td>
+<td style="text-align: left;">打开命令面板</td>
+<td style="text-align: left;">4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>命令</strong></td>
+<td style="text-align: left;"><code>Ctrl+P</code> 后输入 <code>&gt;</code></td>
+<td style="text-align: left;">在快速打开文件时切换到命令面板</td>
+<td style="text-align: left;">4.1.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>编辑</strong></td>
+<td style="text-align: left;"><code>Ctrl+D</code></td>
+<td style="text-align: left;">选中下一个相同词</td>
+<td style="text-align: left;">4.3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>编辑</strong></td>
+<td style="text-align: left;"><code>Ctrl+K Ctrl+D</code></td>
+<td style="text-align: left;">跳过当前匹配</td>
+<td style="text-align: left;">4.3.2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>编辑</strong></td>
+<td style="text-align: left;"><code>Alt+Click</code></td>
+<td style="text-align: left;">在任意位置添加光标</td>
+<td style="text-align: left;">4.3.3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>编辑</strong></td>
+<td style="text-align: left;"><code>Alt+↑/↓</code></td>
+<td style="text-align: left;">整行向上/向下移动</td>
+<td style="text-align: left;">4.5</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>终端</strong></td>
+<td style="text-align: left;">`Ctrl+``</td>
+<td style="text-align: left;">打开/关闭终端</td>
+<td style="text-align: left;">4.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>终端</strong></td>
+<td style="text-align: left;">`Ctrl+Shift+``</td>
+<td style="text-align: left;">新建终端</td>
+<td style="text-align: left;">4.4.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>查找</strong></td>
+<td style="text-align: left;"><code>Ctrl+F</code></td>
+<td style="text-align: left;">当前文件查找</td>
+<td style="text-align: left;">4.6.1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>查找</strong></td>
+<td style="text-align: left;"><code>Ctrl+H</code></td>
+<td style="text-align: left;">当前文件查找并替换</td>
+<td style="text-align: left;">4.6.2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>查找</strong></td>
+<td style="text-align: left;"><code>Ctrl+Shift+F</code></td>
+<td style="text-align: left;">跨文件搜索</td>
+<td style="text-align: left;">4.6.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>视图</strong></td>
+<td style="text-align: left;"><code>Ctrl+\</code></td>
+<td style="text-align: left;">分屏（左右）</td>
+<td style="text-align: left;">3.3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>视图</strong></td>
+<td style="text-align: left;"><code>Ctrl+K Ctrl+\</code></td>
+<td style="text-align: left;">分屏方向切换（左右↔上下）</td>
+<td style="text-align: left;">3.3.1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>视图</strong></td>
+<td style="text-align: left;"><code>Ctrl+1/2/3</code></td>
+<td style="text-align: left;">在分屏编辑器之间切换</td>
+<td style="text-align: left;">3.3.2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>视图</strong></td>
+<td style="text-align: left;"><code>Ctrl+Shift+Enter</code></td>
+<td style="text-align: left;">最大化/还原当前编辑器</td>
+<td style="text-align: left;">3.3.3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="462">4.6.2 顺手看一眼的辅助快捷键<!-- omit in toc --></h3>
+<p>这些快捷键不是“每天都用”的核心键，但在特定场景下能省很多事：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Ctrl+S</code></td>
+<td style="text-align: left;">保存文件</td>
+<td style="text-align: left;">养成习惯：每写完一段就按一次</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Z</code></td>
+<td style="text-align: left;">撤销</td>
+<td style="text-align: left;">写错了，回退一步</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Y</code></td>
+<td style="text-align: left;">重做</td>
+<td style="text-align: left;">撤销多了，恢复一步</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+B</code></td>
+<td style="text-align: left;">切换侧边栏显示/隐藏</td>
+<td style="text-align: left;">侧边栏挡视线的时候关掉它</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+J</code></td>
+<td style="text-align: left;">切换终端面板显示/隐藏</td>
+<td style="text-align: left;">和 <code>Ctrl+`` 效果一样，但</code>Ctrl+J` 会保留终端内容（不会因为关闭而清空）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Shift+[</code></td>
+<td style="text-align: left;">折叠当前代码块/标题</td>
+<td style="text-align: left;">长文档里折叠不需要看的部分</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+Shift+]</code></td>
+<td style="text-align: left;">展开当前代码块/标题</td>
+<td style="text-align: left;">折叠之后恢复展开</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+K Z</code></td>
+<td style="text-align: left;">禅模式</td>
+<td style="text-align: left;">全屏专注模式，侧边栏、状态栏、菜单全部隐藏。按两次 <code>Esc</code> 退出</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Ctrl+K Ctrl+S</code></td>
+<td style="text-align: left;">打开快捷键编辑器</td>
+<td style="text-align: left;">查看所有快捷键、搜索快捷键、自定义修改</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="463">4.6.3 打印版速查卡<!-- omit in toc --></h3>
+<p>把下面这张表截图保存，或打印出来贴在显示器旁边。前两周反复看，两周后这些快捷键会成为你的肌肉记忆。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">频率</th>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">⭐⭐⭐</td>
+<td style="text-align: left;"><code>Ctrl+P</code></td>
+<td style="text-align: left;">快速打开文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐⭐</td>
+<td style="text-align: left;"><code>Ctrl+Shift+P</code></td>
+<td style="text-align: left;">命令面板</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐⭐</td>
+<td style="text-align: left;"><code>Ctrl+D</code></td>
+<td style="text-align: left;">多光标（选词）</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐⭐</td>
+<td style="text-align: left;">`Ctrl+``</td>
+<td style="text-align: left;">打开终端</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐⭐</td>
+<td style="text-align: left;"><code>Ctrl+H</code></td>
+<td style="text-align: left;">查找并替换</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐</td>
+<td style="text-align: left;"><code>Ctrl+\</code></td>
+<td style="text-align: left;">分屏</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐</td>
+<td style="text-align: left;"><code>Alt+↑/↓</code></td>
+<td style="text-align: left;">整行移动</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐⭐</td>
+<td style="text-align: left;"><code>Ctrl+Shift+F</code></td>
+<td style="text-align: left;">跨文件搜索</td>
+</tr>
+<tr>
+<td style="text-align: left;">⭐</td>
+<td style="text-align: left;"><code>Ctrl+K Z</code></td>
+<td style="text-align: left;">禅模式（全屏专注）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="464">4.6.4 快捷键之间的“连招”<!-- omit in toc --></h3>
+<p>单个快捷键是招式，组合起来是连招。以下是几个典型的“连招”场景：</p>
+<p><strong>场景一：写笔记时发现一个词写错了</strong>  </p>
+<p><code>Ctrl+H</code> → 输入错误词 → <code>Tab</code> → 输入正确词 → <code>Ctrl+Alt+Enter</code> 全部替换。</p>
+<p><strong>场景二：需要一边看参考文章一边写笔记</strong>  </p>
+<p><code>Ctrl+\</code> 分屏 → <code>Ctrl+1</code> 回到左边编辑器 → <code>Ctrl+P</code> 打开参考文章 → <code>Ctrl+2</code> 跳到右边编辑器 → <code>Ctrl+P</code> 打开自己的笔记。左右对照，互不干扰。</p>
+<p><strong>场景三：写完笔记，提交到 GitHub</strong>  </p>
+<p><code>Ctrl+`` 打开终端 →</code>git add . &amp;&amp; git commit -m &ldquo;笔记更新&rdquo;<code>→</code>git push<code>→</code>Ctrl+1` 回到编辑器。提交和写作在同一个窗口里完成，不需要切换应用。</p>
+<blockquote>
+<p><em>Kate 试了一遍“场景二”的连招，说：“我以前做这件事要开两个窗口、来回 Alt+Tab、每次切换都重新找文件。现在六个快捷键，一气呵成。这不是快捷键，这是组合技。”</em></p>
+</blockquote>
+<hr />
+<p><strong>🎉 第四章，通关！</strong></p>
+<p>你现在已经可以：</p>
+<ul>
+<li>[x] 用 <code>Ctrl+P</code> 在几秒内打开任何文件</li>
+<li>[x] 用 <code>Ctrl+Shift+P</code> 命令面板执行任何命令</li>
+<li>[x] 用 <code>Ctrl+D</code> 同时修改多个相同词</li>
+<li>[x] 用 <code>Ctrl+`</code> 随时打开终端</li>
+<li>[x] 用 <code>Ctrl+H</code> 查找并替换文档里的任何内容</li>
+<li>[x] 用 <code>Alt+↑/↓</code> 快速移动整行文字</li>
+</ul>
+<p>这些快捷键不是用来“炫技”的——它们是用来让你把更多时间花在<strong>写内容</strong>上，而不是花在<strong>找文件、改错字、切窗口</strong>上。把上面那张“打印版速查卡”贴在显示器旁边。前两周反复看，两周后它们会成为你的肌肉记忆。</p>
+<blockquote>
+<p><em>Kate 把她打印出来的速查卡贴在了显示器旁边。她说：“从今天开始，我每用一个快捷键就在旁边打个勾。两周后，我要让这张纸上的所有键都变成我的手指本能。”</em></p>
+<p>“等你全部打勾了，你就不再是‘用 VS Code 写 Markdown 的人’——你是‘手指比大脑更快的人’。那不是炫技，那是自由。”</p>
+</blockquote>
+            </section>
+
+            <div class="tutorial-nav">
+                <a href="zh-02-3.html" class="prev">← 第三章 - 写作效率技巧</a>
+                <a href="zh-02-5.html" class="next">全部通关 →</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/js/loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.run({
+                    querySelector: '.mermaid'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
