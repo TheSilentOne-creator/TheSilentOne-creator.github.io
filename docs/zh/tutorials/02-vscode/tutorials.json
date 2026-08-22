@@ -1,0 +1,26 @@
+{
+  "id": "02-vscode",
+  "number": "02",
+  "status": "done",
+  "level": "基础",
+  "zh": {
+    "title": "玩转 VS Code",
+    "description": "武装你的瑞士军刀，把编辑器变成真正的开发工作台。",
+    "link": "/zh/tutorials/02-vscode/zh-02-0.html",
+    "tags": ["工具", "编辑器"]
+  },
+  "en": {
+    "title": "Mastering VS Code",
+    "description": "Arm your Swiss Army Knife and turn your editor into a true development workbench.",
+    "link": "/en/tutorials/02-vscode/en-02-0.html",
+    "tags": ["Tools", "Editor"]
+  },
+  "chapters": [
+    { "title": "前言", "link": "/zh/tutorials/02-vscode/zh-02-0.html", "level": 0 },
+    { "title": "第一章 - 安装详解", "link": "/zh/tutorials/02-vscode/zh-02-1.html", "level": 0 },
+    { "title": "第二章 - 界面布局", "link": "/zh/tutorials/02-vscode/zh-02-2.html", "level": 0 },
+    { "title": "第三章 - 写作效率", "link": "/zh/tutorials/02-vscode/zh-02-3.html", "level": 0 },
+    { "title": "第四章 - 快捷键", "link": "/zh/tutorials/02-vscode/zh-02-4.html", "level": 0 },
+    { "title": "全部通关!", "link": "/zh/tutorials/02-vscode/zh-02-5.html", "level": 0 }
+  ]
+}

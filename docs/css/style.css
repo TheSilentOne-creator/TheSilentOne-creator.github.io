@@ -1204,3 +1204,17 @@ h1, h2, h3, h4, h5, h6 {
         padding: 3px 10px;
     }
 }
+
+.sidebar-tab {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
