@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('nightkeeper-theme')
+            if (theme === 'light') {
+                document.documentElement.classList.add('light-theme')
+            }
+        })()
+    </script>
 </head>
 <body>
     <div id="navbar"></div>

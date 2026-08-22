@@ -10,8 +10,10 @@ function getCurrentLang() {
     var path = window.location.pathname
     if (path.startsWith('/zh/')) return 'zh'
     if (path.startsWith('/en/')) return 'en'
+    // 如果路径不包含语言标识，尝试从 localStorage 读取
     var saved = localStorage.getItem('nightkeeper-lang')
     if (saved === 'zh' || saved === 'en') return saved
+    // 最后根据浏览器语言
     var browserLang = navigator.language || navigator.userLanguage
     return (browserLang && browserLang.startsWith('zh')) ? 'zh' : 'en'
 }
@@ -93,6 +95,7 @@ fetch('/data/tutorials.json')
         window.CURRENT_LANG = lang
         window.SIDEBAR_CONFIG = buildSidebarConfig(data, lang)
         console.log('✅ 教程数据已加载，当前语言:', lang)
+        console.log('✅ 侧边栏配置已生成')
     })
     .catch(function(err) {
         console.warn('⚠️ 教程数据加载失败:', err)
