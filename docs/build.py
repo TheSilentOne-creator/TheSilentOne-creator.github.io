@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 守夜者之书 - Markdown 批量转 HTML 构建工具
+支持：GFM 语法 + 代码高亮 + Mermaid + MathJax + 任务列表 + 代码复制
 """
 
 import os
@@ -144,25 +145,19 @@ class MarkdownToHTML:
     def __init__(self, md_file_path):
         self.md_file_path = md_file_path
         self.md = markdown.Markdown(extensions=[
-            'extra',        # 表格、围栏代码块、脚注
+            'extra',
             'toc',
-            'sane_lists',   # 更智能的列表
-            'nl2br',        # 换行转 <br>
-            'smarty',       # 智能引号
+            'sane_lists',
+            'nl2br',
+            'smarty',
         ])
 
     def convert(self, md_text):
-        # 修正图片路径
         md_text = self._fix_image_paths(md_text)
-        # 修正链接路径
         md_text = self._fix_link_paths(md_text)
-
-        # 使用 markdown 库转换
         html = self.md.convert(md_text)
-
-        # 代码高亮（只处理 <pre><code>）
+        html = self._fix_task_lists(html)
         html = self._highlight_code_blocks(html)
-
         return html
 
     def _fix_image_paths(self, md_text):
@@ -197,22 +192,43 @@ class MarkdownToHTML:
         pattern = r'(?<!\!)\[([^\]]*)\]\(([^)]+)\)'
         return re.sub(pattern, replace_link, md_text)
 
+    def _fix_task_lists(self, html):
+        """将 - [ ] 和 - [x] 转为带复选框的 HTML（静态）"""
+        html = re.sub(
+            r'<li>\[\s*\]\s*(.*?)</li>',
+            r'<li class="task-item unchecked"><input type="checkbox" disabled> \1</li>',
+            html,
+            flags=re.DOTALL
+        )
+        html = re.sub(
+            r'<li>\[[xX]\]\s*(.*?)</li>',
+            r'<li class="task-item checked"><input type="checkbox" disabled checked> \1</li>',
+            html,
+            flags=re.DOTALL
+        )
+        return html
+
     def _highlight_code_blocks(self, html):
-        """高亮代码块，不破坏其他结构"""
-        # 匹配 markdown 库生成的代码块
+        """高亮代码块 + 添加复制按钮"""
         pattern = r'<pre><code class="language-(\w+)">(.*?)</code></pre>'
 
         def replace_code_block(match):
             language = match.group(1)
             code = match.group(2)
-            # 解码 HTML 实体（如 &lt; → <）
             code = html_module.unescape(code)
+
             try:
                 lexer = get_lexer_by_name(language, stripall=True)
                 formatter = HtmlFormatter(style='monokai', cssclass='codehilite')
-                return highlight(code, lexer, formatter)
+                highlighted = highlight(code, lexer, formatter)
             except:
-                return f'<pre><code class="language-{language}">{code}</code></pre>'
+                highlighted = f'<pre><code class="language-{language}">{code}</code></pre>'
+
+            return f'''
+<div class="code-block-wrapper">
+    <button class="copy-btn" onclick="copyCode(this)">复制</button>
+    {highlighted}
+</div>'''
 
         return re.sub(pattern, replace_code_block, html, flags=re.DOTALL)
 
@@ -261,7 +277,6 @@ def generate_html_page(tutorial, lang, title, body_html, prev_file, next_file,
     }
     status_display, status_class = status_map.get(tutorial['status'], ('', ''))
 
-    # 上一篇/下一篇
     prev_html = ''
     if prev_file:
         prev_content = prev_file.read_text(encoding='utf-8')
@@ -364,7 +379,7 @@ def generate_html_page(tutorial, lang, title, body_html, prev_file, next_file,
         .MathJax {{
             color: var(--text-primary) !important;
         }}
-        .codehilite {{ background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }}
+        .codehilite {{ background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; border-left: 3px solid #64ffda; }}
         .codehilite pre {{ margin: 0; background: transparent; }}
         .tutorial-body table {{
             width: 100%;
@@ -382,6 +397,64 @@ def generate_html_page(tutorial, lang, title, body_html, prev_file, next_file,
         }}
         .tutorial-body td {{
             color: var(--text-secondary);
+        }}
+        /* 任务列表样式 */
+        .tutorial-body .task-item {{
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 4px 0;
+        }}
+        .tutorial-body .task-item input[type="checkbox"] {{
+            margin-top: 4px;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+            cursor: default;
+        }}
+        .tutorial-body .task-item.checked {{
+            opacity: 0.7;
+        }}
+        .tutorial-body .task-item.checked input[type="checkbox"] {{
+            accent-color: #3fb950;
+        }}
+        /* 代码块复制按钮 */
+        .code-block-wrapper {{
+            position: relative;
+            margin: 16px 0 24px 0;
+        }}
+        .code-block-wrapper .codehilite,
+        .code-block-wrapper pre {{
+            margin: 0 !important;
+        }}
+        .copy-btn {{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 4px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0;
+        }}
+        .code-block-wrapper:hover .copy-btn {{
+            opacity: 1;
+        }}
+        .copy-btn:hover {{
+            color: var(--text-primary);
+            border-color: var(--accent);
+            background: var(--bg-hover);
+        }}
+        .copy-btn.copied {{
+            color: var(--accent);
+            border-color: var(--accent);
         }}
     </style>
 </head>
@@ -414,7 +487,7 @@ def generate_html_page(tutorial, lang, title, body_html, prev_file, next_file,
                     <span class="tutorial-level">{tutorial.get('level', '')}</span>
                     <span class="tutorial-readtime">⏱️ {"About 30 min" if lang == 'en' else '约 30 分钟'}</span>
                 </div>
-                <h1>{tutorial[lang]['title']}</h1>
+                <h1>{title}</h1>
                 <p class="tutorial-subtitle">{tutorial[lang].get('description', '')}</p>
             </header>
 
@@ -434,6 +507,33 @@ def generate_html_page(tutorial, lang, title, body_html, prev_file, next_file,
 
     <script src="/js/loader.js"></script>
     <script>
+        function copyCode(btn) {{
+            var wrapper = btn.parentElement;
+            var codeBlock = wrapper.querySelector('.codehilite pre, pre');
+            if (!codeBlock) return;
+
+            var code = codeBlock.textContent;
+            navigator.clipboard.writeText(code).then(function() {{
+                btn.textContent = '✅ 已复制';
+                btn.classList.add('copied');
+                setTimeout(function() {{
+                    btn.textContent = '复制';
+                    btn.classList.remove('copied');
+                }}, 2000);
+            }}).catch(function() {{
+                var textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                btn.textContent = '✅ 已复制';
+                setTimeout(function() {{
+                    btn.textContent = '复制';
+                }}, 2000);
+            }});
+        }}
+
         document.addEventListener('DOMContentLoaded', function() {{
             if (typeof mermaid !== 'undefined') {{
                 mermaid.run({{
@@ -481,7 +581,6 @@ def batch_process_all_tutorials():
                 print(f'  📖 处理 [{lang}]: {md_file.name}')
 
                 md_content = md_file.read_text(encoding='utf-8')
-
                 title = extract_title(md_content, md_file.stem)
 
                 series_title, series_sidebar_html = parse_series_sidebar(
@@ -511,6 +610,9 @@ def batch_process_all_tutorials():
     return results
 
 
+# ============================================================
+# 主函数
+# ============================================================
 def main():
     print('🔧 守夜者之书 - Markdown 批量构建工具')
     print('=' * 60)
@@ -521,6 +623,7 @@ def main():
     print('  ✅ 支持 MathJax 数学公式（客户端渲染）')
     print('  ✅ 支持多级系列目录侧边栏（tutorials.md）')
     print('  ✅ 支持系列内上一篇/下一篇导航')
+    print('  ✅ 支持代码块复制按钮')
     print('=' * 60 + '\n')
 
     results = batch_process_all_tutorials()

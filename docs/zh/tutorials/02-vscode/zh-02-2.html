@@ -78,7 +78,7 @@
         .MathJax {
             color: var(--text-primary) !important;
         }
-        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; margin: 16px 0 24px 0; border-left: 3px solid #64ffda; }
+        .codehilite { background: #0d1117; padding: 16px 20px; border-radius: 0 8px 8px 0; overflow-x: auto; border-left: 3px solid #64ffda; }
         .codehilite pre { margin: 0; background: transparent; }
         .tutorial-body table {
             width: 100%;
@@ -96,6 +96,64 @@
         }
         .tutorial-body td {
             color: var(--text-secondary);
+        }
+        /* 任务列表样式 */
+        .tutorial-body .task-item {
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 4px 0;
+        }
+        .tutorial-body .task-item input[type="checkbox"] {
+            margin-top: 4px;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+            cursor: default;
+        }
+        .tutorial-body .task-item.checked {
+            opacity: 0.7;
+        }
+        .tutorial-body .task-item.checked input[type="checkbox"] {
+            accent-color: #3fb950;
+        }
+        /* 代码块复制按钮 */
+        .code-block-wrapper {
+            position: relative;
+            margin: 16px 0 24px 0;
+        }
+        .code-block-wrapper .codehilite,
+        .code-block-wrapper pre {
+            margin: 0 !important;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 4px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0;
+        }
+        .code-block-wrapper:hover .copy-btn {
+            opacity: 1;
+        }
+        .copy-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--accent);
+            background: var(--bg-hover);
+        }
+        .copy-btn.copied {
+            color: var(--accent);
+            border-color: var(--accent);
         }
     </style>
 </head>
@@ -128,7 +186,7 @@
                     <span class="tutorial-level">基础</span>
                     <span class="tutorial-readtime">⏱️ 约 30 分钟</span>
                 </div>
-                <h1>玩转 VS Code</h1>
+                <h1>zh-02-2</h1>
                 <p class="tutorial-subtitle">武装你的瑞士军刀，把编辑器变成真正的开发工作台。</p>
             </header>
 
@@ -307,11 +365,11 @@
 <p><strong>🎉 第二章，通关！</strong></p>
 <p>你现在已经可以：</p>
 <ul>
-<li>[x] 用活动栏在文件列表、搜索、Git、插件商店之间切换</li>
-<li>[x] 在编辑区打开、编辑、保存、分屏</li>
-<li>[x] 用集成终端在编辑器里敲命令，不用切换窗口</li>
-<li>[x] 从状态栏获取文件格式、Git 状态、错误信息</li>
-<li>[x] 用命令面板做任何事，不需要记住所有快捷键</li>
+<li class="task-item checked"><input type="checkbox" disabled checked> 用活动栏在文件列表、搜索、Git、插件商店之间切换</li>
+<li class="task-item checked"><input type="checkbox" disabled checked> 在编辑区打开、编辑、保存、分屏</li>
+<li class="task-item checked"><input type="checkbox" disabled checked> 用集成终端在编辑器里敲命令，不用切换窗口</li>
+<li class="task-item checked"><input type="checkbox" disabled checked> 从状态栏获取文件格式、Git 状态、错误信息</li>
+<li class="task-item checked"><input type="checkbox" disabled checked> 用命令面板做任何事，不需要记住所有快捷键</li>
 </ul>
 <blockquote>
 <p><em>Kate 在 VS Code 里从左到右点了一遍：活动栏、编辑区、终端、状态栏、命令面板。点完之后她说：“原来我的 VS Code 不是‘一个打字的窗口’，是五个区域组成的指挥中心。我以前只用了一个——编辑区。剩下四个全没用过。”</em>  </p>
@@ -332,6 +390,33 @@
 
     <script src="/js/loader.js"></script>
     <script>
+        function copyCode(btn) {
+            var wrapper = btn.parentElement;
+            var codeBlock = wrapper.querySelector('.codehilite pre, pre');
+            if (!codeBlock) return;
+
+            var code = codeBlock.textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                btn.textContent = '✅ 已复制';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '复制';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(function() {
+                var textarea = document.createElement('textarea');
+                textarea.value = code;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                btn.textContent = '✅ 已复制';
+                setTimeout(function() {
+                    btn.textContent = '复制';
+                }, 2000);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof mermaid !== 'undefined') {
                 mermaid.run({

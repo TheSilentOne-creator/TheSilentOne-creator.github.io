@@ -1218,3 +1218,32 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.2s;
     text-align: center;
 }
+
+/* ============================================================
+   任务列表样式
+   ============================================================ */
+.tutorial-body .task-item {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.tutorial-body .task-item input[type="checkbox"] {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+    cursor: default;
+}
+
+.tutorial-body .task-item.checked {
+    opacity: 0.7;
+    /* ✅ 没有删除线了 */
+}
+
+.tutorial-body .task-item.checked input[type="checkbox"] {
+    accent-color: #3fb950;
+}
